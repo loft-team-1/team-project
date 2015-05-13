@@ -1,10 +1,12 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	autoprefixer = require('gulp-autoprefixer'),
+	prettify = require('gulp-prettify'),
 	minifyCSS = require('gulp-minify-css'),
 	uglify = require('gulp-uglify'),
 	clean = require('gulp-rimraf'),
 	useref = require('gulp-useref'),
+	jade = require('gulp-jade'),
 	gulpif = require('gulp-if'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
@@ -12,15 +14,15 @@ var gulp = require('gulp'),
 
 // bower
 gulp.task('wiredep', function () {
-	gulp.src('./app/*.html')
+	gulp.src('./app/jade/**/*.jade')
 		.pipe(wiredep({
 			ignorePath: /^(\.\.\/)*\.\./
 		}))
-		.pipe(gulp.dest('./app/'))
+		.pipe(gulp.dest('./app/jade/'))
 });
 
 // server
-gulp.task('server', function () {
+gulp.task('server', ['jade'], function () {
 	browserSync({
 		notify: false,
 		port: 9000,
@@ -28,6 +30,17 @@ gulp.task('server', function () {
 			baseDir: 'app'
 		}
 	});
+});
+
+// jade
+gulp.task('jade', function() {
+	gulp.src('./app/jade/*.jade')
+		.pipe(jade({
+			pretty: true
+		}))
+		.pipe(prettify({indent_size: 2}))
+		.pipe(gulp.dest('./app/'))
+		.pipe(reload({stream: true}));
 });
 
 // sass
@@ -48,6 +61,7 @@ gulp.task('sass', function() {
 
 // watcher
 gulp.task('watch', function () {
+	gulp.watch('./app/jade/**/*.jade', ['jade']);
 	gulp.watch('bower.json', ['wiredep']);
 	gulp.watch('./app/scss/*.scss', ['sass']);
 	gulp.watch([
