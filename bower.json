@@ -1,0 +1,12 @@
+{
+  "name": "team-project",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/bower"
+  ],
+  "dependencies": {
+    "jquery": "1.11.2",
+    "normalize.css": "~3.0.3"
+  }
+}
