@@ -26,9 +26,7 @@ gulp.task('server', ['jade'], function () {
 	browserSync({
 		notify: false,
 		port: 9000,
-		server: {
-			baseDir: 'app'
-		}
+		proxy: 'http://wmark.local/'
 	});
 });
 

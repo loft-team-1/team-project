@@ -1,62 +1,69 @@
 doctype html
 html(lang='ru-RU')
-head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
 
-    // Seo
-    meta(name='description', content='')
-    meta(name='keywords', content='')
-    meta(name='author', content='')
+        // Seo
+        meta(name='description', content='')
+        meta(name='keywords', content='')
+        meta(name='author', content='')
 
-    // Favicon
-    link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
-    link(rel='icon', href='favicon.ico', type='image/x-icon')
+        // Favicon
+        link(rel='shortcut icon', href='favicon.ico', type='image/x-icon')
+        link(rel='icon', href='favicon.ico', type='image/x-icon')
 
-    block title
-        title Генератор водяных знаков
+        block title
+            title Генератор водяных знаков
 
-    // Styles
+        // Styles
 
-    // build:css css/vendor.min.css
-    // bower:css
-    link(rel='stylesheet', href='/bower/normalize.css/normalize.css')
-    // endbower
-    // endbuild
+        // build:css css/vendor.min.css
+        // bower:css
+        link(rel='stylesheet', href='/bower/normalize.css/normalize.css')
+        // endbower
+        // endbuild
 
-    // build:css css/styles.min.css
-    link(rel='stylesheet', href='css/styles.css')
-    // endbuild
+        // build:css css/styles.min.css
+        link(rel='stylesheet', href='css/styles.css')
+        // endbuild
 
-    // JS
-    script(src='js/vendor/modernizr.min.js')
+        // JS
+        script(src='js/vendor/modernizr.min.js')
 
-body
-    <!--[if lt IE 8]>
-    <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
-    <![endif]-->
+    body
+        <!--[if lt IE 8]>
+        <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+        <![endif]-->
 
-    // Content: start
-    block main
-    block aside
-    // Content: end
+        .h-base
+            // Content: start
+            .b-main-container
+                .b-columns
+                    .b-main
+                        block main
+                    .b-settings
+                        block aside
+            // Content: end
 
-    // Footer: start
-    include _footer
-    // Footer: end
 
-    // JS: start
+        // Footer: start
+        include _footer
+        // Footer: end
 
-    // build:js js/vendor/vendor.min.js
-    // bower:js
-    script(src='/bower/jquery/dist/jquery.js')
-    // endbower
-    // endbuild
 
-    <!--[if IE 8]>
-    <script src='js/vendor/selectivizr.min.js'></script>
-    <![endif]-->
+        // JS: start
 
-    // build:js js/scripts.min.js
-    script(src='js/main.js')
-    // endbuild
+        // build:js js/vendor/vendor.min.js
+        // bower:js
+        script(src='/bower/jquery/dist/jquery.js')
+        // endbower
+        // endbuild
+
+        <!--[if IE 8]>
+        <script src='js/vendor/selectivizr.min.js'></script>
+        <![endif]-->
+
+        // build:js js/scripts.min.js
+        script(src='js/main.js')
+        // endbuild

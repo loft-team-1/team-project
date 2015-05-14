@@ -1,0 +1,266 @@
+/* = Settings
+================================================*/
+.b-settings {
+	padding-top: 10px;
+}
+.b-settings-title {
+	font: 26px/1 $ff-roboto-l;
+	text-align: center;
+	margin: 17px 0;
+}
+
+.b-section:not(.m-btns) {
+	position: relative;
+	padding: 18px 20px;
+	border-bottom: 1px solid #f4c3c2;
+
+	&:after,
+	&:before {
+		top: 100%;
+		left: 50%;
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+	}
+
+	&:after {
+		border-top-color: #f1f1f5;
+		border-width: 9px;
+		margin-left: -9px;
+	}
+
+	&:before {
+		border-top-color: #f4c3c2;
+		border-width: 10px;
+		margin-left: -10px;
+	}
+}
+.b-section.m-btns {
+	padding: 56px 10px 10px;
+}
+
+
+/* = Form
+================================================*/
+.b-form-line {
+	margin-bottom: 12px;
+
+	& + & {
+		margin-top: 24px;
+	}
+}
+.b-form-label {
+	font: 14px/1 $ff-roboto-l;
+	margin-bottom: 9px;
+	&.m-extra-spaced {
+		margin-bottom: 35px;
+	}
+}
+
+/* form: controls */
+.b-input {
+	height: 27px;
+	font: 12px/27px $ff-roboto-l;
+	color: $color-blue;
+	padding: 4px;
+	border: 1px solid $color-blue;
+	border-radius: $default-radius;
+	width: 100%;
+
+	&::placeholder {
+		color: $color-blue;
+		opacity: 1;
+		transition: opacity 0.3s ease;
+		text-overflow: ellipsis;
+	}
+	&:focus::placeholder {
+		opacity: 0;
+		transition: opacity 0.3s ease;
+	}
+}
+
+/* form: custom upload */
+.b-custom-upload {
+	position: relative;
+}
+.b-input-file {
+	position: relative;
+	opacity: 0;
+	z-index: 3;
+	padding: 0;
+}
+.b-fake-upload {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 0;
+	z-index: 1;
+}
+.b-fake-input {
+	padding-right: 45px;
+}
+.b-icon-upload {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 39px;
+	background: $color-pink url('../img/icon/browse-icon.png') no-repeat 50% 49%;
+	border-radius: 0 $default-radius $default-radius 0;
+	z-index: 2;
+}
+
+
+/* = Location section
+================================================*/
+/* location columns */
+.b-location {
+	@extend .m-cfix;
+	margin-bottom: 6px;
+}
+
+/* grid list */
+.b-grid-list {
+	@extend .m-list-reset;
+	@extend .m-cfix;
+	border: solid $color-blue;
+	border-width: 0 1px 1px 0;
+	display: inline-block;
+	border-radius: $default-radius;
+	overflow: hidden;
+	float: left;
+}
+.b-grid-item {
+	width: 34px;
+	height: 34px;
+	display: block;
+	border: solid $color-blue;
+	border-width: 1px 0 0 1px;
+	float: left;
+	background: #dbe1e8;
+	cursor: pointer;
+
+	&.m-active {
+		background: $color-pink;
+	}
+
+	&:nth-child(3n+1) {
+		clear: left;
+	}
+	&:nth-child(3n+3) {
+		clear: right;
+	}
+	&:first-child {
+		border-top-left-radius: $default-radius;
+	}
+	&:last-child {
+		border-bottom-right-radius: $default-radius;
+	}
+	&:nth-last-child(3) {
+		border-bottom-left-radius: $default-radius;
+	}
+	&:nth-child(3) {
+		border-top-right-radius: $default-radius;
+	}
+}
+
+/* controls */
+.b-controls {
+	float: right;
+	text-align: right;
+}
+.b-control-item {
+	position: relative;
+	padding: 0 18px;
+	margin-bottom: 12px;
+}
+.b-control {
+	font: 24px/45px $ff-roboto-t;
+	color: $color-black;
+	width: 46px;
+	height: 45px;
+	text-align: center;
+	border: 1px solid $color-blue;
+	border-radius: $default-radius;
+	background: none;
+}
+
+/* controls: tip */
+.b-control-tip {
+	font: 16px/1 $ff-roboto-l;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* controls: arrows */
+.b-control-arrow {
+	position: absolute;
+	right: 0;
+	display: block;
+	width: 13px;
+	height: 8px;
+	cursor: pointer;
+	background: url('../img/icon/arrow-spr.png') no-repeat 0 -13px;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: -10px;
+		left: -5px;
+		right: -10px;
+		bottom: -10px;
+	}
+
+	&.m-top {
+		top: 4px;
+		&:hover {
+			background-position: 0 0;
+		}
+	}
+	&.m-btm {
+		bottom: 4px;
+		background-position: 0 -26px;
+		&:hover {
+			background-position: 0 -39px;
+		}
+	}
+}
+
+
+/* = Opacity section
+================================================*/
+.b-section.m-opacity {
+	min-height: 98px; /* TODO temporary */
+}
+
+/* = Buttons section
+================================================*/
+.b-btn {
+	font: 18px/1 $ff-roboto-l;
+	color: $color-white;
+	border: none;
+	background: $color-pink;
+	border-radius: $default-radius;
+	min-width: 99px;
+	padding: 12px;
+	text-align: center;
+	&:hover {
+		background: darken($color-pink, 7%);
+	}
+
+	&.m-neg {
+		background: #c1cfd9;
+
+		&:hover {
+			background: darken(#c1cfd9, 7%);
+		}
+	}
+
+}

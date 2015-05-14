@@ -1,56 +1,128 @@
 <!DOCTYPE html>
 <html lang="ru-RU">
 
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Seo-->
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Генератор водяных знаков</title>
+    <!-- Styles-->
+    <!-- build:css css/vendor.min.css-->
+    <!-- bower:css-->
+    <link rel="stylesheet" href="/bower/normalize.css/normalize.css">
+    <!-- endbower-->
+    <!-- endbuild-->
+    <!-- build:css css/styles.min.css-->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- endbuild-->
+    <!-- JS-->
+    <script src="js/vendor/modernizr.min.js"></script>
+  </head>
+
+  <body>
+    <!--[if lt IE 8]>
+    <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+    <![endif]-->
+    <div class="h-base">
+      <!-- Content: start-->
+      <div class="b-main-container">
+        <div class="b-columns">
+          <div class="b-main">
+            <section class="b-main-section">
+              <div class="b-main-area-title">Генератор водяных знаков</div>
+              <div class="b-main-area"></div>
+            </section>
+          </div>
+          <div class="b-settings">
+            <div class="b-settings-title">Настройки</div>
+            <form class="b-form">
+              <section class="b-section m-upload">
+                <div class="b-form-line">
+                  <div class="b-form-label">Исходное изображение</div>
+                  <div class="b-custom-upload">
+                    <input type="file" name="basicUpload" class="b-input b-input-file">
+                    <div class="b-fake-upload">
+                      <div class="b-icon-upload"></div>
+                      <input type="text" readonly placeholder="Image.jpg" class="b-input"> </div>
+                  </div>
+                </div>
+                <div class="b-form-line">
+                  <div class="b-form-label">Водяной знак</div>
+                  <div class="b-custom-upload">
+                    <input type="file" name="watermarkUpload" class="b-input b-input-file">
+                    <div class="b-fake-upload">
+                      <div class="b-icon-upload"></div>
+                      <input type="text" readonly placeholder="Image.png" class="b-input"> </div>
+                  </div>
+                </div>
+              </section>
+              <section class="b-section m-location">
+                <div class="b-form-label m-extra-spaced">Положение</div>
+                <div class="b-location">
+                  <ul class="b-grid-list">
+                    <li data-pos="top-left" class="b-grid-item m-active"></li>
+                    <li data-pos="top-center" class="b-grid-item"></li>
+                    <li data-pos="top-right" class="b-grid-item"></li>
+                    <li data-pos="mid-left" class="b-grid-item"></li>
+                    <li data-pos="mid-center" class="b-grid-item"></li>
+                    <li data-pos="mid-right" class="b-grid-item"></li>
+                    <li data-pos="btm-left" class="b-grid-item"></li>
+                    <li data-pos="btm-center" class="b-grid-item"></li>
+                    <li data-pos="btm-right" class="b-grid-item"></li>
+                  </ul>
+                  <div class="b-controls">
+                    <div class="b-control-item">
+                      <div class="b-control-tip">X</div>
+                      <input type="text" name="xpos" value="0" class="b-control">
+                      <a href="" class="b-control-arrow m-top"></a>
+                      <a href="" class="b-control-arrow m-btm"></a>
+                    </div>
+                    <div class="b-control-item">
+                      <div class="b-control-tip">Y</div>
+                      <input type="text" name="ypos" value="0" class="b-control">
+                      <a href="" class="b-control-arrow m-top"></a>
+                      <a href="" class="b-control-arrow m-btm"></a>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="b-section m-opacity">
+                <div class="b-form-label">Прозрачность</div>
+              </section>
+              <section class="b-section m-btns">
+                <input type="reset" value="Сброс" class="b-btn m-neg m-to-left">
+                <input type="submit" value="Скачать" class="b-btn m-to-right"> </section>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Content: end-->
+    </div>
+    <!-- Footer: start-->
+    <footer class="b-footer">
+      <div class="b-container">
+        <p class="b-copyright">&copy; 2015, Это наш сайт, пожалуйста, не копируйте и не воруйте его.</p>
+      </div>
+    </footer>
+    <!-- Footer: end-->
+    <!-- JS: start-->
+    <!-- build:js js/vendor/vendor.min.js-->
+    <!-- bower:js-->
+    <script src="/bower/jquery/dist/jquery.js"></script>
+    <!-- endbower-->
+    <!-- endbuild-->
+    <!--[if IE 8]>
+    <script src='js/vendor/selectivizr.min.js'></script>
+    <![endif]-->
+    <!-- build:js js/scripts.min.js-->
+    <script src="js/main.js"></script>
+    <!-- endbuild-->
+  </body>
+
 </html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Seo-->
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta name="author" content="">
-  <!-- Favicon-->
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <title>Генератор водяных знаков</title>
-  <!-- Styles-->
-  <!-- build:css css/vendor.min.css-->
-  <!-- bower:css-->
-  <link rel="stylesheet" href="/bower/normalize.css/normalize.css">
-  <!-- endbower-->
-  <!-- endbuild-->
-  <!-- build:css css/styles.min.css-->
-  <link rel="stylesheet" href="css/styles.css">
-  <!-- endbuild-->
-  <!-- JS-->
-  <script src="js/vendor/modernizr.min.js"></script>
-</head>
-
-<body>
-  <!--[if lt IE 8]>
-  <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
-  <![endif]-->
-  <!-- Content: start-->
-  <p>основной блок</p>
-  <p>загрузка</p>
-  <p>положение</p>
-  <p>прозрачность</p>
-  <p>кнопки</p>
-  <!-- Content: end-->
-  <!-- Footer: start-->
-  <p>футер</p>
-  <!-- Footer: end-->
-  <!-- JS: start-->
-  <!-- build:js js/vendor/vendor.min.js-->
-  <!-- bower:js-->
-  <script src="/bower/jquery/dist/jquery.js"></script>
-  <!-- endbower-->
-  <!-- endbuild-->
-  <!--[if IE 8]>
-  <script src='js/vendor/selectivizr.min.js'></script>
-  <![endif]-->
-  <!-- build:js js/scripts.min.js-->
-  <script src="js/main.js"></script>
-  <!-- endbuild-->
-</body>
