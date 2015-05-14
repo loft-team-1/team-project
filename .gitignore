@@ -1,3 +1,4 @@
 app/bower
+.idea
 node_modules
 dist
