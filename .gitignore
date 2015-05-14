@@ -1,1 +1,3 @@
-node_modulesapp/bowerdist.DS_Store
+app/bower
+node_modules
+dist
