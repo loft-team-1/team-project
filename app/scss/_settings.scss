@@ -1,7 +1,7 @@
 /* = Settings
 ================================================*/
 .b-settings {
-	padding-top: 10px;
+	padding: 10px 0;
 }
 .b-settings-title {
 	font: 26px/1 $ff-roboto-l;
@@ -40,6 +40,7 @@
 }
 .b-section.m-btns {
 	padding: 56px 10px 10px;
+	@extend .m-cfix;
 }
 
 
@@ -195,8 +196,7 @@
 	font: 16px/1 $ff-roboto-l;
 	position: absolute;
 	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
+	top: 15px;
 }
 
 /* controls: arrows */
@@ -236,9 +236,33 @@
 
 /* = Opacity section
 ================================================*/
-.b-section.m-opacity {
-	min-height: 98px; /* TODO temporary */
+.b-wmark-opacity {
+	margin: 30px 0 14px;
 }
+.b-opacity-slider {
+	border-radius: 2px;
+	border: none;
+	height: 3px;
+	position: relative;
+	background-color: #9eb2c0;
+
+	.ui-slider-handle {
+		border: 7px solid #dbe1e8;
+		border-radius: 50%;
+		cursor: pointer;
+		position: absolute;
+		margin-left: -10px;
+		top: -10px;
+		z-index: 2;
+		background-color: #9eb2c0;
+		height: 22px;
+		width: 22px;
+		content: " ";
+		display: block;
+		box-shadow: 0 1px 2px #969698;
+	}
+}
+
 
 /* = Buttons section
 ================================================*/
@@ -249,8 +273,10 @@
 	background: $color-pink;
 	border-radius: $default-radius;
 	min-width: 99px;
-	padding: 12px;
+	padding: 12px 4px;
 	text-align: center;
+	display: inline-block;
+
 	&:hover {
 		background: darken($color-pink, 7%);
 	}
@@ -263,4 +289,14 @@
 		}
 	}
 
+}
+
+
+/* = Fixes for old browsers
+================================================*/
+/* opacity */
+.no-opacity {
+	.b-input-file {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	}
 }

@@ -28,10 +28,10 @@
   margin: 0;
   padding: 0; }
 
-.m-cfix:before, .b-container:before, .b-columns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:before, .b-container:before, .b-columns:before, .b-section.m-btns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   content: "";
   display: table; }
-.m-cfix:after, .b-container:after, .b-columns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   clear: both; }
 
 .m-to-right {
@@ -94,6 +94,7 @@ body {
   width: 700px;
   display: table-cell;
   vertical-align: top;
+  background: #5f5f62;
   background: rgba(46, 54, 65, 0.64); }
 
 .b-settings {
@@ -121,31 +122,6 @@ body {
   padding: 0.3em;
   text-align: center; }
 
-/* = Slider Opacity================================================*/
-.b-wmark-opacity {
-  margin-top: 30px; }
-
-.b-opacity-slider {
-  border-radius: 2px;
-  border: none;
-  height: 3px;
-  position: relative;
-  background-color: #9eb2c0; }
-  .b-opacity-slider .ui-slider-handle {
-    border: 7px solid #dbe1e8;
-    border-radius: 50%;
-    cursor: pointer;
-    position: absolute;
-    margin-left: -10px;
-    top: -10px;
-    z-index: 2;
-    background-color: #9eb2c0;
-    height: 22px;
-    width: 22px;
-    content: " ";
-    display: block;
-    box-shadow: 0px 1px 2px #969698; }
-
 /* = Main section
 ================================================*/
 .b-main-section {
@@ -159,12 +135,13 @@ body {
 .b-main-area {
   width: 651px;
   height: 534px;
-  background: #fff; }
+  background: #fff;
+  position: relative; }
 
 /* = Settings
 ================================================*/
 .b-settings {
-  padding-top: 10px; }
+  padding: 10px 0; }
 
 .b-settings-title {
   font: 26px/1 'robotolight';
@@ -347,10 +324,7 @@ body {
   font: 16px/1 'robotolight';
   position: absolute;
   left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%); }
+  top: 15px; }
 
 /* controls: arrows */
 .b-control-arrow {
@@ -380,9 +354,29 @@ body {
 
 /* = Opacity section
 ================================================*/
-.b-section.m-opacity {
-  min-height: 98px;
-  /* TODO temporary */ }
+.b-wmark-opacity {
+  margin: 30px 0 14px; }
+
+.b-opacity-slider {
+  border-radius: 2px;
+  border: none;
+  height: 3px;
+  position: relative;
+  background-color: #9eb2c0; }
+  .b-opacity-slider .ui-slider-handle {
+    border: 7px solid #dbe1e8;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    margin-left: -10px;
+    top: -10px;
+    z-index: 2;
+    background-color: #9eb2c0;
+    height: 22px;
+    width: 22px;
+    content: " ";
+    display: block;
+    box-shadow: 0 1px 2px #969698; }
 
 /* = Buttons section
 ================================================*/
@@ -393,11 +387,18 @@ body {
   background: #f97e76;
   border-radius: 3px;
   min-width: 99px;
-  padding: 12px;
-  text-align: center; }
+  padding: 12px 4px;
+  text-align: center;
+  display: inline-block; }
   .b-btn:hover {
     background: #f85e54; }
   .b-btn.m-neg {
     background: #c1cfd9; }
     .b-btn.m-neg:hover {
       background: #abbecb; }
+
+/* = Fixes for old browsers
+================================================*/
+/* opacity */
+.no-opacity .b-input-file {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
