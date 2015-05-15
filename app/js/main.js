@@ -29,7 +29,29 @@ var dragDrop = (function(){
         };
 })();
 
+var wmarkOpacity = (function(){
+
+    var init = function(){
+        sliderEl = $('.b-opacity-slider');
+        wtmark = $('.b-main-area .drag');
+            if (sliderEl.length) { 
+                 sliderEl.slider({
+                      min: 1,
+                      max: 100,
+                      value: 100,
+                      slide: function(event, ui) {
+                          wtmark.css('opacity', ui.value / 100);
+                      } 
+                 });
+            }
+        };
+    return {
+            init: init,
+            };
+})();
+
 $(document).ready(function(){
     dragDrop.init();
     dragDrop.appendEl($('<div style="width: 50px; height: 50px; border: 3px solid red;" class="drag">Drag me </div>'));
+    wmarkOpacity.init();
 });

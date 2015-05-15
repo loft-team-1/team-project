@@ -1,4 +1,5 @@
 app/bower
 .idea
+.htaccess
 node_modules
 dist
