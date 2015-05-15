@@ -310,7 +310,8 @@ body {
   margin-bottom: 12px; }
 
 .b-control {
-  font: 24px/45px 'robotothin';
+  font: 24px/1 'robotothin';
+  padding: 10px 0;
   color: #2e3641;
   width: 46px;
   height: 45px;

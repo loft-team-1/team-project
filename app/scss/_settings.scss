@@ -181,7 +181,8 @@
 	margin-bottom: 12px;
 }
 .b-control {
-	font: 24px/45px $ff-roboto-t;
+	font: 24px/1 $ff-roboto-t;
+	padding: 10px 0;
 	color: $color-black;
 	width: 46px;
 	height: 45px;
@@ -245,14 +246,15 @@
 	height: 3px;
 	position: relative;
 	background-color: #dbe1e8;
+
 	.ui-slider-range {
-		position:absolute;
+		position: absolute;
 		background-color: #9eb2c0;
 		height:100%;
 		top: 0;
 		left: 0;
 		z-index: 1;
-		border-radius:3px;
+		border-radius: $defult-radius;
 		border:none;
 	}
 	.ui-slider-handle {
