@@ -39,6 +39,7 @@ var wmarkOpacity = (function(){
                       min: 1,
                       max: 100,
                       value: 100,
+                      range: "min",
                       slide: function(event, ui) {
                           wtmark.css('opacity', ui.value / 100);
                       } 

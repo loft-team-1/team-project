@@ -244,8 +244,17 @@
 	border: none;
 	height: 3px;
 	position: relative;
-	background-color: #9eb2c0;
-
+	background-color: #dbe1e8;
+	.ui-slider-range {
+		position:absolute;
+		background-color: #9eb2c0;
+		height:100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		border-radius:3px;
+		border:none;
+	}
 	.ui-slider-handle {
 		border: 7px solid #dbe1e8;
 		border-radius: 50%;
