@@ -1,12 +1,15 @@
-<!-- // include composer autoload -->
+<?php
+/*
+ * jQuery File Upload Plugin PHP Example 5.14
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2010, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
 require 'vendor/autoload.php';
-
-<!-- // import the Intervention Image Manager Class -->
-use Intervention\Image\ImageManager;
-
-<!-- // create an image manager instance with favored driver -->
-$manager = new ImageManager(array('driver' => 'imagick'));
-
-<!-- // to finally create image instances -->
-$image = $manager->make('public/foo.jpg')->resize(300, 200);
-<?php include("index.html"); ?>
+error_reporting(E_ALL | E_STRICT);
+require('php/UploadHandler.php');
+$upload_handler = new UploadHandler();

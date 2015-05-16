@@ -53,6 +53,34 @@ var wmarkOpacity = (function(){
 
 $(document).ready(function(){
     dragDrop.init();
-    dragDrop.appendEl($('<div style="width: 50px; height: 50px; border: 3px solid red;" class="drag">Drag me </div>'));
+    dragDrop.appendEl($('<div id="watermark" style="width: 200px; height: 200px; border: 3px solid red;" class="drag">Drag me </div>'));
     wmarkOpacity.init();
+
+    //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
+  $(function () {
+      $('#fileupload').fileupload({
+          dataType: 'json',
+          done: function (e, data) {
+              $.each(data.result.files, function (index, file) {
+                  $('<p/>').text(file.name).appendTo(document.body);
+                  // $('#uploadedimage').attr('src', 'files/'+file.name);
+                  $('#workspace').css('background', 'url(files/'+file.name+') no-repeat');
+              });
+          }
+      });
+  });
+  $(function () {
+      $('#wmarkfile').fileupload({
+          dataType: 'json',
+          done: function (e, data) {
+              $.each(data.result.files, function (index, file) {
+                  $('<p/>').text(file.name).appendTo(document.body);
+                  $('#watermark').css('background', 'url(files/'+file.name+') no-repeat');
+              });
+          }
+      });
+  });
+
 });
+
+
