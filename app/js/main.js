@@ -86,7 +86,15 @@ $(document).ready(function(){
     //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
   $(function () {
       $('#fileupload').fileupload({
+          url: '//jquery-file-upload.appspot.com/',
+          // Enable image resizing, except for Android and Opera,
+          // which actually support image resizing, but fail to
+          // send Blob objects via XHR requests:
           dataType: 'json',
+          disableImageResize: /Android(?!.*Chrome)|Opera/
+              .test(window.navigator && navigator.userAgent),
+          imageMaxWidth: 800,
+          imageMaxHeight: 800,
           done: function (e, data) {
               $.each(data.result.files, function (index, file) {
                   var upploadedImage = $('<div id=uploaded-image class=b-main-area__uploaded-image></div>');
