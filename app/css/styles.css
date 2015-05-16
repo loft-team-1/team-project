@@ -148,6 +148,11 @@ body {
   background-position: center center;
   background-repeat: no-repeat; }
 
+.b-main-area__watermark {
+  height: 100px;
+  width: 100px;
+  background: #7588FA; }
+
 /* = Settings
 ================================================*/
 .b-settings {
