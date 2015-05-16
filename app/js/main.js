@@ -21,19 +21,32 @@ var dragDrop = (function(){
                         ypos.val(ui.position.top);
                     }
                 });
+            },
+            _resetPosition = function(){
+                var xpos = $('.b-controls input[name="xpos"]'),
+                    ypos = $('.b-controls input[name="ypos"]'),
+                    wtmark = $('#watermark');
+
+                xpos.val(0);
+                ypos.val(0);
+                wtmark.css({
+                    'left': 0,
+                    'top': 0
+                })
             };
 
         return {
             init: init,
-            appendEl: _appendDraggableEl
+            appendEl: _appendDraggableEl,
+            reset: _resetPosition
         };
 })();
 
 var wmarkOpacity = (function(){
 
     var init = function(){
-        sliderEl = $('.b-opacity-slider');
-        wtmark = $('.b-main-area .drag');
+        var sliderEl = $('.b-opacity-slider');
+        var wtmark = $('.b-main-area .drag');
             if (sliderEl.length) {
                  sliderEl.slider({
                       min: 1,
@@ -45,16 +58,30 @@ var wmarkOpacity = (function(){
                       }
                  });
             }
+        },
+        _resetOpacity = function(){
+            var sliderEl = $('.b-opacity-slider');
+            var wtmark = $('.b-main-area .drag');
+                sliderEl.slider("value", 100);
+                wtmark.css('opacity', 100);
+
         };
+
     return {
-            init: init,
-            };
+        init: init,
+        reset: _resetOpacity
+    };
 })();
 
 $(document).ready(function(){
     dragDrop.init();
     dragDrop.appendEl($('<div id="watermark" style="width: 20px; border: 1px solid red;" class="drag">Drag me </div>'));
     wmarkOpacity.init();
+
+    $('.m-btns :reset').on('click', function(){
+        dragDrop.reset();
+        wmarkOpacity.reset();
+    });
 
     //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
   $(function () {
