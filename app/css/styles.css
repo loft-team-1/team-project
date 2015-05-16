@@ -141,17 +141,10 @@ body {
   background-repeat: repeat;
   position: relative; }
 
-.b-main-area__uploaded-image {
-  height: 100%;
-  width: 100%;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat; }
-
-.b-main-area__watermark {
-  height: 100px;
-  width: 100px;
-  background: #7588FA; }
+.b-main-area-image {
+  max-height: 100%;
+  max-width: 100%;
+  position: absolute; }
 
 /* = Settings
 ================================================*/
