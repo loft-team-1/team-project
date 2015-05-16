@@ -34,7 +34,7 @@ var wmarkOpacity = (function(){
     var init = function(){
         sliderEl = $('.b-opacity-slider');
         wtmark = $('.b-main-area .drag');
-            if (sliderEl.length) { 
+            if (sliderEl.length) {
                  sliderEl.slider({
                       min: 1,
                       max: 100,
@@ -42,7 +42,7 @@ var wmarkOpacity = (function(){
                       range: "min",
                       slide: function(event, ui) {
                           wtmark.css('opacity', ui.value / 100);
-                      } 
+                      }
                  });
             }
         };
@@ -53,7 +53,7 @@ var wmarkOpacity = (function(){
 
 $(document).ready(function(){
     dragDrop.init();
-    dragDrop.appendEl($('<div id="watermark" style="width: 200px; height: 200px; border: 3px solid red;" class="drag">Drag me </div>'));
+    dragDrop.appendEl($('<div id="watermark" style="width: 20px; border: 1px solid red;" class="drag">Drag me </div>'));
     wmarkOpacity.init();
 
     //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
@@ -62,9 +62,9 @@ $(document).ready(function(){
           dataType: 'json',
           done: function (e, data) {
               $.each(data.result.files, function (index, file) {
-                  $('<p/>').text(file.name).appendTo(document.body);
-                  // $('#uploadedimage').attr('src', 'files/'+file.name);
-                  $('#workspace').css('background', 'url(files/'+file.name+') no-repeat');
+                  var upploadedImage = $('<div id=uploaded-image class=b-main-area__uploaded-image></div>');
+                  $('#workspace').prepend(upploadedImage);
+                  $(upploadedImage).css('background-image', 'url(files/' + file.name + ')');
               });
           }
       });
@@ -74,7 +74,6 @@ $(document).ready(function(){
           dataType: 'json',
           done: function (e, data) {
               $.each(data.result.files, function (index, file) {
-                  $('<p/>').text(file.name).appendTo(document.body);
                   $('#watermark').css('background', 'url(files/'+file.name+') no-repeat');
               });
           }

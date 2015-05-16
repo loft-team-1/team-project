@@ -4,3 +4,4 @@ app/bower
 node_modules
 dist
 /vendor/
+app/files/
