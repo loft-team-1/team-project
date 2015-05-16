@@ -7,7 +7,7 @@ var upload = (function(){
                 done: function (e, data) {
                     var type = $(this).is("#fileupload") ? 'image' : 'watermark',
                         imageName = data.result.files[0].name,
-                        src = "files/" + imageName,
+                        src = "php/files/" + imageName,
                         image = $('<img id="'+ type +'" src="' + src + '" class="b-main-area-' + type + '">');
 
                     if(type == 'image'){
@@ -15,6 +15,8 @@ var upload = (function(){
                     }
                     else{
                         dragDrop.appendEl(src);
+                        wmarkOpacity.init();
+                        wmarkAlign.init();
                     }
 
                 }
