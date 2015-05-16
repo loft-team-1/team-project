@@ -46,7 +46,7 @@
                 <div class="b-form-line">
                   <div class="b-form-label">Исходное изображение</div>
                   <div class="b-custom-upload">
-                    <input type="file" name="files[]" data-url="index.php" id="fileupload" class="b-input b-input-file">
+                    <input type="file" name="files[]" data-url="php/index.php" id="fileupload" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
                       <input type="text" readonly placeholder="Image.jpg" class="b-input"> </div>
@@ -55,7 +55,7 @@
                 <div class="b-form-line">
                   <div class="b-form-label">Водяной знак</div>
                   <div class="b-custom-upload">
-                    <input type="file" name="files[]" data-url="index.php" id="wmarkfile" class="b-input b-input-file">
+                    <input type="file" name="files[]" data-url="php/index.php" id="wmarkfile" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
                       <input type="text" readonly placeholder="Image.png" class="b-input"> </div>
@@ -129,6 +129,9 @@
     <script src='js/vendor/selectivizr.min.js'></script>
     <![endif]-->
     <!-- build:js js/scripts.min.js-->
+    <script src="js/drag.js"></script>
+    <script src="js/opacity.js"></script>
+    <script src="js/upload.js"></script>
     <script src="js/main.js"></script>
     <!-- endbuild-->
   </body>
