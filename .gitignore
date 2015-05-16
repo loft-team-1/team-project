@@ -3,3 +3,8 @@ app/bower
 .htaccess
 node_modules
 dist
+/vendor/
+app/files/
+composer.json
+composer.lock
+composer.phar
