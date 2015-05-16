@@ -3,3 +3,4 @@ app/bower
 .htaccess
 node_modules
 dist
+/vendor/
