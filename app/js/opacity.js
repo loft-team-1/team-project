@@ -2,7 +2,7 @@ var wmarkOpacity = (function(){
 
     var init = function(){
             var sliderEl = $('.b-opacity-slider');
-            var wtmark = $('.b-main-area .drag');
+            var wtmark = $('#watermark');
             if (sliderEl.length) {
                 sliderEl.slider({
                     min: 1,
@@ -17,7 +17,7 @@ var wmarkOpacity = (function(){
         },
         _resetOpacity = function(){
             var sliderEl = $('.b-opacity-slider');
-            var wtmark = $('.b-main-area .drag');
+            var wtmark = $('#watermark');
             sliderEl.slider("value", 100);
             wtmark.css('opacity', 100);
 

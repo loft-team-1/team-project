@@ -4,7 +4,7 @@ app/bower
 node_modules
 dist
 /vendor/
-app/files/
+app/php/files/
 composer.json
 composer.lock
 composer.phar
