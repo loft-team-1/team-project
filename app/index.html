@@ -36,7 +36,7 @@
           <div class="b-main">
             <section class="b-main-section">
               <div class="b-main-area-title">Генератор водяных знаков</div>
-              <div class="b-main-area"></div>
+              <div id="workspace" class="b-main-area"></div>
             </section>
           </div>
           <div class="b-settings">
@@ -46,7 +46,7 @@
                 <div class="b-form-line">
                   <div class="b-form-label">Исходное изображение</div>
                   <div class="b-custom-upload">
-                    <input type="file" name="basicUpload" class="b-input b-input-file">
+                    <input type="file" name="files[]" data-url="index.php" id="fileupload" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
                       <input type="text" readonly placeholder="Image.jpg" class="b-input"> </div>
@@ -55,7 +55,7 @@
                 <div class="b-form-line">
                   <div class="b-form-label">Водяной знак</div>
                   <div class="b-custom-upload">
-                    <input type="file" name="watermarkUpload" class="b-input b-input-file">
+                    <input type="file" name="files[]" data-url="index.php" id="wmarkfile" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
                       <input type="text" readonly placeholder="Image.png" class="b-input"> </div>
@@ -122,6 +122,9 @@
     <!-- endbuild-->
     <!--vendor-->
     <script src="js/vendor/jquery-ui.min.js"></script>
+    <script src="js/vendor/jquery.ui.widget.js"></script>
+    <script src="js/vendor/jquery.iframe-transport.js"></script>
+    <script src="js/vendor/jquery.fileupload.js"></script>
     <!--[if IE 8]>
     <script src='js/vendor/selectivizr.min.js'></script>
     <![endif]-->

@@ -135,8 +135,23 @@ body {
 .b-main-area {
   width: 651px;
   height: 534px;
-  background: #fff;
+  background-color: #fff;
+  background-image: url('../img/bg/team_background.png');
+  background-position: -50%;
+  background-repeat: repeat;
   position: relative; }
+
+.b-main-area__uploaded-image {
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+.b-main-area__watermark {
+  height: 100px;
+  width: 100px;
+  background: #7588FA; }
 
 /* = Settings
 ================================================*/

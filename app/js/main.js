@@ -21,20 +21,34 @@ var dragDrop = (function(){
                         ypos.val(ui.position.top);
                     }
                 });
+            },
+            _resetPosition = function(){
+                var xpos = $('.b-controls input[name="xpos"]'),
+                    ypos = $('.b-controls input[name="ypos"]'),
+                    wtmark = $('#watermark');
+
+                xpos.val(0);
+                ypos.val(0);
+                wtmark.css({
+                    'left': 0,
+                    'top': 0
+                })
             };
 
         return {
             init: init,
-            appendEl: _appendDraggableEl
+            appendEl: _appendDraggableEl,
+            reset: _resetPosition
         };
 })();
 
 var wmarkOpacity = (function(){
 
     var init = function(){
-        var sliderEl = $('.b-opacity-slider'),
-            wtmark = $('.b-main-area .drag');
-            if (sliderEl.length) { 
+        var sliderEl = $('.b-opacity-slider');
+        var wtmark = $('.b-main-area .drag');
+        var wtmarkImg = $('.b-main-area .drag img');
+            if (sliderEl.length) {
                  sliderEl.slider({
                       min: 1,
                       max: 100,
@@ -42,12 +56,21 @@ var wmarkOpacity = (function(){
                       range: "min",
                       slide: function(event, ui) {
                           wtmark.css('opacity', ui.value / 100);
-                      } 
+                      }
                  });
             }
+        },
+        _resetOpacity = function(){
+            var sliderEl = $('.b-opacity-slider');
+            var wtmark = $('.b-main-area .drag');
+                sliderEl.slider("value", 100);
+                wtmark.css('opacity', 100);
+
         };
+
     return {
-            init: init
+            init: init,
+            reset: _resetOpacity
             };
 })();
 
@@ -123,7 +146,42 @@ var wmarkAlign = (function(){
 
 $(document).ready(function(){
     dragDrop.init();
-    dragDrop.appendEl($('<div style="width: 50px; height: 50px; border: 3px solid red;" class="drag">Drag me </div>'));
+    dragDrop.appendEl($('<div id="watermark" style="position:absolute;left:0;top:0;" class="drag"></div>'));
     wmarkOpacity.init();
     wmarkAlign.init();
 });
+
+
+    $('.m-btns :reset').on('click', function(){
+        dragDrop.reset();
+        wmarkOpacity.reset();
+    });
+
+    //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
+  $(function () {
+      $('#fileupload').fileupload({
+          dataType: 'json',
+          done: function (e, data) {
+              $.each(data.result.files, function (index, file) {
+                  var upploadedImage = $('<div id="uploaded-image" class="b-main-area__uploaded-image"></div>');
+                  $('#workspace').prepend(upploadedImage);
+                  $(upploadedImage).css('background-image', 'url(files/' + file.name + ')');
+              });
+          }
+      });
+  });
+  $(function () {
+      $('#wmarkfile').fileupload({
+          dataType: 'json',
+          done: function (e, data) {
+              $.each(data.result.files, function (index, file) {
+                  $('#watermark').html('<img src="files/'+file.name+'">');
+                  var wtmark = $('.b-main-area .drag');
+                  var wtmarkImg = $('.b-main-area .drag img');
+                  wtmark.width(wtmarkImg.width());
+                  wtmark.height(wtmarkImg.height());
+              });
+          }
+      });
+  });
+
