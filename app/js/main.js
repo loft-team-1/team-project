@@ -75,7 +75,7 @@ var wmarkOpacity = (function(){
 
 $(document).ready(function(){
     dragDrop.init();
-    dragDrop.appendEl($('<div id="watermark" style="width: 20px; border: 1px solid red;" class="drag">Drag me </div>'));
+    dragDrop.appendEl($('<div id="watermark" style="width: 200px; height: 200px; border: 1px solid red;" class="drag">Drag me </div>'));
     wmarkOpacity.init();
 
     $('.m-btns :reset').on('click', function(){
@@ -84,6 +84,7 @@ $(document).ready(function(){
     });
 
     //fileupload basic https://github.com/blueimp/jQuery-File-Upload/wiki/Basic-plugin
+
   $(function () {
       $('#fileupload').fileupload({
           url: '//jquery-file-upload.appspot.com/',
@@ -97,23 +98,29 @@ $(document).ready(function(){
           imageMaxHeight: 800,
           done: function (e, data) {
               $.each(data.result.files, function (index, file) {
+
+                  // $('#uploadedimage').attr('src', 'files/'+file.name);
+                  // $('#workspace').css('background', 'url(php/files/'+file.name+') no-repeat');
+
                   var upploadedImage = $('<div id=uploaded-image class=b-main-area__uploaded-image></div>');
                   $('#workspace').prepend(upploadedImage);
-                  $(upploadedImage).css('background-image', 'url(files/' + file.name + ')');
+                  $(upploadedImage).css('background-image', 'url(php/files/' + file.name + ')');
+
               });
           }
       });
   });
-  $(function () {
+  $(function () {       
       $('#wmarkfile').fileupload({
           dataType: 'json',
           done: function (e, data) {
               $.each(data.result.files, function (index, file) {
-                  $('#watermark').css('background', 'url(files/'+file.name+') no-repeat');
+                  $('#watermark').css('background', 'url(php/files/'+file.name+') no-repeat');
               });
           }
       });
-  });
+    
+    });
 
 });
 
