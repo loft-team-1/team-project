@@ -15,6 +15,8 @@ var upload = (function(){
                     }
                     else{
                         dragDrop.appendEl(src);
+                        wmarkOpacity.init();
+                        wmarkAlign.init();
                     }
 
                 }
