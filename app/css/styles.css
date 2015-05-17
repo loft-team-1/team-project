@@ -63,8 +63,8 @@ body {
   white-space: nowrap;
   position: relative;
   text-align: center;
-  background: #a9837d;
-  /*	background: url('../img/bg/main-bg.jpg') no-repeat 100% 50%;		background-size: 100% 100%;*/ }
+  background: #a9837d url('../img/bg/main-bg.jpg') no-repeat 100% 50%;
+  background-size: cover; }
   .h-base:after {
     content: '';
     height: 40px;
@@ -76,6 +76,16 @@ body {
     height: 100%;
     width: 0; }
 
+.b-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #986a78;
+  background: linear-gradient(to right, #986a78 0%, #bd8880 50%, #ab847f 100%);
+  opacity: 0.4; }
+
 .b-container, .b-columns {
   width: 960px;
   margin: 0 auto;
@@ -84,7 +94,8 @@ body {
 
 .b-main-container {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+  position: relative; }
 
 /* = Columns================================================*/
 .b-columns {
@@ -135,16 +146,19 @@ body {
 .b-main-area {
   width: 651px;
   height: 534px;
-  background-color: #fff;
-  background-image: url('../img/bg/team_background.png');
-  background-position: -50%;
-  background-repeat: repeat;
-  position: relative; }
+  background: #fff url('../img/bg/workarea-bg.png') 15% 15%;
+  position: relative;
+  overflow: hidden; }
 
 .b-main-area-image {
-  max-height: 100%;
-  max-width: 100%;
-  position: absolute; }
+  /*	max-height: 100%;
+	max-width: 100%;*/
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; }
 
 /* = Settings
 ================================================*/

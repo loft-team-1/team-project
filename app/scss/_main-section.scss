@@ -11,15 +11,17 @@
 .b-main-area {
 	width: 651px;
 	height: 534px;
-	background-color: #fff;
-  background-image: url('../img/bg/team_background.png');
-  background-position: -50%;
-  background-repeat: repeat;
+	background: #fff url('../img/bg/workarea-bg.png') 15% 15%;
 	position: relative;
+	overflow: hidden;
 }
-
 .b-main-area-image {
-  max-height: 100%;
-  max-width: 100%;
-  position: absolute;
+/*	max-height: 100%;
+	max-width: 100%;*/
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
