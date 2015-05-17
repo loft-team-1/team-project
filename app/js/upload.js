@@ -8,8 +8,6 @@ var upload = (function(){
 			// send Blob objects via XHR requests:
 			disableImageResize: /Android(?!.*Chrome)|Opera/
 				.test(window.navigator && navigator.userAgent),
-			imageMaxWidth: 651,
-			imageMaxHeight: 534,
 			done: function (e, data) {
 				var type = $(this).is('#fileupload') ? 'image' : 'watermark',
 					imageName = data.result.files[0].name,
@@ -25,7 +23,14 @@ var upload = (function(){
 				}
 
 			}
-		});
+		})
+		.on('fileuploadadd', function (e, data) {
+			if($(this).is('#fileupload')) {
+				var fileupload = $(this).data('blueimpFileupload');
+				fileupload.options.imageMaxWidth = 651;
+				fileupload.options.imageMaxHeight = 534;
+			}
+		})
 	};
 
 	return {
