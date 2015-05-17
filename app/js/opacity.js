@@ -17,7 +17,7 @@ var wmarkOpacity = (function(){
 		}
 	},
 
-	_resetOpacity = function(){
+	resetOpacity = function(){
 		var sliderEl = $('.b-opacity-slider'),
 			wtmark = $('.b-main-wtm-wr img');
 
@@ -27,7 +27,7 @@ var wmarkOpacity = (function(){
 
 	return {
 		init: init,
-		reset: _resetOpacity
+		reset: resetOpacity
 	};
 
 })();
