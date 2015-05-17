@@ -39,7 +39,6 @@ var upload = (function(){
 			image = $('<img id="'+ type +'" src="' + src + '">');
 
 		if(type == 'image'){
-			//$('#workspace').append(image);
 			imageWrap.addImg(image);
 		} else {
 			dragDrop.appendEl(src);
