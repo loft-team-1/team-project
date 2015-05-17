@@ -1,7 +1,7 @@
 /* = Main section
 ================================================*/
 .b-main-section {
-	padding: 18px 23px 25px;
+	padding: 18px 24px 25px;
 }
 .b-main-area-title {
 	font: 35px/1 $ff-roboto-t;
@@ -9,15 +9,14 @@
 	margin-bottom: 58px;
 }
 .b-main-area {
-	width: 651px;
+	width: 100%;
+	max-width: 650px;
 	height: 534px;
 	background: #fff url('../img/bg/workarea-bg.png') 15% 15%;
 	position: relative;
 	overflow: hidden;
 }
 .b-main-area-image {
-/*	max-height: 100%;
-	max-width: 100%;*/
 	position: absolute;
 	top: 0;
 	bottom: 0;

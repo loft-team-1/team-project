@@ -14,6 +14,9 @@ var upload = (function(){
 					src = 'php/files/' + imageName,
 					image = $('<img id="'+ type +'" src="' + src + '" class="b-main-area-' + type + '">');
 
+				// remove images
+				$('#'+type).remove();
+
 				if(type == 'image'){
 					$('#workspace').append(image);
 				} else {
@@ -25,9 +28,10 @@ var upload = (function(){
 			}
 		})
 		.on('fileuploadadd', function (e, data) {
+			// add options only for basic image
 			if($(this).is('#fileupload')) {
 				var fileupload = $(this).data('blueimpFileupload');
-				fileupload.options.imageMaxWidth = 651;
+				fileupload.options.imageMaxWidth = 550;
 				fileupload.options.imageMaxHeight = 534;
 			}
 		})
