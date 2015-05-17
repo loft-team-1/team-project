@@ -252,6 +252,8 @@ body {
 /* form: custom upload */
 .b-custom-upload {
   position: relative; }
+  .b-custom-upload.disabled {
+    opacity: 0.6; }
 
 .b-input-file {
   position: relative;

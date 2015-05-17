@@ -9,8 +9,8 @@ section.b-section.m-upload
 
     .b-form-line
         .b-form-label Водяной знак
-        .b-custom-upload
-            input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php')#wmarkfile
+        .b-custom-upload.disabled
+            input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php', disabled)#wmarkfile
             .b-fake-upload
                 .b-icon-upload
                 input.b-input(type='text', 'readonly', placeholder='Image.png')

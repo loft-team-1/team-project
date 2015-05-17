@@ -1,5 +1,4 @@
 var upload = (function(){
-
 	var init = function(){
 		$('input[type="file"]').fileupload({
 			dataType: 'json',
@@ -25,7 +24,6 @@ var upload = (function(){
 					wmarkOpacity.init();
 					wmarkAlign.init();
 				}
-
 			}
 		})
 		.on('fileuploadadd', function (e, data) {
@@ -35,6 +33,8 @@ var upload = (function(){
 				fileupload.options.imageMaxWidth = 650;
 				fileupload.options.imageMaxHeight = 534;
 			}
+      $('#wmarkfile').prop('disabled', false);
+      $('.b-custom-upload').removeClass('disabled');
 		})
 	};
 
