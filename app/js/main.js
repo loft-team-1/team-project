@@ -14,6 +14,7 @@ $(document).ready(function(){
 	$('.b-form').on('reset', function(){
 		dragDrop.reset();
 		wmarkOpacity.reset();
+		upload.reset();
 	});
 });
 

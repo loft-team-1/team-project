@@ -1,0 +1,89 @@
+/* = Form tooltip
+================================================*/
+.b-tooltip {
+	position: absolute;
+	display: inline-block;
+	opacity: 0;
+	transition: all .4s ease;
+
+	&-inner {
+		font-size: 12px;
+		color: $color-white;
+		padding: 5px 8px;
+		min-width: 120px;
+		text-align: center;
+		text-decoration: none;
+		background: $color-pink;
+		border-radius: 2px;
+		white-space: nowrap;
+
+		&:after {
+			content: "";
+			position: absolute;
+			border-color: transparent;
+			border-style: solid;
+		}
+	}
+}
+
+.b-tooltip.m-right,
+.b-tooltip.m-left {
+	padding: 0 5px;
+
+	.b-tooltip-inner {
+		&:after {
+			top: 50%;
+			margin-top: -5px;
+
+		}
+	}
+}
+
+.b-tooltip.m-top,
+.b-tooltip.m-bottom {
+	padding: 5px 0;
+
+	.b-tooltip-inner {
+		&:after {
+			left: 50%;
+			margin-left: -5px;
+		}
+	}
+}
+
+.b-tooltip.m-right {
+	.b-tooltip-inner {
+		&:after {
+			left: 0;
+			border-width: 5px 5px 5px 0;
+			border-right-color: $color-pink;
+		}
+	}
+}
+.b-tooltip.m-left {
+	.b-tooltip-inner {
+		&:after {
+			right: 0;
+			border-width: 5px 0 5px 5px;
+			border-left-color: $color-pink;
+		}
+	}
+}
+.b-tooltip.m-bottom {
+	.b-tooltip-inner {
+		&:after {
+			top: 0;
+			border-width: 0 5px 5px;
+			border-bottom-color: $color-pink;
+		}
+	}
+}
+.b-tooltip.m-top {
+	.b-tooltip-inner {
+		&:after {
+			bottom: 0;
+			border-width: 5px 5px 0;
+			border-top-color: $color-pink;
+		}
+	}
+}

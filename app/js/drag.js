@@ -1,6 +1,6 @@
 var dragDrop = (function(){
 
-	var _appendDraggableEl = function(url){
+	var appendDraggableEl = function(url){
 		var xpos = $('.b-controls input[name="xpos"]'),
 			ypos = $('.b-controls input[name="ypos"]'),
 			wtmwr = $('#workspace .b-main-wtm-wr'),
@@ -9,19 +9,19 @@ var dragDrop = (function(){
 		wtmwr.append(image);
 
 		image.on('load', function(){
-				$('.b-main-wtm-wr').css({'height':$(this).height() ,'width':$(this).width()});
-				$('.b-main-wtm-wr').draggable({
+			$('.b-main-wtm-wr').css({'height':$(this).height() ,'width':$(this).width()});
+			$('.b-main-wtm-wr').draggable({
 				containment: '#image',
 				cursor: 'move',
 				drag: function( event, ui ) {
 					xpos.val(Math.round(ui.position.left));
 					ypos.val(Math.round(ui.position.top));
 				}
+			});
 		});
-		});	
 	},
 
-	_resetPosition = function(){
+	resetPosition = function(){
 		var xpos = $('.b-controls input[name="xpos"]'),
 			ypos = $('.b-controls input[name="ypos"]'),
 			wtmark = $('.b-main-wtm-wr');
@@ -35,8 +35,8 @@ var dragDrop = (function(){
 	};
 
 	return {
-		appendEl: _appendDraggableEl,
-		reset: _resetPosition
+		appendEl: appendDraggableEl,
+		reset: resetPosition
 	};
 
 })();
