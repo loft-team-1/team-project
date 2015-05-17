@@ -1,25 +1,27 @@
 var wmarkAlign = (function(){
 
-	var
+	var init = function () {
+		var
 		// обертка картинки
-		imgWrap = $('.b-main-area'),
+		imgWrap = $('.b-main-img-wr'),
 
-		// ее ширина и высота
+		
+			// ее ширина и высота
 		imgWrapHeight = imgWrap.height(),
 		imgWrapWidth = imgWrap.width(),
+	
+
+		
 
 		// размеры ватермарка
 		wtmarkHeight = 0,
 		wtmarkWidth = 0;
 
 
-	var init = function () {
-
-		var wtmark = $('#watermark');
-
+		var wtmark = $('.b-main-wtm-wr');
 		// если ватермарк есть то вычисляем его размеры
 		if (wtmark.length) {
-			wtmark.on('load', function(){
+			$('.b-main-wtm-wr img').on('load', function(){
 				wtmarkHeight = wtmark.height();
 				wtmarkWidth = wtmark.width();
 

@@ -3,23 +3,28 @@ var dragDrop = (function(){
 	var _appendDraggableEl = function(url){
 		var xpos = $('.b-controls input[name="xpos"]'),
 			ypos = $('.b-controls input[name="ypos"]'),
-			workspace = $('#workspace'),
+			wtmwr = $('#workspace .b-main-wtm-wr'),
 			image = $('<img id="watermark" src="' + url + '">');
 
-		image.appendTo(workspace).draggable({
-			containment: '#image',
-			cursor: 'move',
-			drag: function( event, ui ) {
-				xpos.val(Math.round(ui.position.left));
-				ypos.val(Math.round(ui.position.top));
-			}
+		wtmwr.append(image);
+
+		image.on('load', function(){
+				$('.b-main-wtm-wr').css({'height':$(this).height() ,'width':$(this).width()});
+				$('.b-main-wtm-wr').draggable({
+				containment: '#image',
+				cursor: 'move',
+				drag: function( event, ui ) {
+					xpos.val(Math.round(ui.position.left));
+					ypos.val(Math.round(ui.position.top));
+				}
 		});
+		});	
 	},
 
 	_resetPosition = function(){
 		var xpos = $('.b-controls input[name="xpos"]'),
 			ypos = $('.b-controls input[name="ypos"]'),
-			wtmark = $('#watermark');
+			wtmark = $('.b-main-wtm-wr');
 
 		xpos.val(0);
 		ypos.val(0);

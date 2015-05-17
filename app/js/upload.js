@@ -19,7 +19,8 @@ var upload = (function(){
 				$('#'+type).remove();
 
 				if(type == 'image'){
-					$('#workspace').append(image);
+					//$('#workspace').append(image);
+					imageWrap.appendimg(image);
 				} else {
 					dragDrop.appendEl(src);
 					wmarkOpacity.init();
