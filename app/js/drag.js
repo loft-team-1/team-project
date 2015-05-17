@@ -10,8 +10,8 @@ var dragDrop = (function(){
 			containment: '#image',
 			cursor: 'move',
 			drag: function( event, ui ) {
-				xpos.val(ui.position.left);
-				ypos.val(ui.position.top);
+				xpos.val(Math.round(ui.position.left));
+				ypos.val(Math.round(ui.position.top));
 			}
 		});
 	},
