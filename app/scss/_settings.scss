@@ -87,35 +87,8 @@
 .b-custom-upload {
 	position: relative;
 
-	&:hover {
-		.b-input {
-			border-color: lighten( $color-blue, 10% );
-		}
-		.b-icon-upload {
-			background-color: saturate( $color-pink, 25% );
-		}
-	}
-
-	&:active {
-		.b-input {
-			box-shadow: inset 0px 2px 2px rgb(220, 220, 220);
-		}
-		.b-icon-upload {
-			box-shadow: inset 0px 2px 2px rgb(140, 140, 140);
-		}
-	}
-
 	&.disabled {
 		opacity: 0.6;
-
-		&:hover {
-			.b-input {
-				border-color: $color-blue;
-			}
-			.b-icon-upload {
-				background-color: $color-pink;
-			}
-		}
 	}
 }
 
@@ -124,7 +97,6 @@
 	opacity: 0;
 	z-index: 3;
 	padding: 0;
-	cursor: pointer;
 }
 .b-fake-upload {
 	position: absolute;

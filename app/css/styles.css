@@ -258,27 +258,14 @@ body {
 /* form: custom upload */
 .b-custom-upload {
   position: relative; }
-  .b-custom-upload:hover .b-input {
-    border-color: #bdcbd4; }
-  .b-custom-upload:hover .b-icon-upload {
-    background-color: #ff6e64; }
-  .b-custom-upload:active .b-input {
-    box-shadow: inset 0px 2px 2px gainsboro; }
-  .b-custom-upload:active .b-icon-upload {
-    box-shadow: inset 0px 2px 2px #8c8c8c; }
   .b-custom-upload.disabled {
     opacity: 0.6; }
-    .b-custom-upload.disabled:hover .b-input {
-      border-color: #9eb2c0; }
-    .b-custom-upload.disabled:hover .b-icon-upload {
-      background-color: #f97e76; }
 
 .b-input-file {
   position: relative;
   opacity: 0;
   z-index: 3;
-  padding: 0;
-  cursor: pointer; }
+  padding: 0; }
 
 .b-fake-upload {
   position: absolute;
