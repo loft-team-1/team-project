@@ -1,5 +1,4 @@
 var upload = (function(){
-
 	var init = function(){
 		var options = {
 			dataType: 'json',
@@ -49,6 +48,8 @@ var upload = (function(){
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
 		}
+		$('#wmarkfile').prop('disabled', false);
+		$('.b-custom-upload').removeClass('disabled');
 	},
 
 	// show errors
