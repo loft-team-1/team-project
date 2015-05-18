@@ -44,8 +44,8 @@ var upload = (function(){
 			wmarkOpacity.init();
 			wmarkAlign.init();
 		}
-    $('#wmarkfile').prop('disabled', false);
-    $('.b-custom-upload').removeClass('disabled');
+		$('#wmarkfile').prop('disabled', false);
+		$('.b-custom-upload').removeClass('disabled');
 	},
 
 	// show errors
