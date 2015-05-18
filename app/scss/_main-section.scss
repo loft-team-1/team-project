@@ -16,11 +16,17 @@
 	position: relative;
 	overflow: hidden;
 }
-.b-main-area-image {
+.b-main-wtm-wr {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.b-main-img-wr {
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: auto;
+	overflow: hidden;
 }

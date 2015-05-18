@@ -2,7 +2,7 @@ var wmarkOpacity = (function(){
 
 	var init = function(){
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('#watermark');
+			wtmark = $('.b-main-wtm-wr img');
 
 		if (sliderEl.length) {
 			sliderEl.slider({
@@ -17,9 +17,9 @@ var wmarkOpacity = (function(){
 		}
 	},
 
-	_resetOpacity = function(){
+	resetOpacity = function(){
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('#watermark');
+			wtmark = $('.b-main-wtm-wr img');
 
 		sliderEl.slider('value', 100);
 		wtmark.css('opacity', 100);
@@ -27,7 +27,7 @@ var wmarkOpacity = (function(){
 
 	return {
 		init: init,
-		reset: _resetOpacity
+		reset: resetOpacity
 	};
 
 })();

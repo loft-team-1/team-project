@@ -151,13 +151,19 @@ body {
   position: relative;
   overflow: hidden; }
 
-.b-main-area-image {
+.b-main-wtm-wr {
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.b-main-img-wr {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: auto; }
+  margin: auto;
+  overflow: hidden; }
 
 /* = Settings
 ================================================*/
@@ -252,14 +258,27 @@ body {
 /* form: custom upload */
 .b-custom-upload {
   position: relative; }
+  .b-custom-upload:hover .b-input {
+    border-color: #bdcbd4; }
+  .b-custom-upload:hover .b-icon-upload {
+    background-color: #ff6e64; }
+  .b-custom-upload:active .b-input {
+    box-shadow: inset 0px 2px 2px gainsboro; }
+  .b-custom-upload:active .b-icon-upload {
+    box-shadow: inset 0px 2px 2px #8c8c8c; }
   .b-custom-upload.disabled {
     opacity: 0.6; }
+    .b-custom-upload.disabled:hover .b-input {
+      border-color: #9eb2c0; }
+    .b-custom-upload.disabled:hover .b-icon-upload {
+      background-color: #f97e76; }
 
 .b-input-file {
   position: relative;
   opacity: 0;
   z-index: 3;
-  padding: 0; }
+  padding: 0;
+  cursor: pointer; }
 
 .b-fake-upload {
   position: absolute;
@@ -435,3 +454,58 @@ body {
 /* opacity */
 .no-opacity .b-input-file {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+
+/* = Form tooltip
+================================================*/
+.b-tooltip {
+  position: absolute;
+  display: inline-block;
+  opacity: 0;
+  transition: all .4s ease; }
+  .b-tooltip-inner {
+    font-size: 12px;
+    color: #fff;
+    padding: 5px 8px;
+    min-width: 120px;
+    text-align: center;
+    text-decoration: none;
+    background: #f97e76;
+    border-radius: 2px;
+    white-space: nowrap; }
+    .b-tooltip-inner:after {
+      content: "";
+      position: absolute;
+      border-color: transparent;
+      border-style: solid; }
+
+.b-tooltip.m-right, .b-tooltip.m-left {
+  padding: 0 5px; }
+  .b-tooltip.m-right .b-tooltip-inner:after, .b-tooltip.m-left .b-tooltip-inner:after {
+    top: 50%;
+    margin-top: -5px; }
+
+.b-tooltip.m-top, .b-tooltip.m-bottom {
+  padding: 5px 0; }
+  .b-tooltip.m-top .b-tooltip-inner:after, .b-tooltip.m-bottom .b-tooltip-inner:after {
+    left: 50%;
+    margin-left: -5px; }
+
+.b-tooltip.m-right .b-tooltip-inner:after {
+  left: 0;
+  border-width: 5px 5px 5px 0;
+  border-right-color: #f97e76; }
+
+.b-tooltip.m-left .b-tooltip-inner:after {
+  right: 0;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #f97e76; }
+
+.b-tooltip.m-bottom .b-tooltip-inner:after {
+  top: 0;
+  border-width: 0 5px 5px;
+  border-bottom-color: #f97e76; }
+
+.b-tooltip.m-top .b-tooltip-inner:after {
+  bottom: 0;
+  border-width: 5px 5px 0;
+  border-top-color: #f97e76; }
