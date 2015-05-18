@@ -4,10 +4,7 @@ section.b-section.m-location
 
         ul.b-grid-list
             each item in ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']
-                if (item == 'top-left')
-                    li.b-grid-item.m-active(data-pos=item)
-                else
-                    li.b-grid-item(data-pos=item)
+                li.b-grid-item(data-pos=item)
 
         .b-controls
             .b-control-item
