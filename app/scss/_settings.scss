@@ -86,13 +86,22 @@
 /* form: custom upload */
 .b-custom-upload {
 	position: relative;
+	height: 27px;
+
+	.b-input {
+		height: 100%;
+		line-height: 17px;
+	}
 }
 
 .b-input-file {
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
 	opacity: 0;
 	z-index: 3;
-	padding: 0;
 }
 .b-fake-upload {
 	position: absolute;

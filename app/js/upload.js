@@ -36,7 +36,7 @@ var upload = (function(){
 			imageName = data.result.files[0].name,
 			src = 'php/files/' + imageName,
 			image = $('<img id="'+ type +'" src="' + src + '">');
-			$(this).siblings().children('input').attr("placeholder", imageName);
+			$(this).siblings().children('input').val(imageName);
 
 		if(type == 'image'){
             var imgWrapper = $('.b-main-img-wr');

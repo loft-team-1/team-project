@@ -13,10 +13,10 @@ $(document).ready(function(){
 	}
 
 	// form reset
-	$('.b-form').on('reset', function(){
+	$('.b-form').on('reset', function(e){
+		(e.preventDefault) ? e.preventDefault(): e.returnValue;
 		wmarkPosition.reset();
 		wmarkOpacity.reset();
 		upload.reset();
 	});
 });
-
