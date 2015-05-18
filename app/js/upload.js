@@ -50,7 +50,7 @@ var upload = (function(){
 			wmarkOpacity.init();
 		}
 		$('#wmarkfile').prop('disabled', false);
-		$('.b-custom-upload').removeClass('disabled');
+		$('.b-custom-upload').removeClass('m-disabled');
 	},
 
 	// show errors

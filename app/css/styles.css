@@ -258,8 +258,6 @@ body {
 /* form: custom upload */
 .b-custom-upload {
   position: relative; }
-  .b-custom-upload.disabled {
-    opacity: 0.6; }
 
 .b-input-file {
   position: relative;
@@ -435,6 +433,11 @@ body {
     background: #c1cfd9; }
     .b-btn.m-neg:hover {
       background: #abbecb; }
+
+/* = Disable
+================================================*/
+.m-disabled {
+  opacity: 0.6; }
 
 /* = Fixes for old browsers
 ================================================*/
