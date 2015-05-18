@@ -39,11 +39,15 @@ var upload = (function(){
 			image = $('<img id="'+ type +'" src="' + src + '">');
 
 		if(type == 'image'){
-			imageWrap.addImg(image);
+            var imgWrapper = $('.b-main-img-wr');
+
+            imgWrapper.prepend(image);
+            image.on('load', function(){
+                $('.b-main-img-wr').css({'height':$(this).height() ,'width':$(this).width()});
+            });
 		} else {
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
-			wmarkAlign.init();
 		}
 	},
 

@@ -16,27 +16,14 @@ var dragDrop = (function(){
 				drag: function( event, ui ) {
 					xpos.val(Math.round(ui.position.left));
 					ypos.val(Math.round(ui.position.top));
+                    wmarkPosition.clearGrid();
 				}
 			});
 		});
-	},
-
-	resetPosition = function(){
-		var xpos = $('.b-controls input[name="xpos"]'),
-			ypos = $('.b-controls input[name="ypos"]'),
-			wtmark = $('.b-main-wtm-wr');
-
-		xpos.val(0);
-		ypos.val(0);
-		wtmark.css({
-			'left': 0,
-			'top': 0
-		})
 	};
 
 	return {
-		appendEl: appendDraggableEl,
-		reset: resetPosition
+		appendEl: appendDraggableEl
 	};
 
 })();

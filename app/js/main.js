@@ -1,5 +1,7 @@
 $(document).ready(function(){
-
+    if($('.b-location')){
+        wmarkPosition.init();
+    }
 	// upload initialization
 	if($('input[type="file"]').length){
 		upload.init();
@@ -12,7 +14,7 @@ $(document).ready(function(){
 
 	// form reset
 	$('.b-form').on('reset', function(){
-		dragDrop.reset();
+		wmarkPosition.reset();
 		wmarkOpacity.reset();
 		upload.reset();
 	});
