@@ -12,6 +12,11 @@ $(document).ready(function(){
 		wmarkOpacity.init();
 	}
 
+	// placeholder initialization
+	if($('form').length){
+		$('.b-input').placeholder();
+	}
+
 	// form reset
 	$('.b-form').on('reset', function(e){
 		(e.preventDefault) ? e.preventDefault(): e.returnValue;

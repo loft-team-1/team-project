@@ -464,6 +464,8 @@ body {
 /* opacity */
 .no-opacity .b-input-file {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; }
+.no-opacity .m-disabled .b-fake-upload {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; }
 
 /* = Form tooltip
 ================================================*/

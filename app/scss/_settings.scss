@@ -333,4 +333,7 @@
 	.b-input-file {
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	}
+	.m-disabled .b-fake-upload {
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	}
 }
