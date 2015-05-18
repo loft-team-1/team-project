@@ -144,7 +144,7 @@
 	border: solid $color-blue;
 	border-width: 1px 0 0 1px;
 	float: left;
-	background: #dbe1e8;
+	background: $color-light-blue;
 	cursor: pointer;
 
 	&.m-active {
@@ -246,12 +246,12 @@
 	border: none;
 	height: 3px;
 	position: relative;
-	background-color: #dbe1e8;
+	background-color: $color-light-blue;
 }
 .ui-slider {
 	&-range {
 		position: absolute;
-		background-color: #9eb2c0;
+		background-color: $color-blue;
 		height: 100%;
 		top: 0;
 		left: 0;
@@ -259,20 +259,22 @@
 		border-radius: $default-radius;
 		border: none;
 	}
+
 	&-handle {
-		border: 7px solid #dbe1e8;
+		border: 7px solid $color-light-blue;
 		border-radius: 50%;
 		cursor: pointer;
 		position: absolute;
 		margin-left: -10px;
 		top: -10px;
 		z-index: 2;
-		background-color: #9eb2c0;
+		background-color: $color-blue;
 		height: 22px;
 		width: 22px;
 		content: " ";
 		display: block;
 		box-shadow: 0 1px 2px #969698;
+
 		&.ui-state-active {
 			background-color: $color-pink;
 		}
