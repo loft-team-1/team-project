@@ -54,7 +54,8 @@ gulp.task('sass', function() {
 			browsers: ['last 2 versions', 'ie 8', 'ie 9'],
 			cascade: false
 		}))
-		.pipe(gulp.dest('./app/css'));
+		.pipe(gulp.dest('./app/css'))
+		.pipe(reload({stream: true}));
 });
 
 // watcher
@@ -65,7 +66,8 @@ gulp.task('watch', function () {
 	gulp.watch([
 		'./app/js/**/*.js',
 		'./app/*.html',
-		'./app/css/*.css'
+		'./app/css/*.css',
+		'./app/php/**/*.php'
 	]).on('change', reload);
 });
 
