@@ -114,34 +114,6 @@ body {
   vertical-align: top;
   background: #f1f1f5; }
 
-/* = Left Fixed Block================================================*/
-.b-left-fixed {
-  width: 43px;
-  position: fixed;
-  left: 0px;
-  top: 51px;
-  font-size: 20px;
-  font-weight: normal;
-  opacity: 0.7; }
-
-.b-language-select {
-  background: #f1f1f5;
-  margin: 0px 0px 18px 0px;
-  padding: 0px;
-  text-align: center;
-  letter-spacing: -1px; }
-  .b-language-select .b-language-select-item {
-    list-style: none;
-    margin: 0px;
-    padding: 0px; }
-    .b-language-select .b-language-select-item:first-child {
-      border-bottom: 1px solid #abaeb3; }
-  .b-language-select .b-language-select-link {
-    text-decoration: none;
-    color: #8e9298;
-    display: block;
-    padding: 3px 0px; }
-
 .b-share {
   position: relative;
   width: 43px; }
@@ -392,11 +364,49 @@ body {
   border-radius: 0 3px 3px 0;
   z-index: 2; }
 
+.disabled-area {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%;
+  content: " "; }
+
 /* = Location section
 ================================================*/
 /* location columns */
 .b-location {
   margin-bottom: 6px; }
+
+/* Use Switch */
+.b-switchers {
+  position: absolute;
+  height: 19px;
+  width: 48px;
+  top: 10px;
+  right: 10px;
+  overflow: hidden; }
+  .b-switchers .b-switch-multiply {
+    height: 19px;
+    float: left;
+    width: 19px;
+    content: " ";
+    cursor: pointer;
+    background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+    .b-switchers .b-switch-multiply.active {
+      background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+  .b-switchers .b-switch-once {
+    height: 19px;
+    width: 19px;
+    float: right;
+    content: " ";
+    cursor: pointer;
+    background: url(../img/icon/once-ico.png) center center no-repeat; }
+    .b-switchers .b-switch-once.active {
+      background: url(../img/icon/once-ico-active.png) center center no-repeat; }
 
 /* grid list */
 .b-grid-list {
