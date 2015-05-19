@@ -54,7 +54,8 @@ gulp.task('sass', function() {
 			browsers: ['last 2 versions', 'ie 8', 'ie 9'],
 			cascade: false
 		}))
-		.pipe(gulp.dest('./app/css'));
+		.pipe(gulp.dest('./app/css'))
+		.pipe(reload({stream: true}));
 });
 
 // watcher
