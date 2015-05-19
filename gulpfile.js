@@ -65,7 +65,8 @@ gulp.task('watch', function () {
 	gulp.watch([
 		'./app/js/**/*.js',
 		'./app/*.html',
-		'./app/css/*.css'
+		'./app/css/*.css',
+		'./app/php/**/*.php'
 	]).on('change', reload);
 });
 
