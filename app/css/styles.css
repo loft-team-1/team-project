@@ -398,33 +398,6 @@ body {
 .b-location {
   margin-bottom: 6px; }
 
-/* Use Switch */
-.b-switchers {
-  position: absolute;
-  height: 19px;
-  width: 48px;
-  top: 10px;
-  right: 10px;
-  overflow: hidden; }
-  .b-switchers .b-switch-multiply {
-    height: 19px;
-    float: left;
-    width: 19px;
-    content: " ";
-    cursor: pointer;
-    background: url(../img/icon/multiply-ico.png) center center no-repeat; }
-    .b-switchers .b-switch-multiply.active {
-      background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
-  .b-switchers .b-switch-once {
-    height: 19px;
-    width: 19px;
-    float: right;
-    content: " ";
-    cursor: pointer;
-    background: url(../img/icon/once-ico.png) center center no-repeat; }
-    .b-switchers .b-switch-once.active {
-      background: url(../img/icon/once-ico-active.png) center center no-repeat; }
-
 /* grid list */
 .b-grid-list {
   border: solid #9eb2c0;
