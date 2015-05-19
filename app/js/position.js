@@ -14,7 +14,7 @@ var wmarkPosition = (function(){
         },
 
         _setUpListeners = function(){
-            $('.b-controls input[type="text"]').on('input', _inputChange);
+            $('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
             $('.b-control-arrow').on('click touchstart', _arrowsChange);
             $('.b-grid-list li').on('click touchstart', _gridChange);
         },
@@ -114,6 +114,15 @@ var wmarkPosition = (function(){
             ypos.val(Math.round(y));
         },
 
+        disableEvents = function(){
+            var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
+            elems.on('click touchstart input', function(e){
+                e.preventDefault();
+            });
+            elems.prop('disabled', true);
+
+        },
+
         clearGrid = function(){
             var gridItems = $('.b-grid-list li');
             if(gridItems.hasClass('m-active')){
@@ -133,7 +142,8 @@ var wmarkPosition = (function(){
 	return {
 		init: init,
         reset: resetPosition,
-        clearGrid: clearGrid
+        clearGrid: clearGrid,
+        disable: disableEvents
 	};
 
 })();
