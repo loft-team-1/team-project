@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    if($('.b-location')){
-        wmarkPosition.disable();
-    }
+
+	if($('.b-location')){
+		wmarkPosition.disable();
+	}
+
 	// upload initialization
 	if($('input[type="file"]').length){
 		upload.init();
