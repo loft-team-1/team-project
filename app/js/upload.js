@@ -39,11 +39,11 @@ var upload = (function(){
 			$(this).siblings().children('input').val(imageName);
 
 		if(type == 'image'){
-            var imgWrapper = $('.b-main-img-wr');
+            var imgWrapper = $('.b-main-image-wrapper');
 
             imgWrapper.prepend(image);
             image.on('load', function(){
-                $('.b-main-img-wr').css({'height':$(this).height() ,'width':$(this).width()});
+                $('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
             });
 		} else {
 			dragDrop.appendEl(src);

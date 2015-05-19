@@ -3,14 +3,14 @@ var dragDrop = (function(){
 	var appendDraggableEl = function(url){
 		var xpos = $('.b-controls input[name="xpos"]'),
 			ypos = $('.b-controls input[name="ypos"]'),
-			wtmwr = $('#workspace .b-main-wtm-wr'),
+			wtmwr = $('#workspace .b-main-wtmark-wrapper'),
 			image = $('<img id="watermark" src="' + url + '">');
 
 		wtmwr.append(image);
 
 		image.on('load', function(){
-			$('.b-main-wtm-wr').css({'height':$(this).height() ,'width':$(this).width()});
-			$('.b-main-wtm-wr').draggable({
+			$('.b-main-wtmark-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
+			$('.b-main-wtmark-wrapper').draggable({
 				containment: '#image',
 				cursor: 'move',
 				drag: function( event, ui ) {

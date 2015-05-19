@@ -2,8 +2,8 @@ var wmarkPosition = (function(){
 
     //переменные
     var min = 0,
-        imgWrap = $('.b-main-img-wr'),
-        wmarkWrap = $('.b-main-wtm-wr'),
+        imgWrap = $('.b-main-image-wrapper'),
+        wmarkWrap = $('.b-main-wtmark-wrapper'),
         xpos = $('.b-controls input[name="xpos"]'),
         ypos = $('.b-controls input[name="ypos"]');
 
