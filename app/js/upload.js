@@ -48,6 +48,8 @@ var upload = (function(){
 		} else {
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
+			wmarkOpacity.enable();
+            wmarkPosition.init();
 		}
 		$('#wmarkfile').prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
