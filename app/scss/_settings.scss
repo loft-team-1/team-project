@@ -40,7 +40,7 @@
 }
 .b-section.m-btns {
 	padding: 56px 10px 10px;
-	position:relative;
+	position: relative;
 	@extend .m-cfix;
 }
 
@@ -127,17 +127,7 @@
 	z-index: 2;
 }
 
-.disabled-area {
-	position:absolute;
-	left:0px;
-	top:0;
-	right:0px;
-	bottom:0;
-	z-index:99;
-	height:100%;
-	width:100%;
-	content:" ";
-}
+
 /* = Location section
 ================================================*/
 /* location columns */
@@ -145,37 +135,39 @@
 	@extend .m-cfix;
 	margin-bottom: 6px;
 }
-/* Use Switch */
+
+/* switcher */
 .b-switchers {
-	position:absolute;
+	position: absolute;
 	height: 19px;
-	width:48px;
-	top:10px;
-	right:10px;
-	overflow:hidden;
+	width: 48px;
+	top: 10px;
+	right: 10px;
+	overflow: hidden;
+}
+.b-switch-multiply,
+.b-switch-once {
+	height: 19px;
+	width: 19px;
+	cursor: pointer;
 }
 .b-switch-multiply {
-	height: 19px;
-	float:left;
-	width:19px;
-	content:" ";
-	cursor:pointer;
+	float: left;
 	background: url(../img/icon/multiply-ico.png) center center no-repeat;
+
 	&.m-active {
 		background: url(../img/icon/multiply-ico-active.png) center center no-repeat;
 	}
 }
 .b-switch-once {
-	height: 19px;
-	width:19px;
-	float:right;
-	content:" ";
-	cursor:pointer;
+	float: right;
 	background: url(../img/icon/once-ico.png) center center no-repeat;
+
 	&.m-active {
 		background: url(../img/icon/once-ico-active.png) center center no-repeat;
 	}
 }
+
 /* grid list */
 .b-grid-list {
 	@extend .m-list-reset;
@@ -362,6 +354,16 @@
 
 /* = Disable
 ================================================*/
+.disabled-area {
+	position:absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index:99;
+	height: 100%;
+	width: 100%;
+}
 .m-disabled {
 	opacity: 0.6;
 }
