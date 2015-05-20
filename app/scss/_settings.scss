@@ -127,6 +127,20 @@
 	z-index: 2;
 }
 
+/* form: custom upload: hover */
+.b-custom-upload {
+	&:hover {
+		.b-icon-upload {
+			background-color: darken($color-pink, 3%);
+		}
+	}
+	&:active {
+		.b-icon-upload {
+			background-color: darken($color-pink, 5%);
+		}
+	}
+}
+
 
 /* = Location section
 ================================================*/
@@ -372,14 +386,20 @@
 	display: inline-block;
 
 	&:hover {
-		background: darken($color-pink, 7%);
+		background: darken($color-pink, 3%);
+	}
+	&:active {
+		background: darken($color-pink, 5%);
 	}
 
 	&.m-neg {
 		background: #c1cfd9;
 
 		&:hover {
-			background: darken(#c1cfd9, 7%);
+			background: darken(#c1cfd9, 3%);
+		}
+		&:active {
+			background: darken(#c1cfd9, 5%);
 		}
 	}
 

@@ -371,6 +371,12 @@ body {
   border-radius: 0 3px 3px 0;
   z-index: 2; }
 
+/* form: custom upload: hover */
+.b-custom-upload:hover .b-icon-upload {
+  background-color: #f87067; }
+.b-custom-upload:active .b-icon-upload {
+  background-color: #f8675e; }
+
 /* = Location section
 ================================================*/
 .b-location {
@@ -572,11 +578,15 @@ body {
   text-align: center;
   display: inline-block; }
   .b-btn:hover {
-    background: #f85e54; }
+    background: #f87067; }
+  .b-btn:active {
+    background: #f8675e; }
   .b-btn.m-neg {
     background: #c1cfd9; }
     .b-btn.m-neg:hover {
-      background: #abbecb; }
+      background: #b8c8d3; }
+    .b-btn.m-neg:active {
+      background: #b1c3cf; }
 
 /* = Disable
 ================================================*/
