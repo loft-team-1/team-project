@@ -114,6 +114,7 @@ body {
   vertical-align: top;
   background: #f1f1f5; }
 
+/* = Share================================================*/
 .b-share {
   position: relative;
   width: 43px; }
@@ -124,8 +125,8 @@ body {
 
 .b-share-socials-list {
   display: none;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   width: 43px;
   overflow: hidden;
   background: #fff;
@@ -133,12 +134,13 @@ body {
 
 .b-share-socials-item {
   list-style: none;
-  margin: 0px;
-  padding: 0px; }
-  .b-share-socials-item .b-share-socials-name {
-    position: relative;
-    text-indent: -999px;
-    display: block; }
+  margin: 0;
+  padding: 0; }
+
+.b-share-socials-name {
+  position: relative;
+  text-indent: -999px;
+  display: block; }
 
 .b-share-socials-link {
   display: block;
@@ -374,24 +376,13 @@ body {
   border-radius: 0 3px 3px 0;
   z-index: 2; }
 
-.disabled-area {
-  position: absolute;
-  left: 0px;
-  top: 0;
-  right: 0px;
-  bottom: 0;
-  z-index: 99;
-  height: 100%;
-  width: 100%;
-  content: " "; }
-
 /* = Location section
 ================================================*/
 /* location columns */
 .b-location {
   margin-bottom: 6px; }
 
-/* Use Switch */
+/* switcher */
 .b-switchers {
   position: absolute;
   height: 19px;
@@ -400,22 +391,19 @@ body {
   right: 10px;
   overflow: hidden; }
 
-.b-switch-multiply {
+.b-switch-multiply, .b-switch-once {
   height: 19px;
-  float: left;
   width: 19px;
-  content: " ";
-  cursor: pointer;
+  cursor: pointer; }
+
+.b-switch-multiply {
+  float: left;
   background: url(../img/icon/multiply-ico.png) center center no-repeat; }
   .b-switch-multiply.m-active {
     background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
 
 .b-switch-once {
-  height: 19px;
-  width: 19px;
   float: right;
-  content: " ";
-  cursor: pointer;
   background: url(../img/icon/once-ico.png) center center no-repeat; }
   .b-switch-once.m-active {
     background: url(../img/icon/once-ico-active.png) center center no-repeat; }
@@ -566,6 +554,16 @@ body {
 
 /* = Disable
 ================================================*/
+.disabled-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  height: 100%;
+  width: 100%; }
+
 .m-disabled {
   opacity: 0.6; }
 
