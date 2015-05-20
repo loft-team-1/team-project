@@ -27,8 +27,10 @@ var wmarkOpacity = (function(){
 		var sliderEl = $('.b-opacity-slider'),
 			wtmark = $('.b-main-wtmark-wrapper img');
 
-		sliderEl.slider('value', 100);
+		var sliderValue = sliderEl.slider('value', 100);
 		wtmark.css('opacity', 100);
+		$('#slidervalue')
+
 	};
 
 	return {

@@ -46,7 +46,7 @@
           </div>
           <div class="b-settings">
             <div class="b-settings-title">Настройки</div>
-            <form class="b-form">
+            <form method="POST" enctype="multipart/form-data" action="php/result.php" class="b-form">
               <section class="b-section m-upload">
                 <div class="b-form-line">
                   <div class="b-form-label">Исходное изображение</div>
@@ -54,7 +54,7 @@
                     <input type="file" name="files[]" data-url="php/index.php" id="fileupload" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
-                      <input type="text" readonly placeholder="Image.jpg" class="b-input"> </div>
+                      <input type="text" name="basicImage" readonly placeholder="Image.jpg" class="b-input"> </div>
                   </div>
                 </div>
                 <div class="b-form-line">
@@ -63,7 +63,7 @@
                     <input type="file" name="files[]" data-url="php/index.php" disabled id="wmarkfile" class="b-input b-input-file">
                     <div class="b-fake-upload">
                       <div class="b-icon-upload"></div>
-                      <input type="text" readonly placeholder="Image.png" class="b-input"> </div>
+                      <input type="text" name="waterMark" readonly placeholder="Image.png" class="b-input"> </div>
                   </div>
                 </div>
               </section>
@@ -101,7 +101,7 @@
                 <div class="b-form-label">Прозрачность</div>
                 <div class="b-wmark-opacity">
                   <div class="b-opacity-slider"></div>
-                </div>
+                  <input type="hidden" name="opacity" value="100" id="getopacityvalue"> </div>
               </section>
               <section class="b-section m-btns">
                 <input type="reset" value="Сброс" class="b-btn m-neg m-to-left">
@@ -150,6 +150,7 @@
     <script src="js/opacity.js"></script>
     <script src="js/position.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/form.js"></script>
     <script src="js/main.js"></script>
     <!-- endbuild-->
   </body>

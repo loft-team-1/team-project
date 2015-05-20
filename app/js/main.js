@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
     if($('.b-location')){
         wmarkPosition.disable();
     }
@@ -24,4 +25,5 @@ $(document).ready(function(){
 		wmarkOpacity.reset();
 		upload.reset();
 	});
+
 });
