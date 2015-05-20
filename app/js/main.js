@@ -26,4 +26,6 @@ $(document).ready(function(){
 		wmarkOpacity.reset();
 		upload.reset();
 	});
+
+	switchPattern.init();
 });
