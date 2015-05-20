@@ -32,11 +32,12 @@ var upload = (function(){
 
 	// upload images in work area
 	_fileUploadDone = function (e, data) {
-		var type = $(this).is('#fileupload') ? 'image' : 'watermark',
+		var $this = $(this),
+            type = $this.is('#fileupload') ? 'image' : 'watermark',
 			imageName = data.result.files[0].name,
 			src = 'php/files/' + imageName,
 			image = $('<img id="'+ type +'" src="' + src + '">');
-			$(this).siblings().children('input').val(imageName);
+			$this.siblings().children('input').val(imageName);
 
 		if(type == 'image'){
             var imgWrapper = $('.b-main-image-wrapper');
@@ -46,6 +47,7 @@ var upload = (function(){
                 $('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
             });
 		} else {
+            wmarkPosition.reset();
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
 			wmarkOpacity.enable();

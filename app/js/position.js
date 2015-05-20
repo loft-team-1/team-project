@@ -98,10 +98,11 @@ var wmarkPosition = (function(){
                 max = input.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
                 axis = input.is(xpos) ? 'left' : 'top';
 
-            if(changeVal > max){
-                changeVal = max
-            } else if(changeVal < min){
-                changeVal = min
+            if(changeVal > max || changeVal < min){
+                changeVal = (changeVal > max) ? max : min;
+                $this.addClass('m-disabled');
+            } else if($this.siblings().hasClass('m-disabled')){
+                $this.siblings().removeClass('m-disabled');
             }
 
             input.val(changeVal);
