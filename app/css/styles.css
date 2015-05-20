@@ -374,33 +374,8 @@ body {
 /* = Location section
 ================================================*/
 .b-location {
-  margin-bottom: 6px; }
-
-/* switcher */
-.b-switchers {
-  position: absolute;
-  height: 19px;
-  width: 48px;
-  top: 10px;
-  right: 10px;
-  overflow: hidden; }
-
-.b-switch-multiply, .b-switch-once {
-  height: 19px;
-  width: 19px;
-  cursor: pointer; }
-
-.b-switch-multiply {
-  float: left;
-  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
-  .b-switch-multiply.m-active {
-    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
-
-.b-switch-once {
-  float: right;
-  background: url(../img/icon/once-ico.png) center center no-repeat; }
-  .b-switch-once.m-active {
-    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+  margin-bottom: 6px;
+  position: relative; }
 
 /* grid list */
 .b-grid-list {
@@ -492,6 +467,59 @@ body {
       background-position: 0 -39px; }
     .b-control-arrow.m-btm.m-disabled:hover {
       background-position: 0 -26px; }
+
+/* = Switcher
+================================================*/
+.b-switchers {
+  position: absolute;
+  height: 19px;
+  width: 48px;
+  top: 10px;
+  right: 10px;
+  overflow: hidden; }
+
+.b-switcher {
+  height: 19px;
+  width: 19px;
+  cursor: pointer; }
+
+.b-switcher.m-multi {
+  float: left;
+  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+  .b-switcher.m-multi.m-active {
+    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+
+.b-switcher.m-single {
+  float: right;
+  background: url(../img/icon/once-ico.png) center center no-repeat; }
+  .b-switcher.m-single.m-active {
+    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+
+/* grid interval */
+.b-intervals {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 102px;
+  height: 102px; }
+
+.b-interval.m-hor {
+  background: #f97e76;
+  height: 100%;
+  width: 0;
+  margin: 0 auto; }
+
+.b-interval.m-vert {
+  background: #f97e76;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
 
 /* = Opacity section
 ================================================*/
