@@ -23,7 +23,7 @@
   font-style: normal; }
 
 /* = Extends, Mixins================================================*/
-.m-list-reset, .b-grid-list {
+.m-list-reset, .b-share-socials-item, .b-grid-list {
   list-style-type: none;
   margin: 0;
   padding: 0; }
@@ -131,11 +131,6 @@ body {
   overflow: hidden;
   background: #fff;
   opacity: 0.6; }
-
-.b-share-socials-item {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
 
 .b-share-socials-name {
   position: relative;
@@ -378,7 +373,6 @@ body {
 
 /* = Location section
 ================================================*/
-/* location columns */
 .b-location {
   margin-bottom: 6px; }
 
@@ -490,16 +484,14 @@ body {
     .b-control-arrow.m-top:hover {
       background-position: 0 0; }
     .b-control-arrow.m-top.m-disabled:hover {
-      background-position: 0 -13px;
-      cursor: default; }
+      background-position: 0 -13px; }
   .b-control-arrow.m-btm {
     bottom: 4px;
     background-position: 0 -26px; }
     .b-control-arrow.m-btm:hover {
       background-position: 0 -39px; }
     .b-control-arrow.m-btm.m-disabled:hover {
-      background-position: 0 -26px;
-      cursor: default; }
+      background-position: 0 -26px; }
 
 /* = Opacity section
 ================================================*/
@@ -560,18 +552,17 @@ body {
 
 /* = Disable
 ================================================*/
-.disabled-area {
+.m-disabled-area {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
-  height: 100%;
-  width: 100%; }
+  z-index: 99; }
 
 .m-disabled {
-  opacity: 0.6; }
+  opacity: 0.6;
+  cursor: default; }
 
 /* = Fixes for old browsers
 ================================================*/
