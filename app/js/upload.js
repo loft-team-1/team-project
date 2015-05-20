@@ -51,6 +51,7 @@ var upload = (function(){
 			wmarkOpacity.enable();
             wmarkPosition.init();
             $('.disabled-area').css('display','none');
+            $('.m-btns input').prop('disabled', false);
 		}
 		$('#wmarkfile').prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
