@@ -18,6 +18,8 @@ $(document).ready(function(){
 		$('.b-input').placeholder();
 	}
 
+    $('.m-btns input').prop('disabled', true);
+
 	// form reset
 	$('.b-form').on('reset', function(e){
 		(e.preventDefault) ? e.preventDefault(): e.returnValue;
