@@ -30,8 +30,7 @@ var form = (function(){
 		}
 
 		$.ajax(obj).done(function(data) {
-			data = JSON.parse(data);
-
+			$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
 		});
 
 	},

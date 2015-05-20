@@ -1,47 +1,36 @@
 <?php
 
-//checking that error display is on
-error_reporting(E_ALL | E_STRICT);
-if (ini_get('display_errors') != 1) {
-  ini_set('display_errors', 1);
-};
+	// Include Library
+	require_once './vendor/autoload.php';
+	use PHPImageWorkshop\ImageWorkshop; // Use the namespace of ImageWorkshop
 
+	// Get images
+	$image = ImageWorkshop::initFromPath('./files/'.$_POST['basicImage']);
+	$watermark = ImageWorkshop::initFromPath('./files/'.$_POST['waterMark']);
+	//$image->resizeInPixel(650, null, true);
 
+	// Settings
+	$dirPath = './files/';
+	$filename = "temp-image.jpg";
+	$createFolders = false;
+	$backgroundColor = $ffffff; // transparent, only for PNG (otherwise it will be white if set null)
+	$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
+	$watermarkOpacity = $_POST['opacity'];
+	$xpos = $_POST['xpos'];
+	$ypos = $_POST['ypos'];
 
-// Include Library
-require_once './vendor/autoload.php';
-use PHPImageWorkshop\ImageWorkshop; // Use the namespace of ImageWorkshop
+	// Add opacity to watermark
+	$watermark->opacity($watermarkOpacity);
 
-// Load image and watermark
+	// Prepare image
+	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality); // Convert basic layer to jpg
+	$image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
+	$image->addLayerOnTop($watermark, $xpos, $ypos, 'LT'); // Add watermark to basic layer
 
-$imageBase = ImageWorkshop::initFromPath('./files/'.$_POST['basicImage']);
-$imageBase->resizeInPixel(650, 534);
+	// Result image
+	$filename = "result.jpg";
+	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 
-$xpos = $_POST['xpos'];
-$ypos = $_POST['ypos'];
-
-$wmarkImage = ImageWorkshop::initFromPath('./files/'.$_POST['waterMark']);
-$wmarkOpacity = $_POST['opacity'];
-$wmarkImage->opacity($wmarkOpacity);
-
-
-
-$imageBase->addLayerOnTop($wmarkImage, $xpos, $ypos, 'LT');
-
-
-
-$dirPath = "./files/result";
-$filename = "result.jpg";
-$createFolders = false;
-$backgroundColor = null; // transparent, only for PNG (otherwise it will be white if set null)
-$imageQuality = 100; // useless for GIF, usefull for PNG and JPEG (0 to 100%)
-  
-$imageBase->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
-
-?>
-
-
-
-
-
-
+	// Send to ajax
+	echo __DIR__."/files/".$filename;
+	exit;

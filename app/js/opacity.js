@@ -2,17 +2,19 @@ var wmarkOpacity = (function(){
 
 	var init = function(){
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('.b-main-wtmark-wrapper img');
+			wtmark = $('.b-main-wtmark-wrapper img'),
+			hiddenOpacity = $('input[name="opacity"]');
 
 		if (sliderEl.length) {
 			sliderEl.slider({
-				min: 1,
+				min: 0,
 				max: 100,
 				value: 100,
 				range: 'min',
                 disabled: true,
 				slide: function(event, ui) {
 					wtmark.css('opacity', ui.value / 100);
+					hiddenOpacity.val(ui.value);
 				}
 			});
 		}

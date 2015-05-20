@@ -4,6 +4,3 @@ app/bower
 node_modules
 dist
 app/php/vendor/
-composer.json
-composer.lock
-composer.phar

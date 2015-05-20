@@ -175,6 +175,10 @@ body {
 #watermark {
   cursor: move; }
 
+/* iframe for download */
+#downloadFrame {
+  display: none; }
+
 /* TODO temporary ie fix */
 #image {
   max-width: 100%;
