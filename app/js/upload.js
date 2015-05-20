@@ -50,6 +50,7 @@ var upload = (function(){
 			wmarkOpacity.init();
 			wmarkOpacity.enable();
             wmarkPosition.init();
+            $('.disabled-area').css('display','none');
             $('.m-btns input').prop('disabled', false);
 		}
 		$('#wmarkfile').prop('disabled', false);
