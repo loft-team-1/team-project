@@ -40,6 +40,7 @@
 }
 .b-section.m-btns {
 	padding: 56px 10px 10px;
+	position:relative;
 	@extend .m-cfix;
 }
 
@@ -152,27 +153,27 @@
 	top:10px;
 	right:10px;
 	overflow:hidden;
-	.b-switch-multiply {
-		height: 19px;
-		float:left;
-		width:19px;
-		content:" ";
-		cursor:pointer;
-		background: url(../img/icon/multiply-ico.png) center center no-repeat;
-		&.active {
-			background: url(../img/icon/multiply-ico-active.png) center center no-repeat;
-		}
+}
+.b-switch-multiply {
+	height: 19px;
+	float:left;
+	width:19px;
+	content:" ";
+	cursor:pointer;
+	background: url(../img/icon/multiply-ico.png) center center no-repeat;
+	&.m-active {
+		background: url(../img/icon/multiply-ico-active.png) center center no-repeat;
 	}
-	.b-switch-once {
-		height: 19px;
-		width:19px;
-		float:right;
-		content:" ";
-		cursor:pointer;
-		background: url(../img/icon/once-ico.png) center center no-repeat;
-		&.active {
-			background: url(../img/icon/once-ico-active.png) center center no-repeat;
-		}
+}
+.b-switch-once {
+	height: 19px;
+	width:19px;
+	float:right;
+	content:" ";
+	cursor:pointer;
+	background: url(../img/icon/once-ico.png) center center no-repeat;
+	&.m-active {
+		background: url(../img/icon/once-ico-active.png) center center no-repeat;
 	}
 }
 /* grid list */

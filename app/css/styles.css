@@ -117,57 +117,62 @@ body {
 .b-share {
   position: relative;
   width: 43px; }
-  .b-share .b-share-icon {
-    width: 43px;
-    height: 41px;
-    position: absolute;
-    overflow: hidden;
-    opacity: 0.6; }
-    .b-share .b-share-icon .b-share-icon-link {
-      display: block;
-      background: #fff url(../img/icon/share-ico.png) center center no-repeat;
-      text-indent: -999px;
-      width: 43px;
-      height: 41px;
-      cursor: default; }
-      .b-share .b-share-icon .b-share-icon-link:hover {
-        background: #fff url(../img/icon/share-ico-hover.png) center center no-repeat; }
-  .b-share .b-share-socials-list {
-    display: none;
-    margin: 0px;
-    padding: 0px;
-    width: 43px;
-    overflow: hidden;
-    background: #fff;
-    opacity: 0.6; }
-    .b-share .b-share-socials-list .b-share-socials-item {
-      list-style: none;
-      margin: 0px;
-      padding: 0px; }
-      .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link {
-        display: block;
-        height: 41px;
-        width: 43px; }
-        .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.fb-ico {
-          background: url(../img/icon/fb-ico.png) center center no-repeat; }
-          .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.fb-ico:hover {
-            background: url(../img/icon/fb-ico-hover.png) center center no-repeat; }
-        .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.tw-ico {
-          background: url(../img/icon/tw-ico.png) center center no-repeat; }
-          .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.tw-ico:hover {
-            background: url(../img/icon/tw-ico-hover.png) center center no-repeat; }
-        .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.vk-ico {
-          background: url(../img/icon/vk-ico.png) center center no-repeat; }
-          .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-link.vk-ico:hover {
-            background: url(../img/icon/vk-ico-hover.png) center center no-repeat; }
-      .b-share .b-share-socials-list .b-share-socials-item .b-share-socials-name {
-        position: relative;
-        text-indent: -999px;
-        display: block; }
   .b-share:hover .b-share-icon {
     right: -43px; }
   .b-share:hover .b-share-socials-list {
     display: block; }
+
+.b-share-socials-list {
+  display: none;
+  margin: 0px;
+  padding: 0px;
+  width: 43px;
+  overflow: hidden;
+  background: #fff;
+  opacity: 0.6; }
+
+.b-share-socials-item {
+  list-style: none;
+  margin: 0px;
+  padding: 0px; }
+  .b-share-socials-item .b-share-socials-name {
+    position: relative;
+    text-indent: -999px;
+    display: block; }
+
+.b-share-socials-link {
+  display: block;
+  height: 41px;
+  width: 43px; }
+  .b-share-socials-link.fb-ico {
+    background: url(../img/icon/fb-ico.png) center center no-repeat; }
+    .b-share-socials-link.fb-ico:hover {
+      background: url(../img/icon/fb-ico-hover.png) center center no-repeat; }
+  .b-share-socials-link.tw-ico {
+    background: url(../img/icon/tw-ico.png) center center no-repeat; }
+    .b-share-socials-link.tw-ico:hover {
+      background: url(../img/icon/tw-ico-hover.png) center center no-repeat; }
+  .b-share-socials-link.vk-ico {
+    background: url(../img/icon/vk-ico.png) center center no-repeat; }
+    .b-share-socials-link.vk-ico:hover {
+      background: url(../img/icon/vk-ico-hover.png) center center no-repeat; }
+
+.b-share-icon {
+  width: 43px;
+  height: 41px;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.6; }
+
+.b-share-icon-link {
+  display: block;
+  background: #fff url(../img/icon/share-ico.png) center center no-repeat;
+  text-indent: -999px;
+  width: 43px;
+  height: 41px;
+  cursor: default; }
+  .b-share-icon-link:hover {
+    background: #fff url(../img/icon/share-ico-hover.png) center center no-repeat; }
 
 /* = Footer================================================*/
 .b-footer {
@@ -268,7 +273,8 @@ body {
     margin-left: -10px; }
 
 .b-section.m-btns {
-  padding: 56px 10px 10px; }
+  padding: 56px 10px 10px;
+  position: relative; }
 
 /* = Form
 ================================================*/
@@ -389,24 +395,26 @@ body {
   top: 10px;
   right: 10px;
   overflow: hidden; }
-  .b-switchers .b-switch-multiply {
-    height: 19px;
-    float: left;
-    width: 19px;
-    content: " ";
-    cursor: pointer;
-    background: url(../img/icon/multiply-ico.png) center center no-repeat; }
-    .b-switchers .b-switch-multiply.active {
-      background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
-  .b-switchers .b-switch-once {
-    height: 19px;
-    width: 19px;
-    float: right;
-    content: " ";
-    cursor: pointer;
-    background: url(../img/icon/once-ico.png) center center no-repeat; }
-    .b-switchers .b-switch-once.active {
-      background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+
+.b-switch-multiply {
+  height: 19px;
+  float: left;
+  width: 19px;
+  content: " ";
+  cursor: pointer;
+  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+  .b-switch-multiply.m-active {
+    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+
+.b-switch-once {
+  height: 19px;
+  width: 19px;
+  float: right;
+  content: " ";
+  cursor: pointer;
+  background: url(../img/icon/once-ico.png) center center no-repeat; }
+  .b-switch-once.m-active {
+    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
 
 /* grid list */
 .b-grid-list {
