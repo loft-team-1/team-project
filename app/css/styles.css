@@ -294,22 +294,22 @@ body {
   width: 100%; }
   .b-input::-webkit-input-placeholder {
     color: #9eb2c0;
-    opacity: 1;
+    opacity: 2;
     transition: opacity 0.3s ease;
     text-overflow: ellipsis; }
   .b-input::-moz-placeholder {
     color: #9eb2c0;
-    opacity: 1;
+    opacity: 2;
     transition: opacity 0.3s ease;
     text-overflow: ellipsis; }
   .b-input:-ms-input-placeholder {
     color: #9eb2c0;
-    opacity: 1;
+    opacity: 2;
     transition: opacity 0.3s ease;
     text-overflow: ellipsis; }
   .b-input::placeholder {
     color: #9eb2c0;
-    opacity: 1;
+    opacity: 2;
     transition: opacity 0.3s ease;
     text-overflow: ellipsis; }
   .b-input:focus::-webkit-input-placeholder {
