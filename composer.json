@@ -1,0 +1,8 @@
+{
+  "require": {
+	"sybio/image-workshop": "dev-master"
+  },
+  "config": {
+	"vendor-dir": "app/php/vendor"
+  }
+}

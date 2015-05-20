@@ -235,10 +235,14 @@ body {
 #watermark {
   cursor: move; }
 
-/* TODO temporary ie fix */
+/* ie fix */
 #image {
   max-width: 100%;
   max-height: 100%; }
+
+/* iframe for download */
+#downloadFrame {
+  display: none; }
 
 /* = Settings
 ================================================*/
