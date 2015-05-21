@@ -376,6 +376,8 @@ body {
   background-color: #f87067; }
 .b-custom-upload:active .b-icon-upload {
   background-color: #f8675e; }
+.b-custom-upload.m-disabled:hover .b-icon-upload {
+  background-color: #f97e76; }
 
 /* = Location section
 ================================================*/
