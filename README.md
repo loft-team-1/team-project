@@ -1,43 +1,30 @@
 # Loft Team 1: Watermark project
-
-Add custom watermark to photos and pictures online!
+Add custom watermark to photos and pictures online.
 
 Global dependencies
 -------------------
 
-1. Npm - a JavaScript package manager
+Npm - a JavaScript package manager
 
-    ``` npm comes with [node](http://nodejs.org/download/) now.
-    ```
+> npm comes with node: http://nodejs.org/download/
 
-2. Bower - a package manager for the web
+Bower - a package manager for the web
 
-    ``` $ npm install -g bower
-    ```
+     npm install -g bower
 
-3. Composer - dependency manager for PHP
+Composer - dependency manager for PHP
 
-    ``` follow instructions [in the documentation](https://getcomposer.org/doc/00-intro.md#globally)
-    ```
+
+> follow instructions in the documentation:
+  https://getcomposer.org/doc/00-intro.md#globally
 
 
 Installation / Usage
 --------------------
 
-1.  ``` $ git clone https://github.com/loft-team-1/team-project.git
-    ```
-
-2.  ``` $ npm i
-    ```
-
-3.  ``` $ bower i
-    ```
-
-4.  ``` $ php composer.phar install
-    ```
-
-5.  ``` $ gulp wiredep
-    ```
-
-5.  ``` $ gulp
-    ```
+* ```git clone https://github.com/loft-team-1/team-project.git```
+* ```npm i```
+* ```bower i```
+* ```php composer.phar install```
+* ```gulp wiredep```
+* ```gulp```
