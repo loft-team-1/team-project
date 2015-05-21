@@ -26,5 +26,6 @@ Installation / Usage
 * ```npm i```
 * ```bower i```
 * ```php composer.phar install```
+  * ```composer install``` (for Windows)
 * ```gulp wiredep```
 * ```gulp```
