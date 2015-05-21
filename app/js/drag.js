@@ -1,10 +1,10 @@
 var dragDrop = (function(){
+    var xpos = $('.b-controls input[name="xpos"]'),
+        ypos = $('.b-controls input[name="ypos"]'),
+        waterWrap = $('.b-main-wtmark-wrapper');
 
 	var appendDraggableEl = function(url){
-		var xpos = $('.b-controls input[name="xpos"]'),
-			ypos = $('.b-controls input[name="ypos"]'),
-			waterWrap = $('.b-main-wtmark-wrapper'),
-			image = $('<img id="watermark" class="watermark" src="' + url + '">');
+			var image = $('<img id="watermark" class="watermark" src="' + url + '">');
 
         waterWrap.append(image);
 
@@ -23,14 +23,23 @@ var dragDrop = (function(){
     },
 
     toggleContainment = function(){
-        var waterWrap = $('.b-main-wtmark-wrapper');
-
         if(waterWrap.draggable('option', 'containment') == false) {
-            waterWrap.draggable('option', 'containment', '#image');
+            waterWrap.draggable( "destroy" );
+            waterWrap.draggable({
+                containment: '#image',
+                cursor: 'move',
+                drag: function( event, ui ) {
+                    xpos.val(Math.round(ui.position.left));
+                    ypos.val(Math.round(ui.position.top));
+                    wmarkPosition.clearGrid();
+                }
+            });
             _removeWatermark();
         } else {
-            waterWrap.draggable('option', 'containment', false);
-
+            waterWrap.draggable( "destroy" );
+            waterWrap.draggable({
+                cursor: 'move'
+            });
             _cloneWatermark();
         }
     },
@@ -40,7 +49,6 @@ var dragDrop = (function(){
             imageWidth = imageWrap.width(),
             imageHeight = imageWrap.height(),
             watermark = $('.watermark'),
-            watermarkWrap = $('.b-main-wtmark-wrapper'),
             watermarkHeight = watermark.height(),
             watermarkWidth = watermark.width(),
             needClones = Math.ceil(imageHeight / watermarkHeight) * Math.ceil(imageWidth / watermarkWidth) * 4 - 1,
@@ -50,19 +58,18 @@ var dragDrop = (function(){
             $.merge( tmp, clone.clone().get() );
         }
 
-        watermarkWrap.css({
+        waterWrap.css({
             'min-width': imageWidth * 2 + 'px',
             'min-height': imageHeight * 2 + 'px'
         });
-        watermarkWrap.append(tmp);
+        waterWrap.append(tmp);
     },
     _removeWatermark = function(){
-        var watermarkWrap = $('.b-main-wtmark-wrapper'),
-            watermark = $('.watermark');
+        var watermark = $('.watermark');
 
         $('.watermark_cloned').remove();
 
-        watermarkWrap.css({
+        waterWrap.css({
             'min-width': watermark.width() + 'px',
             'min-height': watermark.height() + 'px'
         });

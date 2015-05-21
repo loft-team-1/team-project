@@ -75,8 +75,12 @@ var wmarkPosition = (function(){
 
         _inputChange = function(){
             var $this = $(this),
-                max = $this.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
-                axis = $this.is(xpos) ? 'left' : 'top';
+                maxPosition = $this.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
+                maxMargin = $this.is(xpos) ? imgWrap.width() : imgWrap.height(),
+                multi = $('.m-multi'),
+                max = multi.hasClass('m-active') ? maxMargin : maxPosition,
+                axis = $this.is(xpos) ? 'left' : 'top',
+                margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom';
 
             if($this.val() > max){
                 $this.val(max);
@@ -84,7 +88,11 @@ var wmarkPosition = (function(){
                 $this.val(min);
             }
 
-            wmarkWrap.css(axis, $this.val() + 'px');
+            if(multi.hasClass('m-active')){
+                $('.watermark').css(margin, $this.val() + 'px');
+            } else {
+                wmarkWrap.css(axis, $this.val() + 'px');
+            }
             clearGrid();
         },
 
@@ -93,10 +101,14 @@ var wmarkPosition = (function(){
 
             var $this = $(this),
                 input = $this.siblings('input[type="text"]'),
+                multi = $('.m-multi'),
                 curVal = parseInt(input.val()) || 0,
                 changeVal = $this.hasClass('m-top') ? curVal + 1 : curVal - 1,
-                max = input.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
-                axis = input.is(xpos) ? 'left' : 'top';
+                maxPosition = input.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
+                maxMargin = input.is(xpos) ? imgWrap.width() : imgWrap.height(),
+                max = multi.hasClass('m-active') ? maxMargin : maxPosition,
+                axis = input.is(xpos) ? 'left' : 'top',
+                margin = input.is(xpos) ? 'margin-right' : 'margin-bottom';
 
             if(changeVal > max || changeVal < min){
                 changeVal = (changeVal > max) ? max : min;
@@ -105,8 +117,13 @@ var wmarkPosition = (function(){
                 $this.siblings().removeClass('m-disabled');
             }
 
+
+            if(multi.hasClass('m-active')){
+                $('.watermark').css(margin, changeVal + 'px');
+            } else {
+                wmarkWrap.css(axis, changeVal + 'px');
+            }
             input.val(changeVal);
-            wmarkWrap.css(axis, changeVal + 'px');
             clearGrid();
         },
 
@@ -136,6 +153,10 @@ var wmarkPosition = (function(){
             wmarkWrap.css({
                 'left': 0,
                 'top': 0
+            });
+            $('.watermark').css({
+                'margin-right': 0,
+                'margin-bottom': 0
             });
             clearGrid();
         };
