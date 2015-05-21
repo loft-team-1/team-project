@@ -40,6 +40,7 @@
 }
 .b-section.m-btns {
 	padding: 56px 10px 10px;
+	position: relative;
 	@extend .m-cfix;
 }
 
@@ -126,13 +127,32 @@
 	z-index: 2;
 }
 
+/* form: custom upload: hover */
+.b-custom-upload {
+	&:hover {
+		.b-icon-upload {
+			background-color: darken($color-pink, 3%);
+		}
+	}
+	&:active {
+		.b-icon-upload {
+			background-color: darken($color-pink, 5%);
+		}
+	}
+  &.m-disabled:hover {
+    .b-icon-upload {
+      background-color: $color-pink;
+    }
+  }
+}
+
 
 /* = Location section
 ================================================*/
-/* location columns */
 .b-location {
 	@extend .m-cfix;
 	margin-bottom: 6px;
+	position: relative;
 }
 
 /* grid list */
@@ -234,6 +254,9 @@
 		&:hover {
 			background-position: 0 0;
 		}
+		&.m-disabled:hover {
+			background-position: 0 -13px;
+		}
 	}
 	&.m-btm {
 		bottom: 4px;
@@ -241,7 +264,70 @@
 		&:hover {
 			background-position: 0 -39px;
 		}
+		&.m-disabled:hover {
+			background-position: 0 -26px;
+		}
 	}
+}
+
+
+/* = Switcher
+================================================*/
+.b-switchers {
+	position: absolute;
+	height: 19px;
+	width: 48px;
+	top: 10px;
+	right: 10px;
+	overflow: hidden;
+}
+.b-switcher {
+	height: 19px;
+	width: 19px;
+	cursor: pointer;
+}
+.b-switcher.m-multi {
+	float: left;
+	background: url(../img/icon/multiply-ico.png) center center no-repeat;
+
+	&.m-active {
+		background: url(../img/icon/multiply-ico-active.png) center center no-repeat;
+	}
+}
+.b-switcher.m-single {
+	float: right;
+	background: url(../img/icon/once-ico.png) center center no-repeat;
+
+	&.m-active {
+		background: url(../img/icon/once-ico-active.png) center center no-repeat;
+	}
+}
+
+/* grid interval */
+.b-intervals {
+	position: absolute;
+	z-index: 99;
+	left: 0;
+	top: 0;
+	width: 102px;
+	height: 102px;
+}
+.b-interval.m-hor {
+	background: $color-pink;
+	height: 100%;
+	width: 0;
+	margin: 0 auto;
+}
+.b-interval.m-vert {
+	background: $color-pink;
+	position: absolute;
+	width: 100%;
+	height: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
 }
 
 
@@ -305,14 +391,20 @@
 	display: inline-block;
 
 	&:hover {
-		background: darken($color-pink, 7%);
+		background: darken($color-pink, 3%);
+	}
+	&:active {
+		background: darken($color-pink, 5%);
 	}
 
 	&.m-neg {
 		background: #c1cfd9;
 
 		&:hover {
-			background: darken(#c1cfd9, 7%);
+			background: darken(#c1cfd9, 3%);
+		}
+		&:active {
+			background: darken(#c1cfd9, 5%);
 		}
 	}
 
@@ -321,8 +413,18 @@
 
 /* = Disable
 ================================================*/
+.m-disabled-area {
+	position:absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index:99;
+}
+
 .m-disabled {
 	opacity: 0.6;
+	cursor: default;
 }
 
 

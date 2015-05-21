@@ -20,24 +20,22 @@ var wmarkOpacity = (function(){
 		}
 	},
 
-    sliderEnable = function(){
-        var sliderEl = $('.b-opacity-slider');
-        sliderEl.slider( "option", "disabled", false );
-    },
+	sliderEnable = function(){
+		var sliderEl = $('.b-opacity-slider');
+		sliderEl.slider( "option", "disabled", false );
+	},
 
 	resetOpacity = function(){
 		var sliderEl = $('.b-opacity-slider'),
 			wtmark = $('.b-main-wtmark-wrapper img');
 
-		var sliderValue = sliderEl.slider('value', 100);
+		sliderEl.slider('value', 100);
 		wtmark.css('opacity', 100);
-		$('#slidervalue')
-
 	};
 
 	return {
 		init: init,
-        enable: sliderEnable,
+		enable: sliderEnable,
 		reset: resetOpacity
 	};
 

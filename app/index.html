@@ -30,7 +30,6 @@
     <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
     <![endif]-->
     <div class="h-base">
-      <div class="b-gradient"></div>
       <!-- Content: start-->
       <div class="b-main-container">
         <div class="b-columns">
@@ -68,6 +67,11 @@
                 </div>
               </section>
               <section class="b-section m-location">
+                <div class="m-disabled-area"></div>
+                <div class="b-switchers">
+                  <a href="#" data-switch="multi" class="b-switcher m-multi"></a>
+                  <a href="#" data-switch="single" class="b-switcher m-single m-active"></a>
+                </div>
                 <div class="b-form-label m-extra-spaced">Положение</div>
                 <div class="b-location">
                   <ul class="b-grid-list">
@@ -98,6 +102,7 @@
                 </div>
               </section>
               <section class="b-section m-opacity">
+                <div class="m-disabled-area"></div>
                 <div class="b-form-label">Прозрачность</div>
                 <div class="b-wmark-opacity">
                   <div class="b-opacity-slider">
@@ -105,6 +110,7 @@
                 </div>
               </section>
               <section class="b-section m-btns">
+                <div class="m-disabled-area"></div>
                 <input type="reset" value="Сброс" class="b-btn m-neg m-to-left">
                 <input type="submit" value="Скачать" class="b-btn m-to-right"> </section>
             </form>
@@ -152,6 +158,7 @@
     <script src="js/drag.js"></script>
     <script src="js/opacity.js"></script>
     <script src="js/position.js"></script>
+    <script src="js/switcher.js"></script>
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
     <script src="js/main.js"></script>

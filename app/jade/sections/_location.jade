@@ -1,7 +1,11 @@
 section.b-section.m-location
+    .m-disabled-area
+    .b-switchers
+        a(href="#",data-switch="multi").b-switcher.m-multi
+        a(href="#",data-switch="single").b-switcher.m-single.m-active
     .b-form-label.m-extra-spaced Положение
-    .b-location
 
+    .b-location
         ul.b-grid-list
             each item in ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']
                 li.b-grid-item(data-pos=item)
