@@ -48,6 +48,7 @@ var upload = (function(){
 			});
 		} else {
 			wmarkPosition.reset();
+			switchPattern.reset();
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
 			wmarkOpacity.enable();

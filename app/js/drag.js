@@ -1,26 +1,30 @@
 var dragDrop = (function(){
 
-	var appendDraggableEl = function(url){
-		var xpos = $('.b-controls input[name="xpos"]'),
-			ypos = $('.b-controls input[name="ypos"]'),
-			waterWrap = $('.b-main-wtmark-wrapper'),
-			image = $('<img id="watermark" src="' + url + '">');
+	var init = function(){
 
-        waterWrap.append(image);
+		},
+		
+		appendDraggableEl = function(url){
+			var xpos = $('.m-for-single input[name="xpos"]'),
+				ypos = $('.m-for-single input[name="ypos"]'),
+				waterWrap = $('.b-main-wtmark-wrapper'),
+				image = $('<img id="watermark" src="' + url + '">');
 
-		image.on('load', function(){
-            waterWrap.css({'height':$(this).height() ,'width':$(this).width()});
-            waterWrap.draggable({
-				containment: '#image',
-				cursor: 'move',
-				drag: function( event, ui ) {
-					xpos.val(Math.round(ui.position.left));
-					ypos.val(Math.round(ui.position.top));
-                    wmarkPosition.clearGrid();
-				}
+	        waterWrap.append(image);
+
+			image.on('load', function(){
+	            waterWrap.css({'height':$(this).height() ,'width':$(this).width()});
+	            waterWrap.draggable({
+					containment: '#image',
+					cursor: 'move',
+					drag: function( event, ui ) {
+						xpos.val(Math.round(ui.position.left));
+						ypos.val(Math.round(ui.position.top));
+	                    wmarkPosition.clearGrid();
+					}
+				});
 			});
-		});
-	};
+		};
 
 	return {
 		appendEl: appendDraggableEl

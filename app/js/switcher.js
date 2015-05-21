@@ -12,7 +12,7 @@ var switchPattern  = (function(){
 			switchers.on('click touchstart', _changePattern);
 		}
 
-		$('.b-control-arrow').on('click touchstart', _arrowsChange);
+		$('.m-for-multi .b-control-arrow').on('click touchstart', _arrowsChange);
 	},
 
 	_changePattern =function(e){
@@ -22,16 +22,33 @@ var switchPattern  = (function(){
 		upload.reset();
 
 		var el = $(this),
-			intervals = $('.b-intervals');
+			intervals = $('.b-intervals'),
+			single = $('.m-for-single'),
+			multi = $('.m-for-multi');
 
 		if (el.data('switch') === 'single') {
+			
+			_resetIntervals();
+
 			if (intervals.length) {
 				intervals.remove();
-			}
+			};
+
+			if (!(single.hasClass('m-active'))) {
+				single.addClass('m-active');
+				single.siblings('.m-active').removeClass('m-active');
+			};
+
+
 		} else {
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
+			};
+			if (!(multi.hasClass('m-active'))) {
+				multi.addClass('m-active');
+				multi.siblings('.m-active').removeClass('m-active');
 			}
+
 		}
 
 		if (!(el.hasClass('m-active'))) {
@@ -39,6 +56,12 @@ var switchPattern  = (function(){
 			el.siblings('.m-active').removeClass('m-active');
 		}
 
+	},
+
+	_resetIntervals = function() {
+		$('.b-interval.m-hor').css('width', '1px');
+		$('.b-interval.m-vert').css('height', '1px');
+		$('.m-for-multi input').val('0');
 	},
 
 	_arrowsChange = function(e){
@@ -50,7 +73,7 @@ var switchPattern  = (function(){
 			max = 102,
 			min = 0,
 			changeVal = $this.hasClass('m-top') ? curVal + 1 : curVal - 1,
-			axis = input.is('.b-controls input[name="xpos"]') ? 'width' : 'height';
+			axis = input.is('.b-controls input[name="xinterval"]') ? 'width' : 'height';
 
 		if(changeVal > max){
 			changeVal = max
@@ -67,7 +90,8 @@ var switchPattern  = (function(){
 	};
 
 	return {
-		init: init
+		init: init,
+		reset: _resetIntervals
 	}
 
 })();
