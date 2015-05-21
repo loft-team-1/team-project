@@ -4,8 +4,8 @@ var wmarkPosition = (function(){
     var min = 0,
         imgWrap = $('.b-main-image-wrapper'),
         wmarkWrap = $('.b-main-wtmark-wrapper'),
-        xpos = $('.b-controls input[name="xpos"]'),
-        ypos = $('.b-controls input[name="ypos"]');
+        xpos = $('.m-for-single input[name="xpos"]'),
+        ypos = $('.m-for-single input[name="ypos"]');
 
 	var init = function(){
 
@@ -14,8 +14,8 @@ var wmarkPosition = (function(){
         },
 
         _setUpListeners = function(){
-            $('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
-            $('.b-control-arrow').on('click touchstart', _arrowsChange);
+            $('.m-for-single input[type="text"]').on('input', _inputChange).prop('disabled', false);
+            $('.m-for-single .b-control-arrow').on('click touchstart', _arrowsChange);
             $('.b-grid-list li').on('click touchstart', _gridChange);
         },
 

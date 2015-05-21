@@ -40,6 +40,7 @@ var form = (function(){
 		wmarkPosition.reset();
 		wmarkOpacity.reset();
 		upload.reset();
+		switchPattern.reset();
 	};
 
 	return {
