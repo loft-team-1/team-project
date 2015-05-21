@@ -20,6 +20,7 @@ var switchPattern  = (function(){
 		wmarkPosition.reset();
 		wmarkOpacity.reset();
 		upload.reset();
+        dragDrop.toggle();
 
 		var el = $(this),
 			intervals = $('.b-intervals');
