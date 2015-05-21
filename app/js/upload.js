@@ -25,8 +25,8 @@ var upload = (function(){
 	_fileUploadAdd = function (e, data) {
 		if($(this).is('#fileupload')) {
 			var fileupload = $(this).data('blueimpFileupload');
-			//fileupload.options.imageMaxWidth = 650;
-			//fileupload.options.imageMaxHeight = 534;
+			fileupload.options.imageMaxWidth = 650;
+			fileupload.options.imageMaxHeight = 534;
 		}
 	},
 
