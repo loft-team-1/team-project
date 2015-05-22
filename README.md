@@ -25,7 +25,6 @@ Installation / Usage
 * ```git clone https://github.com/loft-team-1/team-project.git```
 * ```npm i```
 * ```bower i```
-* ```php composer.phar install```
-  * ```composer install``` (for Windows)
+* ```php composer.phar install / composer install (for Windows)```
 * ```gulp wiredep```
 * ```gulp```
