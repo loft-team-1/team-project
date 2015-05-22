@@ -232,6 +232,9 @@ body {
 #watermark {
   cursor: move; }
 
+.watermark {
+  float: left; }
+
 /* ie fix */
 #image {
   max-width: 100%;
@@ -376,8 +379,6 @@ body {
   background-color: #f87067; }
 .b-custom-upload:active .b-icon-upload {
   background-color: #f8675e; }
-.b-custom-upload.m-disabled:hover .b-icon-upload {
-  background-color: #f97e76; }
 
 /* = Location section
 ================================================*/
@@ -422,6 +423,12 @@ body {
 .b-controls {
   float: right;
   text-align: right; }
+  .b-controls.m-for-single {
+    display: none; }
+  .b-controls.m-for-multi {
+    display: none; }
+  .b-controls.m-active {
+    display: block; }
 
 .b-control-item {
   position: relative;
@@ -445,6 +452,18 @@ body {
   position: absolute;
   left: 0;
   top: 15px; }
+  .b-control-tip.m-horizontal {
+    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
+    width: 29px;
+    height: 9px;
+    left: -15px;
+    top: 17px; }
+  .b-control-tip.m-vertical {
+    background: url(../img/icon/vertical-interval.png) center center no-repeat;
+    width: 11px;
+    height: 30px;
+    left: -7px;
+    top: 7px; }
 
 /* controls: arrows */
 .b-control-arrow {
@@ -515,14 +534,14 @@ body {
 .b-interval.m-hor {
   background: #f97e76;
   height: 100%;
-  width: 0;
+  width: 1px;
   margin: 0 auto; }
 
 .b-interval.m-vert {
   background: #f97e76;
   position: absolute;
   width: 100%;
-  height: 0;
+  height: 1px;
   top: 0;
   right: 0;
   bottom: 0;
