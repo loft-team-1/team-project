@@ -74,24 +74,35 @@ gulp.task('watch', function () {
 // default task
 gulp.task('default', ['server', 'watch']);
 
+
+// ================================
+// ============= DIST =============
+// ================================
+
 // Build
 var path = {
 	build: {
 		html: './dist/',
 		vendorjs: './dist/js/vendor/',
-		plugins: './dist/plugins/',
+		php: './dist/php/',
 		img: './dist/img/',
 		fonts: './dist/fonts/'
 	},
 	src: {
 		html: './app/*.html',
 		vendorjs: './app/js/vendor/*',
-		plugins: './app/plugins/**/*.*',
+		php: ['./app/php/**/*.*', './app/php/files', '!./app/php/files/*.*'],
 		img: './app/img/**/*.*',
 		fonts: './app/fonts/**/*.*'
 	},
 	clean: './dist'
 };
+
+// build cleaner
+gulp.task('clean', function () {
+	return gulp.src('./dist', {read: false})
+		.pipe(clean());
+});
 
 gulp.task('html:build', function () {
 	var assets = useref.assets();
@@ -104,11 +115,14 @@ gulp.task('html:build', function () {
 		.pipe(gulp.dest(path.build.html));
 });
 
+gulp.task('php:build', function () {
+	gulp.src(path.src.php)
+		.pipe(gulp.dest(path.build.php));
+});
+
 gulp.task('js:build', function () {
 	gulp.src(path.src.vendorjs)
 		.pipe(gulp.dest(path.build.vendorjs));
-	gulp.src(path.src.plugins)
-		.pipe(gulp.dest(path.build.plugins));
 });
 
 gulp.task('img:build', function () {
@@ -127,10 +141,8 @@ gulp.task('extra:build', function () {
 	]).pipe(gulp.dest('./dist/'));
 });
 
-// build cleaner
-gulp.task('clean', function () {
-	return gulp.src('./dist', {read: false})
-		.pipe(clean());
-});
+gulp.task('dist', ['html:build','js:build', 'php:build', 'img:build','fonts:build','extra:build']);
 
-gulp.task('build', ['html:build','js:build','img:build','fonts:build','extra:build']);
+gulp.task('build', ['clean', 'jade'], function () {
+	gulp.start('dist');
+});

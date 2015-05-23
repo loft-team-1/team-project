@@ -24,23 +24,28 @@
 	// Prepare image
 	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality); // Convert basic layer to jpg
 
-    // Resize
-    $img = imagecreatefromjpeg('./files/temp-image.jpg');
-    $resizeWidth = ImageSX($img);
-    $resizeHeight = ImageSY($img);
-    $image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
+	// Resize
+	$img = imagecreatefromjpeg('./files/temp-image.jpg');
+	$resizeWidth = ImageSX($img);
+	$resizeHeight = ImageSY($img);
+	$image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
 
-    // Find out which dimensions is bigger and resize
-    if ($resizeWidth > $resizeHeight)
-    {
-        $image->resizeInPixel(650, null, true);
-    }
-    else
-    {
-        $image->resizeInPixel(null, 534, true);
-    }
+	// Find out which dimensions is bigger and resize
+	if ($resizeWidth > $resizeHeight) {
+		$image->resizeInPixel(650, null, true);
+	} else if ($resizeWidth < $resizeHeight){
+		$image->resizeInPixel(null, 534, true);
+	}
 
-    // Adding watermark
+	// Check resized image size
+	if ($resizeWidth > 650) {
+		$image->resizeInPixel(650, null, true);
+	}
+	if ($resizeHeight > 534) {
+		$image->resizeInPixel(null, 534, true);
+	}
+
+	// Adding watermark
 	$image->addLayerOnTop($watermark, $xpos, $ypos, 'LT'); // Add watermark to basic layer
 
 	// Result image

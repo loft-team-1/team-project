@@ -139,11 +139,6 @@
 			background-color: darken($color-pink, 5%);
 		}
 	}
-  &.m-disabled:hover {
-    .b-icon-upload {
-      background-color: $color-pink;
-    }
-  }
 }
 
 
@@ -444,7 +439,6 @@
 	bottom: 0;
 	z-index:99;
 }
-
 .m-disabled {
 	opacity: 0.6;
 	cursor: default;
