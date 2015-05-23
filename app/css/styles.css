@@ -254,6 +254,9 @@ body {
   text-align: center;
   margin: 17px 0; }
 
+.b-section.m-disabled * {
+  opacity: 0.8; }
+
 .b-section:not(.m-btns) {
   position: relative;
   padding: 18px 20px;
@@ -617,26 +620,7 @@ body {
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: 99;
-  background: #ccc;
-  opacity: 0.6; }
-  .m-disabled-area:after, .m-disabled-area:before {
-    top: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: " ";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none; }
-  .m-disabled-area:after {
-    border-top-color: #f1f1f5;
-    border-width: 9px;
-    margin-left: -9px; }
-  .m-disabled-area:before {
-    border-top-color: #f4c3c2;
-    border-width: 10px;
-    margin-left: -10px; }
+  z-index: 99; }
 
 .m-disabled {
   opacity: 0.6;
