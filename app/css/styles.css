@@ -254,9 +254,6 @@ body {
   text-align: center;
   margin: 17px 0; }
 
-.b-section.m-disabled * {
-  opacity: 0.8; }
-
 .b-section:not(.m-btns) {
   position: relative;
   padding: 18px 20px;
@@ -426,9 +423,7 @@ body {
 .b-controls {
   float: right;
   text-align: right; }
-  .b-controls.m-for-single {
-    display: none; }
-  .b-controls.m-for-multi {
+  .b-controls.m-for-single, .b-controls.m-for-multi {
     display: none; }
   .b-controls.m-active {
     display: block; }
