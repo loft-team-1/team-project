@@ -9,12 +9,6 @@
 	margin: 17px 0;
 }
 
-.b-section {
-	&.m-disabled * {
-		opacity:0.8;
-	}
-}
-
 .b-section:not(.m-btns) {
 	position: relative;
 	padding: 18px 20px;
@@ -205,9 +199,7 @@
 .b-controls {
 	float: right;
 	text-align: right;
-	&.m-for-single {
-		display:none;
-	}
+	&.m-for-single,
 	&.m-for-multi {
 		display:none;
 	}
