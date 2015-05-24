@@ -30,12 +30,14 @@ var switchPattern  = (function(){
 			if (intervals.length) {
 				intervals.remove();
                 dragDrop.toggle();
-			}
+			};
+			$('.m-hidden-switch').val('single');
 		} else {
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
                 dragDrop.toggle();
-			}
+			};
+			$('.m-hidden-switch').val('multi');
 		}
 
 		if (!(el.hasClass('m-active'))) {
