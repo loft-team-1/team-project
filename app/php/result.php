@@ -37,7 +37,7 @@
         $image->resizeInPixel(null, 534, true);
     }
     // Check which layout to use
-    $layout = $_POST['data-switch'];
+    $layout = $_POST['mode'];
     if ($layout === 'single') {
         // Adding watermark
         $image->addLayerOnTop($watermark, $xpos, $ypos, 'LT'); // Add watermark to basic layer
