@@ -9,7 +9,7 @@ var dragDrop = (function(){
         if(waterWrap.children('.watermark')){
             waterWrap.children('.watermark').remove();
         }
-            
+
         waterWrap.append(image);
 
 		image.on('load', function(){

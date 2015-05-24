@@ -40,17 +40,23 @@ var upload = (function(){
 			$this.siblings().children('input').val(imageName);
 
         switchPattern.change($('.b-switcher.m-single'));
+        wmarkOpacity.init();
 
 		if(type == 'image'){
 			var imgWrapper = $('.b-main-image-wrapper');
+
+            if($('.watermark')){
+                $('.watermark').remove()
+            }
 
 			imgWrapper.prepend(image);
 			image.on('load', function(){
 				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
 			});
+
+            wmarkPosition.disable();
 		} else {
 			dragDrop.appendEl(src);
-			wmarkOpacity.init();
 			wmarkOpacity.enable();
 			wmarkPosition.init();
 			$('.m-disabled-area').css('display','none');
