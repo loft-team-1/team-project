@@ -32,25 +32,41 @@ var upload = (function(){
 
 	// upload images in work area
 	_fileUploadDone = function (e, data) {
-		var type = $(this).is('#fileupload') ? 'image' : 'watermark',
+		var $this = $(this),
+			type = $this.is('#fileupload') ? 'image' : 'watermark',
 			imageName = data.result.files[0].name,
 			src = 'php/files/' + imageName,
-			image = $('<img id="'+ type +'" src="' + src + '">');
-			$(this).siblings().children('input').val(imageName);
+			image = $('<img id="'+ type +'" src="' + src + '">'),
+			watermark = $('#watermark');
+
+			$this.siblings().children('input').val(imageName);
 
 		if(type == 'image'){
-            var imgWrapper = $('.b-main-image-wrapper');
+			var imgWrapper = $('.b-main-image-wrapper');
 
-            imgWrapper.prepend(image);
-            image.on('load', function(){
-                $('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
-            });
+			if(watermark.length) {
+				watermark
+					.parent().removeAttr('style')
+					.end().remove();
+				$('#wmarkfile')
+					.parent('.b-custom-upload')
+					.find('.b-input').val('');
+				_disableSections();
+			}
+
+			imgWrapper.prepend(image);
+			image.on('load', function(){
+				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
+			});
 		} else {
+			wmarkPosition.reset();
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
 			wmarkOpacity.enable();
-            wmarkPosition.init();
-            $('.m-btns input').prop('disabled', false);
+			wmarkPosition.init();
+			$('.m-disabled-area').css('display','none');
+			$('.b-section').removeClass('m-disabled');
+			$('.m-btns input').prop('disabled', false);
 		}
 		$('#wmarkfile').prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
@@ -65,6 +81,7 @@ var upload = (function(){
 			$(this).tooltip({
 				content: 'Недопустимый тип файла.'
 			});
+			_disableSections();
 		}
 	},
 
@@ -76,7 +93,17 @@ var upload = (function(){
 		$('#'+ file)
 			.parent().removeAttr('style')
 			.end().remove();
+		$('.b-main-wtmark-wrapper').css({'left':'0', 'top': '0'});
 		$('.b-tooltip[data-name="' + type + '"]').remove();
+	},
+
+	// disable sections if watermark not loaded
+	_disableSections = function(){
+		wmarkPosition.reset();
+		wmarkOpacity.reset();
+		$('.m-disabled-area').css('display','block');
+		$('.b-section:not(:first-child)').addClass('m-disabled');
+		$('.m-btns input').prop('disabled', true);
 	},
 
 	// remove tooltip
