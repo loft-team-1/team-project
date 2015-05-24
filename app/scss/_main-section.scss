@@ -30,12 +30,12 @@
 	left: 0;
 	top: 0;
 }
-#watermark {
-	cursor: move;
-}
-
 .watermark {
-  float: left;
+	cursor: move;
+
+	&_cloned {
+		float: left;
+	}
 }
 
 /* ie fix */
