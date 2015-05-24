@@ -28,4 +28,13 @@ $(document).ready(function(){
 	});
 
 	switchPattern.init();
+
+	$('.b-share').on('click', function(){
+		$('.b-share-icon').animate({'right':'-43px'});
+		$('.b-share-socials-list').animate({'width':'43px'});
+	});
+	$('.b-share').on('mouseleave', function(){
+		$('.b-share-icon').animate({'right':'0px'});
+		$('.b-share-socials-list').animate({'width':'0px'});
+	});
 });
