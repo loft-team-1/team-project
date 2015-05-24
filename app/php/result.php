@@ -55,12 +55,11 @@
 		$watermarkImageY = ImageSY($watermarkImage);
 
 		// Creating transparent image which will be tiled with watermarks
-		$patternResource = imagecreatetruecolor(1000, 1000);
-		$red = imagecolorallocate($patternResource, 255, 0, 0);
-		$black = imagecolorallocate($patternResource, 0, 0, 0);
-		imagecolortransparent($patternResource, $black);
-		imagepng($patternResource, './files/temp-pattern.png');
-		$patternResource = ImageWorkshop::initFromPath('./files/temp-pattern.png'); // Set this image as a plugin object
+		$patternWidth = 1000;
+		$patternHeight = 1000;
+		$patternBg = null; // optionnal, can be null to transparent
+
+		$patternResource = ImageWorkshop::initVirginLayer($patternWidth, $patternHeight, $patternBg);
 
 		// Tiling start coordinates
 		$horizontalCoord = 0;
