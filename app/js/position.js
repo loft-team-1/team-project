@@ -171,8 +171,8 @@ var wmarkPosition = (function(){
                 'margin-bottom': 0
             });
             clearGrid();
-            $('.b-interval .m-hor').css('width', '1px');
-            $('.b-interval .m-vert').css('height', '1px');
+            $('.b-interval.m-hor').css('width', '1px');
+            $('.b-interval.m-vert').css('height', '1px');
         };
 
 	return {
