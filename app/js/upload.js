@@ -40,6 +40,7 @@ var upload = (function(){
 			$this.siblings().children('input').val(imageName);
 
 		if(type == 'image'){
+            wmarkPosition.reset();
 			var imgWrapper = $('.b-main-image-wrapper');
 
 			imgWrapper.prepend(image);
@@ -53,6 +54,7 @@ var upload = (function(){
 			wmarkOpacity.enable();
 			wmarkPosition.init();
 			$('.m-disabled-area').css('display','none');
+			$('.b-section').removeClass('m-disabled');
 			$('.m-btns input').prop('disabled', false);
 		}
 		$('#wmarkfile').prop('disabled', false);
