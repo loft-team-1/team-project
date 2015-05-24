@@ -4,7 +4,7 @@ var dragDrop = (function(){
         waterWrap = $('.b-main-wtmark-wrapper');
 
 	var appendDraggableEl = function(url){
-			var image = $('<img id="watermark" class="watermark" src="' + url + '">');
+			var image = $('<img class="watermark" src="' + url + '">');
 
         waterWrap.append(image);
 

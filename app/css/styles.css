@@ -526,8 +526,9 @@ body {
   z-index: 99;
   left: 0;
   top: 0;
-  width: 102px;
-  height: 102px; }
+  width: 103px;
+  height: 103px;
+  overflow: hidden; }
 
 .b-interval.m-hor {
   background: #f97e76;

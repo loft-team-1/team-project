@@ -40,6 +40,7 @@ var upload = (function(){
 			$this.siblings().children('input').val(imageName);
 
 		if(type == 'image'){
+            wmarkPosition.reset();
 			var imgWrapper = $('.b-main-image-wrapper');
 
 			imgWrapper.prepend(image);

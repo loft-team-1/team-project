@@ -80,6 +80,8 @@ var wmarkPosition = (function(){
                 multi = $('.m-multi'),
                 max = multi.hasClass('m-active') ? maxMargin : maxPosition,
                 axis = $this.is(xpos) ? 'left' : 'top',
+                wh = $this.is(ypos) ? 'height' : 'width',
+                hv = $this.is(ypos) ? '.m-vert' : '.m-hor',
                 margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom';
 
             if($this.val() > max){
@@ -90,6 +92,7 @@ var wmarkPosition = (function(){
 
             if(multi.hasClass('m-active')){
                 $('.watermark').css(margin, $this.val() + 'px');
+                $('.b-interval' + hv).css(wh, $this.val() + 'px');
             } else {
                 wmarkWrap.css(axis, $this.val() + 'px');
             }
@@ -108,6 +111,8 @@ var wmarkPosition = (function(){
                 maxMargin = input.is(xpos) ? imgWrap.width() : imgWrap.height(),
                 max = multi.hasClass('m-active') ? maxMargin : maxPosition,
                 axis = input.is(xpos) ? 'left' : 'top',
+                wh = input.is(ypos) ? 'height' : 'width',
+                hv = input.is(ypos) ? '.m-vert' : '.m-hor',
                 margin = input.is(xpos) ? 'margin-right' : 'margin-bottom';
 
             if(changeVal > max || changeVal < min){
@@ -120,6 +125,7 @@ var wmarkPosition = (function(){
 
             if(multi.hasClass('m-active')){
                 $('.watermark').css(margin, changeVal + 'px');
+                $('.b-interval' + hv).css(wh, changeVal + 'px');
             } else {
                 wmarkWrap.css(axis, changeVal + 'px');
             }
@@ -159,6 +165,8 @@ var wmarkPosition = (function(){
                 'margin-bottom': 0
             });
             clearGrid();
+            $('.b-interval .m-hor').css('width', '1px');
+            $('.b-interval .m-vert').css('height', '1px');
         };
 
 	return {
