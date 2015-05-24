@@ -9,27 +9,32 @@ var switchPattern  = (function(){
 
 	_setupListeners = function(){
 		if (switchers.length) {
-			switchers.on('click touchstart', _changePattern);
+			switchers.on('click touchstart', function(e) {
+                (e.preventDefault) ? e.preventDefault(): e.returnValue;
+                changePattern($(this));
+            });
 		}
 	},
 
-	_changePattern =function(e){
-		(e.preventDefault) ? e.preventDefault(): e.returnValue;
+	changePattern = function(elem){
+
+
 		wmarkPosition.reset();
 		wmarkOpacity.reset();
 		upload.reset();
-        dragDrop.toggle();
 
-		var el = $(this),
+		var el = elem || $(this),
 			intervals = $('.b-intervals');
 
 		if (el.data('switch') === 'single') {
 			if (intervals.length) {
 				intervals.remove();
+                dragDrop.toggle();
 			}
 		} else {
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
+                dragDrop.toggle();
 			}
 		}
 
@@ -41,7 +46,8 @@ var switchPattern  = (function(){
 	};
 
 	return {
-		init: init
+		init: init,
+        change: changePattern
 	}
 
 })();

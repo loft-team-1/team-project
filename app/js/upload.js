@@ -39,8 +39,9 @@ var upload = (function(){
 			image = $('<img id="'+ type +'" src="' + src + '">');
 			$this.siblings().children('input').val(imageName);
 
+        switchPattern.change($('.b-switcher.m-single'));
+
 		if(type == 'image'){
-            wmarkPosition.reset();
 			var imgWrapper = $('.b-main-image-wrapper');
 
 			imgWrapper.prepend(image);
@@ -48,7 +49,6 @@ var upload = (function(){
 				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
 			});
 		} else {
-			wmarkPosition.reset();
 			dragDrop.appendEl(src);
 			wmarkOpacity.init();
 			wmarkOpacity.enable();

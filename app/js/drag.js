@@ -6,6 +6,10 @@ var dragDrop = (function(){
 	var appendDraggableEl = function(url){
 			var image = $('<img class="watermark" src="' + url + '">');
 
+        if(waterWrap.children('.watermark')){
+            waterWrap.children('.watermark').remove();
+        }
+            
         waterWrap.append(image);
 
 		image.on('load', function(){
