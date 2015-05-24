@@ -156,15 +156,13 @@ body {
       background: #fff url(../img/icon/share-ico.png) center center no-repeat;
       text-indent: -999px;
       width: 43px;
-      height: 41px;
-      cursor: default; }
+      height: 41px; }
       .b-share .b-share-icon .b-share-icon-link:hover {
         background: #fff url(../img/icon/share-ico-hover.png) center center no-repeat; }
   .b-share .b-share-socials-list {
-    display: none;
     margin: 0px;
     padding: 0px;
-    width: 43px;
+    width: 0px;
     overflow: hidden;
     background: #fff;
     opacity: 0.6; }
@@ -192,10 +190,6 @@ body {
         position: relative;
         text-indent: -999px;
         display: block; }
-  .b-share:hover .b-share-icon {
-    right: -43px; }
-  .b-share:hover .b-share-socials-list {
-    display: block; }
 
 /* = Footer================================================*/
 .b-footer {
