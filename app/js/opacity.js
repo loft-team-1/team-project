@@ -11,7 +11,7 @@ var wmarkOpacity = (function(){
 				max: 100,
 				value: 100,
 				range: 'min',
-                disabled: true,
+				disabled: true,
 				slide: function(event, ui) {
 					wtmark.css('opacity', ui.value / 100);
 					hiddenOpacity.val(ui.value);
@@ -20,10 +20,10 @@ var wmarkOpacity = (function(){
 		}
 	},
 
-    sliderEnable = function(){
-        var sliderEl = $('.b-opacity-slider');
-        sliderEl.slider( "option", "disabled", false );
-    },
+	sliderEnable = function(){
+		var sliderEl = $('.b-opacity-slider');
+		sliderEl.slider( "option", "disabled", false );
+	},
 
 	resetOpacity = function(){
 		var sliderEl = $('.b-opacity-slider'),
@@ -37,7 +37,7 @@ var wmarkOpacity = (function(){
 
 	return {
 		init: init,
-        enable: sliderEnable,
+		enable: sliderEnable,
 		reset: resetOpacity
 	};
 

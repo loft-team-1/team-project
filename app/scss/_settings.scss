@@ -40,6 +40,7 @@
 }
 .b-section.m-btns {
 	padding: 56px 10px 10px;
+	position: relative;
 	@extend .m-cfix;
 }
 
@@ -234,6 +235,12 @@
 		&:hover {
 			background-position: 0 0;
 		}
+        &.m-disabled {
+            &:hover {
+              background-position: 0 -13px;
+              cursor: default;
+            }
+        }
 	}
 	&.m-btm {
 		bottom: 4px;
@@ -241,6 +248,12 @@
 		&:hover {
 			background-position: 0 -39px;
 		}
+        &.m-disabled {
+            &:hover {
+              background-position: 0 -26px;
+              cursor: default;
+            }
+        }
 	}
 }
 
@@ -321,8 +334,17 @@
 
 /* = Disable
 ================================================*/
+.m-disabled-area {
+	position:absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index:99;
+}
 .m-disabled {
 	opacity: 0.6;
+	cursor: default;
 }
 
 

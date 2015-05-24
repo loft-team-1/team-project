@@ -217,7 +217,8 @@ body {
     margin-left: -10px; }
 
 .b-section.m-btns {
-  padding: 56px 10px 10px; }
+  padding: 56px 10px 10px;
+  position: relative; }
 
 /* = Form
 ================================================*/
@@ -400,11 +401,17 @@ body {
     top: 4px; }
     .b-control-arrow.m-top:hover {
       background-position: 0 0; }
+    .b-control-arrow.m-top.m-disabled:hover {
+      background-position: 0 -13px;
+      cursor: default; }
   .b-control-arrow.m-btm {
     bottom: 4px;
     background-position: 0 -26px; }
     .b-control-arrow.m-btm:hover {
       background-position: 0 -39px; }
+    .b-control-arrow.m-btm.m-disabled:hover {
+      background-position: 0 -26px;
+      cursor: default; }
 
 /* = Opacity section
 ================================================*/
@@ -465,8 +472,17 @@ body {
 
 /* = Disable
 ================================================*/
+.m-disabled-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99; }
+
 .m-disabled {
-  opacity: 0.6; }
+  opacity: 0.6;
+  cursor: default; }
 
 /* = Fixes for old browsers
 ================================================*/
