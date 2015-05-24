@@ -118,7 +118,7 @@ var wmarkPosition = (function(){
 		elems.on('click touchstart input', function(e){
 			e.preventDefault();
 		});
-		elems.prop('disabled', true);
+		elems.filter('input').prop('disabled', true);
 	},
 
 	clearGrid = function(){
