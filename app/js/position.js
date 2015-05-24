@@ -75,6 +75,7 @@ var wmarkPosition = (function(){
 
         _inputChange = function(){
             var $this = $(this),
+                watermark = $('.watermark'),
                 maxPosition = $this.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
                 maxMargin = $this.is(xpos) ? imgWrap.width() : imgWrap.height(),
                 multi = $('.m-multi'),
@@ -82,7 +83,8 @@ var wmarkPosition = (function(){
                 axis = $this.is(xpos) ? 'left' : 'top',
                 wh = $this.is(ypos) ? 'height' : 'width',
                 hv = $this.is(ypos) ? '.m-vert' : '.m-hor',
-                margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom';
+                margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom',
+                clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / watermark.height()) : Math.ceil(imgWrap.width() / watermark.width());
 
             if($this.val() > max){
                 $this.val(max);
@@ -91,7 +93,8 @@ var wmarkPosition = (function(){
             }
 
             if(multi.hasClass('m-active')){
-                $('.watermark').css(margin, $this.val() + 'px');
+                watermark.css(margin, $this.val() + 'px');
+                wmarkWrap.css(wh, (watermark.width() + parseInt($this.val())) * clones * 2 + 'px');
                 $('.b-interval' + hv).css(wh, $this.val() + 'px');
             } else {
                 wmarkWrap.css(axis, $this.val() + 'px');
@@ -105,6 +108,7 @@ var wmarkPosition = (function(){
             var $this = $(this),
                 input = $this.siblings('input[type="text"]'),
                 multi = $('.m-multi'),
+                watermark = $('.watermark'),
                 curVal = parseInt(input.val()) || 0,
                 changeVal = $this.hasClass('m-top') ? curVal + 1 : curVal - 1,
                 maxPosition = input.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
@@ -113,7 +117,8 @@ var wmarkPosition = (function(){
                 axis = input.is(xpos) ? 'left' : 'top',
                 wh = input.is(ypos) ? 'height' : 'width',
                 hv = input.is(ypos) ? '.m-vert' : '.m-hor',
-                margin = input.is(xpos) ? 'margin-right' : 'margin-bottom';
+                margin = input.is(xpos) ? 'margin-right' : 'margin-bottom',
+                clones = input.is(ypos) ? Math.ceil(imgWrap.height() / watermark.height()) : Math.ceil(imgWrap.width() / watermark.width());
 
             if(changeVal > max || changeVal < min){
                 changeVal = (changeVal > max) ? max : min;
@@ -124,7 +129,8 @@ var wmarkPosition = (function(){
 
 
             if(multi.hasClass('m-active')){
-                $('.watermark').css(margin, changeVal + 'px');
+                watermark.css(margin, changeVal + 'px');
+                wmarkWrap.css(wh, (watermark.width() + changeVal) * clones * 2 + 'px');
                 $('.b-interval' + hv).css(wh, changeVal + 'px');
             } else {
                 wmarkWrap.css(axis, changeVal + 'px');
