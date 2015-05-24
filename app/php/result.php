@@ -30,13 +30,6 @@
 	$resizeHeight = ImageSY($img);
 	$image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
 
-	// Find out which dimensions is bigger and resize
-	if ($resizeWidth > $resizeHeight) {
-		$image->resizeInPixel(650, null, true);
-	} else if ($resizeWidth < $resizeHeight){
-		$image->resizeInPixel(null, 534, true);
-	}
-
 	// Check resized image size
 	if ($resizeWidth > 650) {
 		$image->resizeInPixel(650, null, true);
