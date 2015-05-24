@@ -146,6 +146,11 @@ var wmarkPosition = (function(){
 
         disableEvents = function(){
             var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
+
+            $('.m-for-single input[type="text"]').off('input', _inputChange);
+            $('.m-for-single .b-control-arrow').off('click touchstart', _arrowsChange);
+            $('.b-grid-list li').off('click touchstart', _gridChange);
+
             elems.on('click touchstart input', function(e){
                 e.preventDefault();
             });

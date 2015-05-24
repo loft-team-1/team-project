@@ -49,6 +49,9 @@ var upload = (function(){
                 $('.watermark').remove()
             }
 
+            $('.m-disabled-area').css('display','block');
+            $('.m-location').addClass('m-disabled');
+
 			imgWrapper.prepend(image);
 			image.on('load', function(){
 				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
