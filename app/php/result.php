@@ -26,16 +26,17 @@
 
 	// Resize
 	$img = imagecreatefromjpeg('./files/temp-image.jpg');
-	$resizeWidth = ImageSX($img);
-	$resizeHeight = ImageSY($img);
 	$image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
 
 	// Check resized image size
-	if ($resizeWidth > 650) {
-		$image->resizeInPixel(650, null, true);
+	$maxWidth = 650;
+	$maxHeight = 534;
+
+	if ($image->getWidth() > $maxWidth) {
+		$image->resizeInPixel($maxWidth, null, true);
 	}
-	if ($resizeHeight > 534) {
-		$image->resizeInPixel(null, 534, true);
+	if ($image->getHeight() > $maxHeight) {
+		$image->resizeInPixel(null, $maxHeight, true);
 	}
 
 	// Adding watermark
