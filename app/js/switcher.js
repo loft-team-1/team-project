@@ -10,14 +10,13 @@ var switchPattern  = (function(){
 	_setupListeners = function(){
 		if (switchers.length) {
 			switchers.on('click touchstart', function(e) {
-                (e.preventDefault) ? e.preventDefault(): e.returnValue;
-                changePattern($(this));
-            });
+				(e.preventDefault) ? e.preventDefault(): e.returnValue;
+				changePattern($(this));
+			});
 		}
 	},
 
 	changePattern = function(elem){
-
 
 		wmarkPosition.reset();
 		wmarkOpacity.reset();
@@ -29,14 +28,14 @@ var switchPattern  = (function(){
 		if (el.data('switch') === 'single') {
 			if (intervals.length) {
 				intervals.remove();
-                dragDrop.toggle();
-			};
+				dragDrop.toggle('single');
+			}
 			$('.m-hidden-switch').val('single');
 		} else {
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
-                dragDrop.toggle();
-			};
+				dragDrop.toggle('multi');
+			}
 			$('.m-hidden-switch').val('multi');
 		}
 
@@ -49,7 +48,7 @@ var switchPattern  = (function(){
 
 	return {
 		init: init,
-        change: changePattern
+		change: changePattern
 	}
 
 })();

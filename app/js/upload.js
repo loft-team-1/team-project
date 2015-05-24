@@ -22,7 +22,7 @@ var upload = (function(){
 	},
 
 	// add options only for basic image
-	_fileUploadAdd = function (e, data) {
+	_fileUploadAdd = function () {
 		if($(this).is('#fileupload')) {
 			var fileupload = $(this).data('blueimpFileupload');
 			fileupload.options.imageMaxWidth = 650;
@@ -36,28 +36,33 @@ var upload = (function(){
 			type = $this.is('#fileupload') ? 'image' : 'watermark',
 			imageName = data.result.files[0].name,
 			src = 'php/files/' + imageName,
-			image = $('<img id="'+ type +'" src="' + src + '">');
+			image = $('<img id="'+ type +'" src="' + src + '">'),
+			watermark = $('.watermark'),
+			watermarkFile = $('#wmarkfile');
+
 			$this.siblings().children('input').val(imageName);
 
-        switchPattern.change($('.b-switcher.m-single'));
-        wmarkOpacity.init();
+		switchPattern.change($('.b-switcher.m-single'));
+		wmarkOpacity.init();
+
+		if(watermark.length) {
+			watermark
+				.parent().removeAttr('style')
+				.end().remove();
+			watermarkFile
+				.parent('.b-custom-upload')
+				.find('.b-input').val('');
+			_disableSections();
+		}
 
 		if(type == 'image'){
 			var imgWrapper = $('.b-main-image-wrapper');
-
-            if($('.watermark')){
-                $('.watermark').remove()
-            }
-
-            $('.m-disabled-area').css('display','block');
-            $('.m-location').addClass('m-disabled');
 
 			imgWrapper.prepend(image);
 			image.on('load', function(){
 				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
 			});
 
-            wmarkPosition.disable();
 		} else {
 			dragDrop.appendEl(src);
 			wmarkOpacity.enable();
@@ -66,7 +71,8 @@ var upload = (function(){
 			$('.b-section').removeClass('m-disabled');
 			$('.m-btns input').prop('disabled', false);
 		}
-		$('#wmarkfile').prop('disabled', false);
+
+		watermarkFile.prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
 	},
 
@@ -79,6 +85,7 @@ var upload = (function(){
 			$(this).tooltip({
 				content: 'Недопустимый тип файла.'
 			});
+			_disableSections();
 		}
 	},
 
@@ -91,6 +98,17 @@ var upload = (function(){
 			.parent().removeAttr('style')
 			.end().remove();
 		$('.b-tooltip[data-name="' + type + '"]').remove();
+	},
+
+	// disable sections if watermark not loaded
+	_disableSections = function(){
+		wmarkPosition.reset();
+		wmarkOpacity.reset();
+		wmarkPosition.disable();
+
+		$('.m-disabled-area').css('display','block');
+		$('.b-section:not(:first-child)').addClass('m-disabled');
+		$('.m-btns input').prop('disabled', true);
 	},
 
 	// remove tooltip

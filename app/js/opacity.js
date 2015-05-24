@@ -11,7 +11,7 @@ var wmarkOpacity = (function(){
 				max: 100,
 				value: 100,
 				range: 'min',
-                disabled: true,
+				disabled: true,
 				slide: function(event, ui) {
 					wtmark.css('opacity', ui.value / 100);
 					hiddenOpacity.val(ui.value);
