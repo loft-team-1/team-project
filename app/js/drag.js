@@ -31,15 +31,19 @@ var dragDrop = (function(){
 						var h = -(hel.outerHeight() - $(hel).parent().outerHeight());
 						if (pos.top >= 0) {
 							hel.animate({ top: 0 });
+							ypos.val(0);
 						} else if (pos.top <= h) {
 							hel.animate({ top: h });
+							ypos.val(h);
 						}
 						// vertical
 						var v = -(hel.outerWidth() - $(hel).parent().outerWidth());
 						if (pos.left >= 0) {
 							hel.animate({ left: 0 });
+							xpos.val(0);
 						} else if (pos.left <= v) {
 							hel.animate({ left: v });
+							xpos.val(v);
 						}
 					}
 				});
