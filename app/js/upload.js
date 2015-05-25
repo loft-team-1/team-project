@@ -45,18 +45,18 @@ var upload = (function(){
 		switchPattern.change($('.b-switcher.m-single'));
 		wmarkOpacity.init();
 
-		if(watermark.length) {
-			watermark
-				.parent().removeAttr('style')
-				.end().remove();
-			watermarkFile
-				.parent('.b-custom-upload')
-				.find('.b-input').val('');
-			_disableSections();
-		}
-
 		if(type == 'image'){
 			var imgWrapper = $('.b-main-image-wrapper');
+
+			if(watermark.length) {
+				watermark
+					.parent().removeAttr('style')
+					.end().remove();
+				watermarkFile
+					.parent('.b-custom-upload')
+					.find('.b-input').val('');
+				_disableSections();
+			}
 
 			imgWrapper.prepend(image);
 			image.on('load', function(){
@@ -92,9 +92,15 @@ var upload = (function(){
 	// remove errors and images
 	_fileUploadChange = function (e, data) {
 		var file = $(this).is('#fileupload') ? 'image' : 'watermark',
-			type = $(this).attr('id');
+			type = $(this).attr('id'),
+			fileSelector;
 
-		$('#'+ file)
+		if(type == 'image'){
+			 fileSelector = $('#'+ file);
+		} else {
+			fileSelector = $('.'+ file);
+		}
+		fileSelector
 			.parent().removeAttr('style')
 			.end().remove();
 		$('.b-tooltip[data-name="' + type + '"]').remove();

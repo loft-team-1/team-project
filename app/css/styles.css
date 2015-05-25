@@ -230,9 +230,8 @@ body {
   top: 0; }
 
 .watermark {
-  cursor: move; }
-  .watermark_cloned {
-    float: left; }
+  cursor: move;
+  float: left; }
 
 /* ie fix */
 #image {

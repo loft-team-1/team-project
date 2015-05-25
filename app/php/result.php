@@ -55,8 +55,8 @@
 		$watermarkImageY = ImageSY($watermarkImage);
 
 		// Creating transparent image which will be tiled with watermarks
-		$patternWidth = 1000;
-		$patternHeight = 1000;
+		$patternWidth = $_POST['patternWidth'];
+		$patternHeight = $_POST['patternHeight'];
 		$patternBg = null; // optionnal, can be null to transparent
 
 		$patternResource = ImageWorkshop::initVirginLayer($patternWidth, $patternHeight, $patternBg);
@@ -66,23 +66,23 @@
 		$verticalCoord = 0;
 
 		// Tiling cycle
-		while ($horizontalCoord < 1000 && $verticalCoord < 1000){
+		while ($horizontalCoord < $patternWidth && $verticalCoord < $patternHeight){
 
 			$patternResource->addLayerOnTop($watermark, $horizontalCoord, $verticalCoord, 'LT');
 
 			$horizontalCoord += $watermarkImageX+$xpos;
-			if ($horizontalCoord >= 1000){
+			if ($horizontalCoord >= $patternWidth){
 				$horizontalCoord = 0;
 				$verticalCoord += $watermarkImageY+$ypos;
 			}
 		}
 
 		// Set coordinates to it's original state
-		$xpos = $_POST['xpos'];
-		$ypos = $_POST['ypos'];
+		$xposMulti = $_POST['xposMulti'];
+		$yposMulti = $_POST['yposMulti'];
 
 		// Adding watermark pattern
-		$image->addLayerOnTop($patternResource, $xpos, $ypos, 'LT'); // Add watermark to basic layer
+		$image->addLayerOnTop($patternResource, $xposMulti, $yposMulti, 'LT'); // Add watermark to basic layer
 	}
 
 	// Result image

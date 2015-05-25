@@ -2,21 +2,21 @@ var dragDrop = (function(){
 
 	var xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]'),
-		waterWrap = $('.b-main-wtmark-wrapper'),
+		wmarkWrap = $('.b-main-wtmark-wrapper'),
 		wmark = $('.watermark'),
 		image = $('#image');
 
 	var appendDraggableEl = function(url){
 		var appendEl = $('<img class="watermark" src="' + url + '">');
 
-		waterWrap.append(appendEl);
+		wmarkWrap.append(appendEl);
 
 		appendEl.on('load', function(){
 
-			waterWrap.css({'height':$(this).height() ,'width':$(this).width()});
+			wmarkWrap.css({'height':$(this).height() ,'width':$(this).width()});
 
-			if(waterWrap.data('uiDraggable')){
-				waterWrap.draggable("destroy");
+			if(wmarkWrap.data('uiDraggable')){
+				wmarkWrap.draggable("destroy");
 			}
 
 			_checkContainment();
@@ -32,7 +32,7 @@ var dragDrop = (function(){
 	},
 
 	_dragContainment = function () {
-		waterWrap.draggable({
+		wmarkWrap.draggable({
 			containment: '#image',
 			cursor: 'move',
 			drag: function(ev, ui){
@@ -45,7 +45,7 @@ var dragDrop = (function(){
 
 	_dragUnContainment = function (mode) {
 
-		waterWrap.draggable({
+		wmarkWrap.draggable({
 			drag: function(ev, ui){
 				if(mode === 'single') {
 					xpos.val(Math.round(ui.position.left));
@@ -92,8 +92,8 @@ var dragDrop = (function(){
 
 	toggleMode = function(mode){
 
-		if(waterWrap.data('uiDraggable')){
-			waterWrap.draggable("destroy");
+		if(wmarkWrap.data('uiDraggable')){
+			wmarkWrap.draggable("destroy");
 		}
 
 		if(mode === 'multi') {
@@ -121,11 +121,11 @@ var dragDrop = (function(){
 			$.merge( tmp, clone.clone().get() );
 		}
 
-		waterWrap.css({
+		wmarkWrap.css({
 			'width': needClonesHor * watermarkWidth + watermarkWidth + 'px',
 			'height': needClonesVert * watermarkHeight + watermarkHeight +'px'
 		});
-		waterWrap.append(tmp);
+		wmarkWrap.append(tmp);
 	};
 
 	return {

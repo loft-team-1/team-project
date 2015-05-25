@@ -15,7 +15,18 @@ var form = (function(){
 
 		var $form = $(this),
 			formAction = $form.attr('action'),
-			formdata = false;
+			formdata = false,
+			xposMulti = $('input[name="xposMulti"]'),
+			yposMulti = $('input[name="yposMulti"]'),
+			patternWidth = $('input[name="patternWidth"]'),
+			patterHeight = $('input[name="patternHeight"]'),
+			wmarkWrapper = $('.b-main-wtmark-wrapper');
+
+		// Setting params for php
+		xposMulti.val(wmarkWrapper.position().left);
+		yposMulti.val(wmarkWrapper.position().top);
+		patternWidth.val(wmarkWrapper.width());
+		patterHeight.val(wmarkWrapper.height());
 
 		var obj = {
 			type: "POST",
