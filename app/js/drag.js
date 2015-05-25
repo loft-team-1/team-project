@@ -9,6 +9,8 @@ var dragDrop = (function(){
 	var appendDraggableEl = function(url){
 		var appendEl = $('<img class="watermark" src="' + url + '">');
 
+		_removeClonedWatermark();
+
 		wmarkWrap.append(appendEl);
 
 		appendEl.on('load', function(){
@@ -101,6 +103,7 @@ var dragDrop = (function(){
 			_cloneWatermark();
 		} else {
 			_checkContainment();
+			_removeClonedWatermark();
 		}
 	},
 
@@ -126,6 +129,12 @@ var dragDrop = (function(){
 			'height': needClonesVert * watermarkHeight + watermarkHeight +'px'
 		});
 		wmarkWrap.append(tmp);
+	},
+
+	_removeClonedWatermark = function(){
+		if($('.watermark_cloned').length) {
+			$('.watermark_cloned').remove();
+		}
 	};
 
 	return {
