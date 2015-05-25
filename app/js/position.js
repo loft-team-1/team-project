@@ -93,8 +93,9 @@ var wmarkPosition = (function(){
 		if(multi.hasClass('m-active')){
 			watermark.css(margin, $this.val() + 'px');
 			wmarkWrap.css(wh, (watermark.width() * clones) + parseInt($this.val()) * clones + 'px');
-
-			$('.b-interval' + hv).css(wh, $this.val() + 'px');
+			if ($this.val() > 1) {
+				$('.b-interval' + hv).css(wh, $this.val() + 'px');
+			}
 		} else {
 			wmarkWrap.css(axis, $this.val() + 'px');
 		}
