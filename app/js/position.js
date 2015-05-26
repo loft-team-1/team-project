@@ -3,7 +3,7 @@ var wmarkPosition = (function(){
 	// set variables
 	var min = 0,
 		imgWrap = $('.b-main-image-wrapper'),
-		wmarkWrap = $('.b-main-wtmark-wrapper'),
+		wmarkWrap = $('.b-main-wmark-wrapper'),
 		xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]');
 
