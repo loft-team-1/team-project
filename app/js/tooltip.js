@@ -1,10 +1,12 @@
 $.fn.tooltip = function(options){
 
+	// set options
 	options = {
 		position: options.position || 'left',
 		content : options.content || 'I am tooltip'
 	};
 
+	// set variables
 	var
 		$this = $(this),
 		$body = $('body'),
@@ -15,13 +17,16 @@ $.fn.tooltip = function(options){
 		leftEdge = $this.offset().left,
 		rightEdge = leftEdge + elemWidth;
 
+	// tooltip markup
 	var markup =
 		'<div class="b-tooltip m-' + options.position + '" data-name="'+ ($this.attr('id') || $this.data('undefine') || '') +'"> \
 			<div class="b-tooltip-inner">' + options.content + '</div> \
 		</div>';
 
+	// add element to body
 	$body.append(markup);
 
+	// set variables: tooltip, width, height, positions
 	var
 		createdTooltip = $body.find('.b-tooltip').last(),
 		tooltipHeight = createdTooltip.outerHeight(true),
@@ -31,6 +36,7 @@ $.fn.tooltip = function(options){
 
 	var positions = {};
 
+	// determines the position
 	switch (options.position) {
 		case 'right' :
 			positions = {
@@ -58,6 +64,7 @@ $.fn.tooltip = function(options){
 			break;
 	}
 
+	// set tooltip
 	createdTooltip
 		.offset(positions)
 		.css('opacity', '1');

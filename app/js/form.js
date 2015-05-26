@@ -4,15 +4,18 @@ var form = (function(){
 		_setUpListeners();
 	},
 
+	// set form's listeners
 	_setUpListeners = function () {
 		var $form = $('form');
 		$form.on('submit', _formSubmit);
 		$form.on('reset', _formReset);
 	},
 
+	// form submit
 	_formSubmit = function (e) {
 		e.preventDefault ? e.preventDefault() : e.returnValue;
 
+		// setting variables
 		var $form = $(this),
 			formAction = $form.attr('action'),
 			formdata = false,
@@ -22,12 +25,13 @@ var form = (function(){
 			patterHeight = $('input[name="patternHeight"]'),
 			wmarkWrapper = $('.b-main-wtmark-wrapper');
 
-		// Setting params for php
+		// set params for php
 		xposMulti.val(wmarkWrapper.position().left);
 		yposMulti.val(wmarkWrapper.position().top);
 		patternWidth.val(wmarkWrapper.width());
 		patterHeight.val(wmarkWrapper.height());
 
+		// set params for ajax
 		var obj = {
 			type: "POST",
 			url: formAction,
@@ -40,12 +44,15 @@ var form = (function(){
 			obj.contentType = false;
 		}
 
+		// get response from php
 		$.ajax(obj).done(function(data) {
+			// add src for download iframe
 			$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
 		});
 
 	},
 
+	// form reset
 	_formReset = function (e){
 		(e.preventDefault) ? e.preventDefault(): e.returnValue;
 		wmarkPosition.reset();

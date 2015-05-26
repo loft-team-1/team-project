@@ -1,26 +1,21 @@
 var dragDrop = (function(){
 
+	// set variables
 	var xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]'),
 		wmarkWrap = $('.b-main-wtmark-wrapper'),
 		imageWrap = $('.b-main-image-wrapper');
 
-	// append watermark
+	// append watermark to working area
 	var appendDraggableEl = function(url){
 		var appendEl = $('<img class="watermark" src="' + url + '">');
 
 		_removeClonedWatermark();
-
 		wmarkWrap.append(appendEl);
 
 		appendEl.on('load', function(){
-
 			wmarkWrap.css({'height':$(this).height() ,'width':$(this).width()});
-
-			if(wmarkWrap.data('uiDraggable')){
-				wmarkWrap.draggable("destroy");
-			}
-
+			_dragDestroy();
 			_checkContainment();
 		});
 	},
@@ -99,9 +94,7 @@ var dragDrop = (function(){
 
 	// toggle multi or single mode
 	toggleMode = function(mode){
-		if(wmarkWrap.data('uiDraggable')){
-			wmarkWrap.draggable("destroy");
-		}
+		_dragDestroy();
 
 		if(mode === 'multi') {
 			_dragUnContainment('multi');
@@ -142,6 +135,13 @@ var dragDrop = (function(){
 
 		if(clonedEl.length) {
 			clonedEl.remove();
+		}
+	},
+
+	// drag destroy
+	_dragDestroy = function(){
+		if(wmarkWrap.data('uiDraggable')){
+			wmarkWrap.draggable("destroy");
 		}
 	};
 
