@@ -122,9 +122,9 @@ var wmarkPosition = (function(){
 			maxMargin = input.is(xpos) ? imgWrap.width() : imgWrap.height(),
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = input.is(xpos) ? 'left' : 'top',
-			wh = input.is(ypos) ? 'height' : 'width',
-			hv = input.is(ypos) ? '.m-vert' : '.m-hor',
-			margin = input.is(xpos) ? 'margin-right' : 'margin-bottom',
+			wh = input.is(ypos) ? 'width' : 'height',
+			hv = input.is(ypos) ? '.m-hor' : '.m-vert',
+			margin = input.is(xpos) ? 'margin-bottom' : 'margin-right',
 			clones = input.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1: Math.ceil(imgWrap.width() / wmark.width())+1;
 
 		if(changeVal > max || changeVal < min){
