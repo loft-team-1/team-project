@@ -199,12 +199,21 @@
 .b-controls {
 	float: right;
 	text-align: right;
-	&.m-for-single,
 	&.m-for-multi {
-		display:none;
-	}
-	&.m-active {
-		display:block;
+		.m-horizontal {
+			background:url(../img/icon/horizontal-interval.png) center center no-repeat;
+			width:29px;
+			height:9px;
+			left:-15px;
+			top:17px;
+		}
+		.m-vertical {
+			background:url(../img/icon/vertical-interval.png) center center no-repeat;
+			width:11px;
+			height:30px;
+			left:-7px;
+			top:7px;
+		}
 	}
 }
 .b-control-item {
@@ -230,20 +239,6 @@
 	position: absolute;
 	left: 0;
 	top: 15px;
-	&.m-horizontal {
-		background:url(../img/icon/horizontal-interval.png) center center no-repeat;
-		width:29px;
-		height:9px;
-		left:-15px;
-		top:17px;
-	}
-	&.m-vertical {
-		background:url(../img/icon/vertical-interval.png) center center no-repeat;
-		width:11px;
-		height:30px;
-		left:-7px;
-		top:7px;
-	}
 }
 
 /* controls: arrows */

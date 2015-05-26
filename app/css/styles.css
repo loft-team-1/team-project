@@ -422,10 +422,18 @@ body {
 .b-controls {
   float: right;
   text-align: right; }
-  .b-controls.m-for-single, .b-controls.m-for-multi {
-    display: none; }
-  .b-controls.m-active {
-    display: block; }
+  .b-controls.m-for-multi .m-horizontal {
+    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
+    width: 29px;
+    height: 9px;
+    left: -15px;
+    top: 17px; }
+  .b-controls.m-for-multi .m-vertical {
+    background: url(../img/icon/vertical-interval.png) center center no-repeat;
+    width: 11px;
+    height: 30px;
+    left: -7px;
+    top: 7px; }
 
 .b-control-item {
   position: relative;
@@ -449,18 +457,6 @@ body {
   position: absolute;
   left: 0;
   top: 15px; }
-  .b-control-tip.m-horizontal {
-    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
-    width: 29px;
-    height: 9px;
-    left: -15px;
-    top: 17px; }
-  .b-control-tip.m-vertical {
-    background: url(../img/icon/vertical-interval.png) center center no-repeat;
-    width: 11px;
-    height: 30px;
-    left: -7px;
-    top: 7px; }
 
 /* controls: arrows */
 .b-control-arrow {

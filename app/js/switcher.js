@@ -26,23 +26,40 @@ var switchPattern  = (function(){
 			intervals = $('.b-intervals');
 
 		if (el.data('switch') === 'single') {
+
 			if (intervals.length) {
 				intervals.remove();
 				dragDrop.toggle('single');
 			}
+
 			$('.m-hidden-switch').val('single');
+
+			if ($('.b-controls').hasClass('m-for-multi')) {
+				$('.b-controls').removeClass('m-for-multi');
+				$('.m-vertical').html('X');
+				$('.m-horizontal').html('Y');
+			}
+
 		} else {
+
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
 				dragDrop.toggle('multi');
 			}
+
 			$('.m-hidden-switch').val('multi');
+
+			if (!$('.b-controls').hasClass('m-for-multi')) {
+				$('.b-controls').addClass('m-for-multi');
+				$('.b-control-tip').html('&nbsp;');
+			}
 		}
 
 		if (!(el.hasClass('m-active'))) {
 			el.addClass('m-active');
 			el.siblings('.m-active').removeClass('m-active');
 		}
+
 
 	};
 

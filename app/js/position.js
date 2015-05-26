@@ -4,16 +4,16 @@ var wmarkPosition = (function(){
 	var min = 0,
 		imgWrap = $('.b-main-image-wrapper'),
 		wmarkWrap = $('.b-main-wtmark-wrapper'),
-		xpos = $('.m-for-single input[name="xpos"]'),
-		ypos = $('.m-for-single input[name="ypos"]');
+		xpos = $('.b-controls input[name="xpos"]'),
+		ypos = $('.b-controls input[name="ypos"]');
 
 	var init = function(){
 		_setUpListeners();
 	},
 
 	_setUpListeners = function(){
-		$('.m-for-single input[type="text"]').on('input', _inputChange).prop('disabled', false);
-		$('.m-for-single .b-control-arrow').on('click touchstart', _arrowsChange);
+		$('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
+		$('.b-controls .b-control-arrow').on('click touchstart', _arrowsChange);
 		$('.b-grid-list li').on('click touchstart', _gridChange);
 	},
 
@@ -152,8 +152,8 @@ var wmarkPosition = (function(){
 	disableEvents = function(){
 		var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
 
-		$('.m-for-single input[type="text"]').off('input', _inputChange);
-		$('.m-for-single .b-control-arrow').off('click touchstart', _arrowsChange);
+		$('.b-controls input[type="text"]').off('input', _inputChange);
+		$('.b-controls .b-control-arrow').off('click touchstart', _arrowsChange);
 		$('.b-grid-list li').off('click touchstart', _gridChange);
 
 		elems.on('click touchstart input', function(e){
