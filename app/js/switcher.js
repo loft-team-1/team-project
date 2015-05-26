@@ -26,20 +26,21 @@ var switchPattern  = (function(){
 		upload.reset();
 
 		var el = elem || $(this),
-			intervals = $('.b-intervals');
+			intervals = $('.b-intervals'),
+            hidden = $('.m-hidden-switch');
 
 		if (el.data('switch') === 'single') {
 			if (intervals.length) {
 				intervals.remove();
 				dragDrop.toggle('single');
 			}
-			$('.m-hidden-switch').val('single');
+            hidden.val('single');
 		} else {
 			if (!intervals.length) {
 				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
 				dragDrop.toggle('multi');
 			}
-			$('.m-hidden-switch').val('multi');
+            hidden.val('multi');
 		}
 
 		if (!(el.hasClass('m-active'))) {
