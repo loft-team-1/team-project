@@ -1,66 +1,57 @@
 var switchPattern  = (function(){
-	
+
+	// set variables
 	var switchers = $('.b-switcher'),
 		blockLocation =$('.b-location');
 
-
 	var init = function(){
-
 		_setupListeners();
-
 	},
 
+	// set listeners
 	_setupListeners = function(){
 		if (switchers.length) {
-			switchers.on('click touchstart', _changePattern);
-		};
-
-		 $('.b-control-arrow').on('click touchstart', _arrowsChange);
+			switchers.on('click touchstart', function(e) {
+				(e.preventDefault) ? e.preventDefault(): e.returnValue;
+				changePattern($(this));
+			});
+		}
 	},
 
-	_changePattern =function(){
-		var el = $(this);
-		if (el.data('switch') === 'once') {
-		 	if ($('.wtmark-interval-wrapper').length) {
-				$('.wtmark-interval-wrapper').remove();
-			};
+	// change mode: multi or single
+	changePattern = function(elem){
+
+		wmarkPosition.reset();
+		wmarkOpacity.reset();
+		upload.reset();
+
+		var el = elem || $(this),
+			intervals = $('.b-intervals');
+
+		if (el.data('switch') === 'single') {
+			if (intervals.length) {
+				intervals.remove();
+				dragDrop.toggle('single');
+			}
+			$('.m-hidden-switch').val('single');
 		} else {
-			blockLocation.prepend('<div class="wtmark-interval-wrapper"><div class="width-interval">&nbsp;</div><div class="height-interval">&nbsp;</div></div>');
-		};
+			if (!intervals.length) {
+				blockLocation.prepend('<div class="b-intervals"><div class="b-interval m-hor" /><div class="b-interval m-vert" />');
+				dragDrop.toggle('multi');
+			}
+			$('.m-hidden-switch').val('multi');
+		}
 
 		if (!(el.hasClass('m-active'))) {
-				el.addClass('m-active');
-				el.siblings('.m-active').removeClass('m-active');
-		};
+			el.addClass('m-active');
+			el.siblings('.m-active').removeClass('m-active');
+		}
 
-	},
-
-	_arrowsChange = function(e){
-		e.preventDefault();
-
-        var $this = $(this),
-            input = $this.siblings('input[type="text"]'),
-            curVal = parseInt(input.val()) || 0,
-            max = 102,
-            min = 0,
-            changeVal = $this.hasClass('m-top') ? curVal + 1 : curVal - 1,
-            axis = input.is('.b-controls input[name="xpos"]') ? 'width' : 'height';
-
-        if(changeVal > max){
-            changeVal = max
-        } else if(changeVal < min){
-            changeVal = min
-        }
-
-        input.val(changeVal);
-        if (axis === 'width') {
-        	$('.width-interval').css(axis, changeVal + 'px');
-        } else {
-        	$('.height-interval').css(axis, changeVal + 'px');
-        }
-	}
+	};
 
 	return {
-		init: init
+		init: init,
+		change: changePattern
 	}
+
 })();

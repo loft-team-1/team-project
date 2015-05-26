@@ -1,6 +1,14 @@
 .b-settings-title(data-i18n="settings") Настройки
-form.b-form
+form.b-form(action='php/result.php', enctype='multipart/form-data', method='post')
+
     include _upload
     include _location
     include _opacity
     include _buttons
+
+    input.m-hidden-switch(type='hidden', name='mode', value='single')
+    input(type='hidden', name='opacity', value='100')
+    input(type='hidden', name='yposMulti', value='0')
+    input(type='hidden', name='xposMulti', value='0')
+    input(type='hidden', name='patternHeight')
+    input(type='hidden', name='patternWidth')

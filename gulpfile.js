@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 	gulpif = require('gulp-if'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
+	plumber = require('gulp-plumber'),
 	wiredep = require('wiredep').stream;
 
 // bower
@@ -33,6 +34,7 @@ gulp.task('server', ['jade'], function () {
 // jade
 gulp.task('jade', function() {
 	gulp.src('./app/jade/*.jade')
+		.pipe(plumber())
 		.pipe(jade({
 			pretty: true
 		}))
@@ -44,6 +46,7 @@ gulp.task('jade', function() {
 // sass
 gulp.task('sass', function() {
 	return gulp.src('./app/scss/*.scss')
+		.pipe(plumber())
 		.pipe(sass({
 			noCache: true,
 			style: "expanded",
@@ -54,7 +57,8 @@ gulp.task('sass', function() {
 			browsers: ['last 2 versions', 'ie 8', 'ie 9'],
 			cascade: false
 		}))
-		.pipe(gulp.dest('./app/css'));
+		.pipe(gulp.dest('./app/css'))
+		.pipe(reload({stream: true}));
 });
 
 // watcher
@@ -65,31 +69,43 @@ gulp.task('watch', function () {
 	gulp.watch([
 		'./app/js/**/*.js',
 		'./app/*.html',
-		'./app/css/*.css'
+		'./app/css/*.css',
+		'./app/php/**/*.php'
 	]).on('change', reload);
 });
 
 // default task
 gulp.task('default', ['server', 'watch']);
 
+
+// ================================
+// ============= DIST =============
+// ================================
+
 // Build
 var path = {
 	build: {
 		html: './dist/',
 		vendorjs: './dist/js/vendor/',
-		plugins: './dist/plugins/',
+		php: './dist/php/',
 		img: './dist/img/',
 		fonts: './dist/fonts/'
 	},
 	src: {
 		html: './app/*.html',
 		vendorjs: './app/js/vendor/*',
-		plugins: './app/plugins/**/*.*',
+		php: ['./app/php/**/*.*', './app/php/files', '!./app/php/files/*.*'],
 		img: './app/img/**/*.*',
 		fonts: './app/fonts/**/*.*'
 	},
 	clean: './dist'
 };
+
+// build cleaner
+gulp.task('clean', function () {
+	return gulp.src('./dist', {read: false})
+		.pipe(clean());
+});
 
 gulp.task('html:build', function () {
 	var assets = useref.assets();
@@ -102,11 +118,14 @@ gulp.task('html:build', function () {
 		.pipe(gulp.dest(path.build.html));
 });
 
+gulp.task('php:build', function () {
+	gulp.src(path.src.php)
+		.pipe(gulp.dest(path.build.php));
+});
+
 gulp.task('js:build', function () {
 	gulp.src(path.src.vendorjs)
 		.pipe(gulp.dest(path.build.vendorjs));
-	gulp.src(path.src.plugins)
-		.pipe(gulp.dest(path.build.plugins));
 });
 
 gulp.task('img:build', function () {
@@ -125,10 +144,8 @@ gulp.task('extra:build', function () {
 	]).pipe(gulp.dest('./dist/'));
 });
 
-// build cleaner
-gulp.task('clean', function () {
-	return gulp.src('./dist', {read: false})
-		.pipe(clean());
-});
+gulp.task('dist', ['html:build','js:build', 'php:build', 'img:build','fonts:build','extra:build']);
 
-gulp.task('build', ['html:build','js:build','img:build','fonts:build','extra:build']);
+gulp.task('build', ['clean', 'jade'], function () {
+	gulp.start('dist');
+});

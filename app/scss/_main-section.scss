@@ -16,6 +16,8 @@
 	position: relative;
 	overflow: hidden;
 }
+
+/* main image */
 .b-main-image-wrapper {
 	position: absolute;
 	top: 0;
@@ -25,17 +27,24 @@
 	margin: auto;
 	overflow: hidden;
 }
-.b-main-wtmark-wrapper {
-	position: absolute;
-	left: 0;
-	top: 0;
-}
-#watermark {
-	cursor: move;
-}
-
-/* TODO temporary ie fix */
 #image {
 	max-width: 100%;
 	max-height: 100%;
+}
+
+/* watermark */
+.b-main-wmark-wrapper {
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+}
+.watermark {
+	cursor: move;
+	float: left;
+}
+
+/* iframe for download */
+#downloadFrame {
+	display: none;
 }

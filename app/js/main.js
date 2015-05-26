@@ -1,9 +1,5 @@
 $(document).ready(function(){
 
-	if($('.b-location')){
-		wmarkPosition.disable();
-	}
-
 	// upload initialization
 	if($('input[type="file"]').length){
 		upload.init();
@@ -14,20 +10,24 @@ $(document).ready(function(){
 		wmarkOpacity.init();
 	}
 
-	// placeholder initialization
-	if($('form').length){
+	// form and placeholder initialization
+	if($('.b-form').length){
 		$('.b-input').placeholder();
+		form.init();
 	}
 
-	// form reset
-	$('.b-form').on('reset', function(e){
-		(e.preventDefault) ? e.preventDefault(): e.returnValue;
-		wmarkPosition.reset();
-		wmarkOpacity.reset();
-		upload.reset();
-	});
+	// switchers initialization
+	if($('.b-switchers')){
+		switchPattern.init();
+	}
 
-	switchPattern.init();
+	// disable location
+	if($('.b-location')){
+		wmarkPosition.disable();
+	}
+
+	// disable form btns
+	$('.m-btns input').prop('disabled', true);
 
 	$('.b-share').on('click', function(){
 		var e = $(this);
