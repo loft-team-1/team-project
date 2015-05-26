@@ -1,6 +1,6 @@
 section.b-section.m-upload
     .b-form-line
-        .b-form-label Исходное изображение
+        .b-form-label(data-i18n="basic-img") Исходное изображение
         .b-custom-upload
             input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php')#fileupload
             .b-fake-upload
@@ -8,7 +8,7 @@ section.b-section.m-upload
                 input.b-input(type='text', 'readonly', placeholder='Image.jpg')
 
     .b-form-line
-        .b-form-label Водяной знак
+        .b-form-label(data-i18n="wtmark-img") Водяной знак
         .b-custom-upload.m-disabled
             input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php', disabled)#wmarkfile
             .b-fake-upload
