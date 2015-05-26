@@ -39,8 +39,6 @@ var switchPattern  = (function(){
 
 			if ($('.b-controls').hasClass('m-for-multi')) {
 				$('.b-controls').removeClass('m-for-multi');
-				$('.m-vertical').html('X');
-				$('.m-horizontal').html('Y');
 			}
 
 		} else {
@@ -54,7 +52,6 @@ var switchPattern  = (function(){
 
 			if (!$('.b-controls').hasClass('m-for-multi')) {
 				$('.b-controls').addClass('m-for-multi');
-				$('.b-control-tip').html('&nbsp;');
 			}
 		}
 
