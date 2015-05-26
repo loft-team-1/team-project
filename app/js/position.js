@@ -82,9 +82,9 @@ var wmarkPosition = (function(){
 			multi = $('.m-multi'),
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = $this.is(xpos) ? 'left' : 'top',
-			wh = $this.is(ypos) ? 'height' : 'width',
-			hv = $this.is(ypos) ? '.m-vert' : '.m-hor',
-			margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom',
+			wh = $this.is(ypos) ? 'width' : 'height',
+			hv = $this.is(ypos) ? '.m-hor' : '.m-vert',
+			margin = $this.is(xpos) ? 'margin-bottom' : 'margin-right',
 			clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1 : Math.ceil(imgWrap.width() / wmark.width()) +1 ;
 
 		if($this.val() > max){
