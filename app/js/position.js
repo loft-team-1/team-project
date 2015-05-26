@@ -1,24 +1,26 @@
 var wmarkPosition = (function(){
 
-	// variables
+	// set variables
 	var min = 0,
 		imgWrap = $('.b-main-image-wrapper'),
 		wmarkWrap = $('.b-main-wtmark-wrapper'),
 		xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]');
 
+
 	var init = function(){
 		_setUpListeners();
 	},
 
+	// set listeners
 	_setUpListeners = function(){
 		$('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
 		$('.b-controls .b-control-arrow').on('click touchstart', _arrowsChange);
 		$('.b-grid-list li').on('click touchstart', _gridChange);
 	},
 
+	// set the position of the watermark with the grid
 	_gridChange = function(){
-
 		var minPosX = 0,
 			minPosY = 0,
 			midPosX = (imgWrap.width() - wmarkWrap.width()) / 2,
@@ -71,9 +73,10 @@ var wmarkPosition = (function(){
 		}
 	},
 
+	// set the position of the watermark with the inputs
 	_inputChange = function(){
 		var $this = $(this),
-			watermark = $('.watermark'),
+			wmark = $('.watermark'),
 			maxPosition = $this.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
 			maxMargin = $this.is(xpos) ? imgWrap.width() : imgWrap.height(),
 			multi = $('.m-multi'),
@@ -82,7 +85,7 @@ var wmarkPosition = (function(){
 			wh = $this.is(ypos) ? 'height' : 'width',
 			hv = $this.is(ypos) ? '.m-vert' : '.m-hor',
 			margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom',
-			clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / watermark.height()) + 1 : Math.ceil(imgWrap.width() / watermark.width()) +1 ;
+			clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1 : Math.ceil(imgWrap.width() / wmark.width()) +1 ;
 
 		if($this.val() > max){
 			$this.val(max);
@@ -91,10 +94,10 @@ var wmarkPosition = (function(){
 		}
 
 		if(multi.hasClass('m-active')){
-			watermark.css(margin, $this.val() + 'px');
-			wmarkWrap.css(wh, (watermark.width() * clones) + parseInt($this.val()) * clones + 'px');
-			if ($this.val() > 0 && $this.val() < 100) {
-				$('.b-interval' + hv).css(wh, $this.val() + 'px');
+			wmark.css(margin, $this.val() + 'px');
+			wmarkWrap.css(wh, (wmark.width() * clones) + parseInt($this.val()) * clones + 'px');
+			if ($this.val() > 0) {
+				$('.b-interval' + hv).css(wh, Math.ceil($this.val()/2) + 'px');
 			} else if ($this.val() == 0) {
 				$('.b-interval' + hv).css(wh, '1px');
 			}
@@ -105,13 +108,14 @@ var wmarkPosition = (function(){
 		clearGrid();
 	},
 
+	// set the position of the watermark with the arrows
 	_arrowsChange = function(e){
-		e.preventDefault();
+		e.preventDefault ? e.preventDefault() : e.returnValue;
 
 		var $this = $(this),
 			input = $this.siblings('input[type="text"]'),
 			multi = $('.m-multi'),
-			watermark = $('.watermark'),
+			wmark = $('.watermark'),
 			curVal = parseInt(input.val()) || 0,
 			changeVal = $this.hasClass('m-top') ? curVal + 1 : curVal - 1,
 			maxPosition = input.is(xpos) ? imgWrap.width() - wmarkWrap.width() : imgWrap.height() - wmarkWrap.height(),
@@ -121,7 +125,7 @@ var wmarkPosition = (function(){
 			wh = input.is(ypos) ? 'height' : 'width',
 			hv = input.is(ypos) ? '.m-vert' : '.m-hor',
 			margin = input.is(xpos) ? 'margin-right' : 'margin-bottom',
-			clones = input.is(ypos) ? Math.ceil(imgWrap.height() / watermark.height()) + 1: Math.ceil(imgWrap.width() / watermark.width())+1;
+			clones = input.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1: Math.ceil(imgWrap.width() / wmark.width())+1;
 
 		if(changeVal > max || changeVal < min){
 			changeVal = (changeVal > max) ? max : min;
@@ -131,10 +135,10 @@ var wmarkPosition = (function(){
 		}
 
 		if(multi.hasClass('m-active')){
-			watermark.css(margin, changeVal + 'px');
-			wmarkWrap.css(wh, (watermark.width() * clones) + changeVal * clones + 'px');
-			if (changeVal > 0 && changeVal < 100) {
-				$('.b-interval' + hv).css(wh, changeVal + 'px');
+			wmark.css(margin, changeVal + 'px');
+			wmarkWrap.css(wh, (wmark.width() * clones) + changeVal * clones + 'px');
+			if (changeVal > 0) {
+				$('.b-interval' + hv).css(wh, Math.ceil(changeVal/2) + 'px');
 			}
 		} else {
 			wmarkWrap.css(axis, changeVal + 'px');
@@ -144,11 +148,13 @@ var wmarkPosition = (function(){
 		clearGrid();
 	},
 
+	// set watermark position
 	_setPosition = function(x,y){
 		xpos.val(Math.round(x));
 		ypos.val(Math.round(y));
 	},
 
+	// disable form events: buttons, arrows, grid, inputs TODO for-single
 	disableEvents = function(){
 		var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
 
@@ -157,12 +163,13 @@ var wmarkPosition = (function(){
 		$('.b-grid-list li').off('click touchstart', _gridChange);
 
 		elems.on('click touchstart input', function(e){
-			e.preventDefault();
+			e.preventDefault ? e.preventDefault() : e.returnValue;
 		});
 
 		elems.filter('input').prop('disabled', true);
 	},
 
+	// remove grid marker
 	clearGrid = function(){
 		var gridItems = $('.b-grid-list li');
 
@@ -171,6 +178,7 @@ var wmarkPosition = (function(){
 		}
 	},
 
+	// reset watermark position
 	resetPosition = function(){
 		_setPosition(0,0);
 
@@ -179,10 +187,7 @@ var wmarkPosition = (function(){
 			'top': 0
 		});
 
-		$('.watermark').css({
-			'margin-right': 0,
-			'margin-bottom': 0
-		});
+		$('.watermark').removeAttr('style');
 
 		clearGrid();
 

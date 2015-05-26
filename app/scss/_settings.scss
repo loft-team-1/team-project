@@ -139,6 +139,11 @@
 			background-color: darken($color-pink, 5%);
 		}
 	}
+	&.m-disabled:hover {
+		.b-icon-upload {
+			background-color: $color-pink;
+		}
+	}
 }
 
 

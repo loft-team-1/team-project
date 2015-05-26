@@ -1,5 +1,6 @@
 var switchPattern  = (function(){
 
+	// set variables
 	var switchers = $('.b-switcher'),
 		blockLocation =$('.b-location');
 
@@ -7,6 +8,7 @@ var switchPattern  = (function(){
 		_setupListeners();
 	},
 
+	// set listeners
 	_setupListeners = function(){
 		if (switchers.length) {
 			switchers.on('click touchstart', function(e) {
@@ -16,6 +18,7 @@ var switchPattern  = (function(){
 		}
 	},
 
+	// change mode: multi or single
 	changePattern = function(elem){
 
 		wmarkPosition.reset();

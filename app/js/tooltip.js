@@ -7,8 +7,7 @@ $.fn.tooltip = function(options){
 	};
 
 	// set variables
-	var
-		$this = $(this),
+	var $this = $(this),
 		$body = $('body'),
 		elemWidth = $this.outerWidth(true),
 		elemHeight = $this.outerHeight(true),
@@ -27,8 +26,7 @@ $.fn.tooltip = function(options){
 	$body.append(markup);
 
 	// set variables: tooltip, width, height, positions
-	var
-		createdTooltip = $body.find('.b-tooltip').last(),
+	var createdTooltip = $body.find('.b-tooltip').last(),
 		tooltipHeight = createdTooltip.outerHeight(true),
 		tooltipWidth = createdTooltip.outerWidth(true),
 		leftCentered = (elemWidth / 2) - (tooltipWidth / 2),
