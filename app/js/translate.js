@@ -32,7 +32,11 @@ $(document).ready(function() {
 
 				// translate all translatable elements
 				$('[data-i18n]').each(function(i){
-					$(this).text(aLangKeys[lang][ $(this).attr('data-i18n') ]);
+					if ($(this).val()) {
+						$(this).val(aLangKeys[lang][ $(this).attr('data-i18n') ]);
+					} else {
+						$(this).text(aLangKeys[lang][ $(this).attr('data-i18n') ]);
+					}
 				});
 
 		});
