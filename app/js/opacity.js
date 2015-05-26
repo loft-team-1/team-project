@@ -3,7 +3,7 @@ var wmarkOpacity = (function(){
 	var init = function(){
 		// set variables
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('.b-main-wtmark-wrapper'),
+			wmarkWrap = $('.b-main-wmark-wrapper'),
 			hiddenOpacity = $('input[name="opacity"]');
 
 		// slider initialization
@@ -15,7 +15,7 @@ var wmarkOpacity = (function(){
 				range: 'min',
 				disabled: true,
 				slide: function(event, ui) {
-					wtmark.css('opacity', ui.value / 100);
+					wmarkWrap.css('opacity', ui.value / 100);
 					hiddenOpacity.val(ui.value);
 				}
 			});
@@ -31,10 +31,10 @@ var wmarkOpacity = (function(){
 	// slider reset
 	sliderReset = function(){
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('.b-main-wtmark-wrapper');
+			wmarkWrap = $('.b-main-wmark-wrapper');
 
 		sliderEl.slider('value', 100);
-		wtmark.css('opacity', 100);
+		wmarkWrap.css('opacity', 100);
 	};
 
 	return {

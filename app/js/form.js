@@ -23,13 +23,13 @@ var form = (function(){
 			yposMulti = $('input[name="yposMulti"]'),
 			patternWidth = $('input[name="patternWidth"]'),
 			patterHeight = $('input[name="patternHeight"]'),
-			wmarkWrapper = $('.b-main-wtmark-wrapper');
+			wmarkWrap = $('.b-main-wmark-wrapper');
 
 		// set params for php
-		xposMulti.val(wmarkWrapper.position().left);
-		yposMulti.val(wmarkWrapper.position().top);
-		patternWidth.val(wmarkWrapper.width());
-		patterHeight.val(wmarkWrapper.height());
+		xposMulti.val(wmarkWrap.position().left);
+		yposMulti.val(wmarkWrap.position().top);
+		patternWidth.val(wmarkWrap.width());
+		patterHeight.val(wmarkWrap.height());
 
 		// set params for ajax
 		var obj = {

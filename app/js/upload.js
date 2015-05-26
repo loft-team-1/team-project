@@ -37,32 +37,32 @@ var upload = (function(){
 	_fileUploadDone = function (e, data) {
 		var $this = $(this),
 			type = $this.is('#fileupload') ? 'image' : 'watermark',
-			imageName = data.result.files[0].name,
-			src = 'php/files/' + imageName,
-			image = $('<img id="'+ type +'" src="' + src + '">'),
-			watermark = $('.watermark'),
-			watermarkFile = $('#wmarkfile');
+			imgName = data.result.files[0].name,
+			src = 'php/files/' + imgName,
+			img = $('<img id="'+ type +'" src="' + src + '">'),
+			wmark = $('.watermark'),
+			wmarkFile = $('#wmarkfile');
 
-			$this.siblings().children('input').val(imageName);
+			$this.siblings().children('input').val(imgName);
 
 		switchPattern.change($('.b-switcher.m-single'));
 		wmarkOpacity.init();
 
 		if(type == 'image'){
-			var imgWrapper = $('.b-main-image-wrapper');
+			var imgWrap = $('.b-main-image-wrapper');
 
-			if(watermark.length) {
-				watermark
+			if(wmark.length) {
+				wmark
 					.parent().removeAttr('style')
 					.end().remove();
-				watermarkFile
+				wmarkFile
 					.parent('.b-custom-upload')
 					.find('.b-input').val('');
 				_disableSections();
 			}
 
-			imgWrapper.prepend(image);
-			image.on('load', function(){
+			imgWrap.prepend(img);
+			img.on('load', function(){
 				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
 			});
 
@@ -75,7 +75,7 @@ var upload = (function(){
 			$('.m-btns input').prop('disabled', false);
 		}
 
-		watermarkFile.prop('disabled', false);
+		wmarkFile.prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
 	},
 

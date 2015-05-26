@@ -3,8 +3,8 @@ var dragDrop = (function(){
 	// set variables
 	var xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]'),
-		wmarkWrap = $('.b-main-wtmark-wrapper'),
-		imageWrap = $('.b-main-image-wrapper');
+		imgWrap = $('.b-main-image-wrapper'),
+		wmarkWrap = $('.b-main-wmark-wrapper');
 
 	// append watermark to working area
 	var appendDraggableEl = function(url){
@@ -14,7 +14,6 @@ var dragDrop = (function(){
 		wmarkWrap.append(appendEl);
 
 		appendEl.on('load', function(){
-			wmarkWrap.css({'height':$(this).height() ,'width':$(this).width()});
 			_dragDestroy();
 			_checkContainment();
 		});
@@ -22,10 +21,12 @@ var dragDrop = (function(){
 
 	// check the drag mode
 	_checkContainment = function () {
-		var wmark = $('.watermark'),
-			image = $('#image');
+		var img = $('#image'),
+			wmark = $('.watermark');
 
-		if(wmark.width() > image.width() && wmark.height() > image.height()) {
+		wmarkWrap.css({'height': wmark.height() ,'width': wmark.width()});
+
+		if(wmark.width() > img.width() && wmark.height() > img.height()) {
 			_dragUnContainment('single');
 		} else {
 			_dragContainment();
@@ -107,14 +108,14 @@ var dragDrop = (function(){
 
 	// cloning watermark for the multi mode
 	_cloneWatermark = function(){
-		var watermark = $('.watermark'),
-			watermarkHeight = watermark.height(),
-			watermarkWidth = watermark.width(),
-			patternWidth = imageWrap.width(),
-			patternHeight = imageWrap.height(),
-			clone = watermark.clone().addClass('watermark_cloned'),
-			needClonesHor = Math.ceil(patternWidth / watermarkWidth),
-			needClonesVert = Math.ceil(patternHeight / watermarkHeight),
+		var wmark = $('.watermark'),
+			wmarkHeight = wmark.height(),
+			wmarkWidth = wmark.width(),
+			patternWidth = imgWrap.width(),
+			patternHeight = imgWrap.height(),
+			clone = wmark.clone().addClass('watermark_cloned'),
+			needClonesHor = Math.ceil(patternWidth / wmarkWidth),
+			needClonesVert = Math.ceil(patternHeight / wmarkHeight),
 			needClones = needClonesHor * needClonesVert * 4 -1,
 			tmp = [];
 
@@ -123,8 +124,8 @@ var dragDrop = (function(){
 		}
 
 		wmarkWrap.css({
-			'width': needClonesHor * watermarkWidth + watermarkWidth + 'px',
-			'height': needClonesVert * watermarkHeight + watermarkHeight +'px'
+			'width': needClonesHor * wmarkWidth + wmarkWidth + 'px',
+			'height': needClonesVert * wmarkHeight + wmarkHeight +'px'
 		});
 		wmarkWrap.append(tmp);
 	},
