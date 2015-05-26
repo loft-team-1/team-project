@@ -136,7 +136,10 @@ body {
     text-decoration: none;
     color: #8e9298;
     display: block;
-    padding: 3px 0; }
+    padding: 3px 0;
+    cursor: pointer; }
+    .b-language-select-link.m-active {
+      color: #5c5f64; }
 
 /* = Share================================================*/
 .b-share {

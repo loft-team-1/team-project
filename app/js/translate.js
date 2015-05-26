@@ -31,7 +31,10 @@ $(document).ready(function() {
 		// define lang onclick
 		$('.b-language-select-link').click( function() {
 				var lang = $(this).attr('id');
-
+				if (!$(this).hasClass('m-active')) {
+					$('.b-language-select-link.m-active').removeClass('m-active');
+					$(this).addClass('m-active');
+				}
 				// translate all translatable elements
 				$('[data-i18n]').each(function(i){
 					if ($(this).val()) {
