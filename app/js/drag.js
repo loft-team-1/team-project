@@ -3,9 +3,9 @@ var dragDrop = (function(){
 	var xpos = $('.b-controls input[name="xpos"]'),
 		ypos = $('.b-controls input[name="ypos"]'),
 		wmarkWrap = $('.b-main-wtmark-wrapper'),
-		wmark = $('.watermark'),
-		image = $('#image');
+		imageWrap = $('.b-main-image-wrapper');
 
+	// append watermark
 	var appendDraggableEl = function(url){
 		var appendEl = $('<img class="watermark" src="' + url + '">');
 
@@ -25,7 +25,11 @@ var dragDrop = (function(){
 		});
 	},
 
+	// check the drag mode
 	_checkContainment = function () {
+		var wmark = $('.watermark'),
+			image = $('#image');
+
 		if(wmark.width() > image.width() && wmark.height() > image.height()) {
 			_dragUnContainment('single');
 		} else {
@@ -33,6 +37,7 @@ var dragDrop = (function(){
 		}
 	},
 
+	// if watermark less than the image - use containment settings
 	_dragContainment = function () {
 		wmarkWrap.draggable({
 			containment: '#image',
@@ -45,8 +50,8 @@ var dragDrop = (function(){
 		});
 	},
 
+	// if watermark bigger than the image - use uncontainment settings
 	_dragUnContainment = function (mode) {
-
 		wmarkWrap.draggable({
 			drag: function(ev, ui){
 				if(mode === 'single') {
@@ -59,7 +64,7 @@ var dragDrop = (function(){
 				var hel = ui.helper,
 					pos = ui.position;
 
-				//horizontal
+				// horizontal
 				var h = -(hel.outerHeight() - $(hel).parent().outerHeight());
 				if (pos.top >= 0) {
 					hel.animate({ top: 0 });
@@ -92,8 +97,8 @@ var dragDrop = (function(){
 		});
 	},
 
+	// toggle multi or single mode
 	toggleMode = function(mode){
-
 		if(wmarkWrap.data('uiDraggable')){
 			wmarkWrap.draggable("destroy");
 		}
@@ -107,11 +112,11 @@ var dragDrop = (function(){
 		}
 	},
 
+	// cloning watermark for the multi mode
 	_cloneWatermark = function(){
 		var watermark = $('.watermark'),
 			watermarkHeight = watermark.height(),
 			watermarkWidth = watermark.width(),
-			imageWrap = $('.b-main-image-wrapper'),
 			patternWidth = imageWrap.width(),
 			patternHeight = imageWrap.height(),
 			clone = watermark.clone().addClass('watermark_cloned'),
@@ -131,9 +136,12 @@ var dragDrop = (function(){
 		wmarkWrap.append(tmp);
 	},
 
+	// remove cloned watermarks
 	_removeClonedWatermark = function(){
-		if($('.watermark_cloned').length) {
-			$('.watermark_cloned').remove();
+		var clonedEl = $('.watermark_cloned');
+
+		if(clonedEl.length) {
+			clonedEl.remove();
 		}
 	};
 

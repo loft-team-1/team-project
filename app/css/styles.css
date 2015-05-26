@@ -227,7 +227,8 @@ body {
 .b-main-wtmark-wrapper {
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  overflow: hidden; }
 
 .watermark {
   cursor: move;

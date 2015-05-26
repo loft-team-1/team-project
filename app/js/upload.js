@@ -90,20 +90,18 @@ var upload = (function(){
 	},
 
 	// remove errors and images
-	_fileUploadChange = function (e, data) {
+	_fileUploadChange = function () {
 		var file = $(this).is('#fileupload') ? 'image' : 'watermark',
-			type = $(this).attr('id'),
-			fileSelector;
+			fileSelector = $('#'+ file);
 
-		if(type == 'image'){
-			 fileSelector = $('#'+ file);
-		} else {
+		if(file == 'watermark'){
 			fileSelector = $('.'+ file);
 		}
+
 		fileSelector
 			.parent().removeAttr('style')
 			.end().remove();
-		$('.b-tooltip[data-name="' + type + '"]').remove();
+		$('.b-tooltip[data-name="' + file + '"]').remove();
 	},
 
 	// disable sections if watermark not loaded
