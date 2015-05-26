@@ -65,16 +65,18 @@
 		// Tiling start coordinates
 		$horizontalCoord = 0;
 		$verticalCoord = 0;
+		$btmIndent = $_POST['xpos'];
+		$leftIndent = $_POST['ypos'];
 
 		// Tiling cycle
 		while ($horizontalCoord < $patternWidth && $verticalCoord < $patternHeight){
 
 			$patternResource->addLayerOnTop($watermark, $horizontalCoord, $verticalCoord, 'LT');
 
-			$horizontalCoord += $watermarkImageX+$xpos;
+			$horizontalCoord += $watermarkImageX + $leftIndent;
 			if ($horizontalCoord >= $patternWidth){
 				$horizontalCoord = 0;
-				$verticalCoord += $watermarkImageY+$ypos;
+				$verticalCoord += $watermarkImageY + $btmIndent;
 			}
 		}
 
