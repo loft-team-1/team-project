@@ -8,13 +8,9 @@ ul.b-language-select
 .b-share
 	.b-share-icon
 		a(href="#").b-share-icon-link Like Me
+
 	ul.b-share-socials-list
-		li.b-share-socials-item
-			a(href="#").b-share-socials-link.fb-ico
-				span.b-share-socials-name FaceBook
-		li.b-share-socials-item
-			a(href="#").b-share-socials-link.tw-ico
-				span.b-share-socials-name Twitter
-		li.b-share-socials-item
-			a(href="#").b-share-socials-link.vk-ico
-				span.b-share-socials-name ВКонтакте
+		each val, index in {'fb-ico':'FaceBook' ,'tw-ico':'Twitter' ,'vk-ico':'ВКонтакте'}
+			li.b-share-socials-item
+				a(href="#", class="#{index}").b-share-socials-link
+					span.b-share-socials-name #{val}
