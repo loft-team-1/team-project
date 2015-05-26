@@ -1,6 +1,6 @@
 var wmarkPosition = (function(){
 
-	// variables
+	// set variables
 	var min = 0,
 		imgWrap = $('.b-main-image-wrapper'),
 		wmarkWrap = $('.b-main-wtmark-wrapper'),
@@ -11,14 +11,15 @@ var wmarkPosition = (function(){
 		_setUpListeners();
 	},
 
+	// set listeners
 	_setUpListeners = function(){
 		$('.m-for-single input[type="text"]').on('input', _inputChange).prop('disabled', false);
 		$('.m-for-single .b-control-arrow').on('click touchstart', _arrowsChange);
 		$('.b-grid-list li').on('click touchstart', _gridChange);
 	},
 
+	// set the position of the watermark with the grid
 	_gridChange = function(){
-
 		var minPosX = 0,
 			minPosY = 0,
 			midPosX = (imgWrap.width() - wmarkWrap.width()) / 2,
@@ -71,6 +72,7 @@ var wmarkPosition = (function(){
 		}
 	},
 
+	// set the position of the watermark with the inputs
 	_inputChange = function(){
 		var $this = $(this),
 			watermark = $('.watermark'),
@@ -105,8 +107,9 @@ var wmarkPosition = (function(){
 		clearGrid();
 	},
 
+	// set the position of the watermark with the arrows
 	_arrowsChange = function(e){
-		e.preventDefault();
+		e.preventDefault ? e.preventDefault() : e.returnValue;
 
 		var $this = $(this),
 			input = $this.siblings('input[type="text"]'),
@@ -144,11 +147,13 @@ var wmarkPosition = (function(){
 		clearGrid();
 	},
 
+	// set watermark position
 	_setPosition = function(x,y){
 		xpos.val(Math.round(x));
 		ypos.val(Math.round(y));
 	},
 
+	// disable form events: buttons, arrows, grid, inputs TODO for-single
 	disableEvents = function(){
 		var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
 
@@ -157,12 +162,13 @@ var wmarkPosition = (function(){
 		$('.b-grid-list li').off('click touchstart', _gridChange);
 
 		elems.on('click touchstart input', function(e){
-			e.preventDefault();
+			e.preventDefault ? e.preventDefault() : e.returnValue;
 		});
 
 		elems.filter('input').prop('disabled', true);
 	},
 
+	// remove grid marker
 	clearGrid = function(){
 		var gridItems = $('.b-grid-list li');
 
@@ -171,6 +177,7 @@ var wmarkPosition = (function(){
 		}
 	},
 
+	// reset watermark position
 	resetPosition = function(){
 		_setPosition(0,0);
 

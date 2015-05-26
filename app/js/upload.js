@@ -1,4 +1,6 @@
 var upload = (function(){
+
+	// set fileUpload options
 	var init = function(){
 		var options = {
 			dataType: 'json',
@@ -14,6 +16,7 @@ var upload = (function(){
 		_setUpFileUploadListeners(fileUpload);
 	},
 
+	// set listeners
 	_setUpFileUploadListeners = function (fileUpload) {
 		fileUpload.on('fileuploadadd', _fileUploadAdd);
 		fileUpload.on('fileuploaddone', _fileUploadDone);
