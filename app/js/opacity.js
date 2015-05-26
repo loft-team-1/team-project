@@ -1,40 +1,46 @@
 var wmarkOpacity = (function(){
 
 	var init = function(){
+		// set variables
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('.b-main-wtmark-wrapper img');
+			wmarkWrap = $('.b-main-wmark-wrapper'),
+			hiddenOpacity = $('input[name="opacity"]');
 
+		// slider initialization
 		if (sliderEl.length) {
 			sliderEl.slider({
 				min: 1,
 				max: 100,
 				value: 100,
 				range: 'min',
-                disabled: true,
+				disabled: true,
 				slide: function(event, ui) {
-					wtmark.css('opacity', ui.value / 100);
+					wmarkWrap.css('opacity', ui.value / 100);
+					hiddenOpacity.val(ui.value);
 				}
 			});
 		}
 	},
 
-    sliderEnable = function(){
-        var sliderEl = $('.b-opacity-slider');
-        sliderEl.slider( "option", "disabled", false );
-    },
+	// slider enable
+	sliderEnable = function(){
+		var sliderEl = $('.b-opacity-slider');
+		sliderEl.slider( "option", "disabled", false );
+	},
 
-	resetOpacity = function(){
+	// slider reset
+	sliderReset = function(){
 		var sliderEl = $('.b-opacity-slider'),
-			wtmark = $('.b-main-wtmark-wrapper img');
+			wmarkWrap = $('.b-main-wmark-wrapper');
 
 		sliderEl.slider('value', 100);
-		wtmark.css('opacity', 100);
+		wmarkWrap.css('opacity', 100);
 	};
 
 	return {
 		init: init,
-        enable: sliderEnable,
-		reset: resetOpacity
+		enable: sliderEnable,
+		reset: sliderReset
 	};
 
 })();

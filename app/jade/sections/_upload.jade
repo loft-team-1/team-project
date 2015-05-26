@@ -5,7 +5,7 @@ section.b-section.m-upload
             input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php')#fileupload
             .b-fake-upload
                 .b-icon-upload
-                input.b-input(type='text', 'readonly', placeholder='Image.jpg')
+                input.b-input(type='text', name='basicImage', 'readonly', placeholder='Image.jpg')
 
     .b-form-line
         .b-form-label Водяной знак
@@ -13,4 +13,4 @@ section.b-section.m-upload
             input.b-input.b-input-file(type="file", name='files[]', data-url='php/index.php', disabled)#wmarkfile
             .b-fake-upload
                 .b-icon-upload
-                input.b-input(type='text', 'readonly', placeholder='Image.png')
+                input.b-input(type='text', name='waterMark', 'readonly', placeholder='Image.png')

@@ -1,15 +1,17 @@
-section.b-section.m-location
+section.b-section.m-location.m-disabled
+    .m-disabled-area
     .b-switchers
-        a(href="#",data-switch="multi").b-switcher.b-switcher-multi
-        a(href="#",data-switch="once").b-switcher.b-switcher-once.m-active
-    .b-form-label.m-extra-spaced Положение
-    .b-location
+        a(href="#",data-switch="multi").b-switcher.m-multi
+        a(href="#",data-switch="single").b-switcher.m-single.m-active
 
+    .b-form-label.m-extra-spaced Положение
+
+    .b-location
         ul.b-grid-list
             each item in ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']
                 li.b-grid-item(data-pos=item)
 
-        .b-controls
+        .b-controls.m-for-single.m-active
             .b-control-item
                 .b-control-tip X
                 input.b-control(type='text' name='xpos', value='0')
@@ -19,5 +21,19 @@ section.b-section.m-location
             .b-control-item
                 .b-control-tip Y
                 input.b-control(type='text' name='ypos', value='0')
+                a.b-control-arrow.m-top(href='')
+                a.b-control-arrow.m-btm(href='')
+
+
+        .b-controls.m-for-multi
+            .b-control-item
+                .b-control-tip.m-vertical &nbsp;
+                input.b-control(type='text' name='yinterval', value='0')
+                a.b-control-arrow.m-top(href='')
+                a.b-control-arrow.m-btm(href='')
+
+            .b-control-item
+                .b-control-tip.m-horizontal &nbsp;
+                input.b-control(type='text' name='xinterval', value='0')
                 a.b-control-arrow.m-top(href='')
                 a.b-control-arrow.m-btm(href='')

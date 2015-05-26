@@ -1,4 +1,6 @@
 var upload = (function(){
+
+	// set fileUpload options
 	var init = function(){
 		var options = {
 			dataType: 'json',
@@ -14,6 +16,7 @@ var upload = (function(){
 		_setUpFileUploadListeners(fileUpload);
 	},
 
+	// set listeners
 	_setUpFileUploadListeners = function (fileUpload) {
 		fileUpload.on('fileuploadadd', _fileUploadAdd);
 		fileUpload.on('fileuploaddone', _fileUploadDone);
@@ -22,7 +25,7 @@ var upload = (function(){
 	},
 
 	// add options only for basic image
-	_fileUploadAdd = function (e, data) {
+	_fileUploadAdd = function () {
 		if($(this).is('#fileupload')) {
 			var fileupload = $(this).data('blueimpFileupload');
 			fileupload.options.imageMaxWidth = 650;
@@ -32,26 +35,47 @@ var upload = (function(){
 
 	// upload images in work area
 	_fileUploadDone = function (e, data) {
-		var type = $(this).is('#fileupload') ? 'image' : 'watermark',
-			imageName = data.result.files[0].name,
-			src = 'php/files/' + imageName,
-			image = $('<img id="'+ type +'" src="' + src + '">');
-			$(this).siblings().children('input').val(imageName);
+		var $this = $(this),
+			type = $this.is('#fileupload') ? 'image' : 'watermark',
+			imgName = data.result.files[0].name,
+			src = 'php/files/' + imgName,
+			img = $('<img id="'+ type +'" src="' + src + '">'),
+			wmark = $('.watermark'),
+			wmarkFile = $('#wmarkfile');
+
+			$this.siblings().children('input').val(imgName);
+
+		switchPattern.change($('.b-switcher.m-single'));
+		wmarkOpacity.init();
 
 		if(type == 'image'){
-            var imgWrapper = $('.b-main-image-wrapper');
+			var imgWrap = $('.b-main-image-wrapper');
 
-            imgWrapper.prepend(image);
-            image.on('load', function(){
-                $('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
-            });
+			if(wmark.length) {
+				wmark
+					.parent().removeAttr('style')
+					.end().remove();
+				wmarkFile
+					.parent('.b-custom-upload')
+					.find('.b-input').val('');
+				_disableSections();
+			}
+
+			imgWrap.prepend(img);
+			img.on('load', function(){
+				$('.b-main-image-wrapper').css({'height':$(this).height() ,'width':$(this).width()});
+			});
+
 		} else {
 			dragDrop.appendEl(src);
-			wmarkOpacity.init();
 			wmarkOpacity.enable();
-            wmarkPosition.init();
+			wmarkPosition.init();
+			$('.m-disabled-area').css('display','none');
+			$('.b-section').removeClass('m-disabled');
+			$('.m-btns input').prop('disabled', false);
 		}
-		$('#wmarkfile').prop('disabled', false);
+
+		wmarkFile.prop('disabled', false);
 		$('.b-custom-upload').removeClass('m-disabled');
 	},
 
@@ -64,18 +88,34 @@ var upload = (function(){
 			$(this).tooltip({
 				content: 'Недопустимый тип файла.'
 			});
+			_disableSections();
 		}
 	},
 
 	// remove errors and images
-	_fileUploadChange = function (e, data) {
+	_fileUploadChange = function () {
 		var file = $(this).is('#fileupload') ? 'image' : 'watermark',
-			type = $(this).attr('id');
+			fileSelector = $('#'+ file);
 
-		$('#'+ file)
+		if(file == 'watermark'){
+			fileSelector = $('.'+ file);
+		}
+
+		fileSelector
 			.parent().removeAttr('style')
 			.end().remove();
-		$('.b-tooltip[data-name="' + type + '"]').remove();
+		$('.b-tooltip[data-name="' + file + '"]').remove();
+	},
+
+	// disable sections if watermark not loaded
+	_disableSections = function(){
+		wmarkPosition.reset();
+		wmarkOpacity.reset();
+		wmarkPosition.disable();
+
+		$('.m-disabled-area').css('display','block');
+		$('.b-section:not(:first-child)').addClass('m-disabled');
+		$('.m-btns input').prop('disabled', true);
 	},
 
 	// remove tooltip
