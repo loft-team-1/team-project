@@ -1,4 +1,5 @@
 <?php
+	ini_set("memory_limit", "1024M");
 
 	// Include Library
 	require_once './vendor/autoload.php';
