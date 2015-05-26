@@ -93,7 +93,7 @@ var wmarkPosition = (function(){
 		if(multi.hasClass('m-active')){
 			watermark.css(margin, $this.val() + 'px');
 			wmarkWrap.css(wh, (watermark.width() * clones) + parseInt($this.val()) * clones + 'px');
-			if ($this.val() > 0) {
+			if ($this.val() > 0 && $this.val() < 100) {
 				$('.b-interval' + hv).css(wh, $this.val() + 'px');
 			} else if ($this.val() == 0) {
 				$('.b-interval' + hv).css(wh, '1px');
@@ -133,7 +133,7 @@ var wmarkPosition = (function(){
 		if(multi.hasClass('m-active')){
 			watermark.css(margin, changeVal + 'px');
 			wmarkWrap.css(wh, (watermark.width() * clones) + changeVal * clones + 'px');
-			if (changeVal > 0) {
+			if (changeVal > 0 && changeVal < 100) {
 				$('.b-interval' + hv).css(wh, changeVal + 'px');
 			}
 		} else {
