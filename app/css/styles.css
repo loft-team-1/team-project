@@ -151,12 +151,12 @@ body {
   opacity: 0.6; }
   .b-share-icon-link {
     display: block;
-    background: #fff url(../img/icon/share-ico.png) center center no-repeat;
+    background: #fff url(../img/icon/spritesheet.png) -99px -12px no-repeat;
     text-indent: -999px;
     width: 43px;
     height: 41px; }
     .b-share-icon-link:hover {
-      background-image: url(../img/icon/share-ico-hover.png); }
+      background-position: -156px -12px; }
 
 .b-share-socials-list {
   margin: 0;
@@ -169,19 +169,20 @@ body {
 .b-share-socials-link {
   display: block;
   height: 41px;
-  width: 43px; }
+  width: 43px;
+  background: url(../img/icon/spritesheet.png) no-repeat; }
   .b-share-socials-link.fb-ico {
-    background: url(../img/icon/fb-ico.png) center center no-repeat; }
+    background-position: -2px -7px; }
     .b-share-socials-link.fb-ico:hover {
-      background-image: url(../img/icon/fb-ico-hover.png); }
+      background-position: -47px -7px; }
   .b-share-socials-link.tw-ico {
-    background: url(../img/icon/tw-ico.png) center center no-repeat; }
+    background-position: -212px -4px; }
     .b-share-socials-link.tw-ico:hover {
-      background-image: url(../img/icon/tw-ico-hover.png); }
+      background-position: -269px -4px; }
   .b-share-socials-link.vk-ico {
-    background: url(../img/icon/vk-ico.png) center center no-repeat; }
+    background-position: -328px -4px; }
     .b-share-socials-link.vk-ico:hover {
-      background-image: url(../img/icon/vk-ico-hover.png); }
+      background-position: -389px -4px; }
 
 .b-share-socials-name {
   position: relative;
