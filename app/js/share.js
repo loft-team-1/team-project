@@ -14,7 +14,7 @@ var share = (function(){
 	// set listeners
 	_setupListeners = function(){
 		shareIcon.on('click touchstart', _shareToggle);
-		$(document).on('click touchstart', _shareHide());
+		$(document).on('click touchstart', _shareHide);
 	},
 
 	// share toggle
