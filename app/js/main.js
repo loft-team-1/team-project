@@ -25,6 +25,11 @@ $(document).ready(function(){
 		share.init();
 	}
 
+	// translate initialization
+	if($('.b-language').length){
+		translate.init();
+	}
+
 	// form initialization
 	if($('.b-form').length){
 		form.init();
