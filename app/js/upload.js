@@ -5,6 +5,7 @@ var upload = (function(){
 		var options = {
 			dataType: 'json',
 			acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+			maxFileSize: 250000,
 			// Enable image resizing, except for Android and Opera,
 			// which actually support image resizing, but fail to
 			// send Blob objects via XHR requests:
@@ -84,10 +85,14 @@ var upload = (function(){
 		var index = data.index,
 			file = data.files[index],
 			lang = $('.b-language-link.m-active'),
-			errorMsg = 'Недопустимый тип файла.';
+			errorMsg = file.error;
 
-		if(lang.attr('id') === 'en'){
-			errorMsg = 'File type not allowed.'
+		if(lang.attr('id') === 'ru'){
+			if(file.error === 'File is too large') {
+				errorMsg = 'Файл слишком большой'
+			} else {
+				errorMsg = 'Недопустимый тип файла'
+			}
 		}
 
 		if (file.error) {
