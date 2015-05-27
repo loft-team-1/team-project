@@ -4,4 +4,5 @@ app/bower
 node_modules
 dist
 app/php/vendor/
+gulpfile.js
 .DS_Store
