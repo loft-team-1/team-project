@@ -16,6 +16,11 @@ $(document).ready(function(){
 		form.init();
 	}
 
+	// switchers initialization
+	if($('.b-switchers')){
+		switchPattern.init();
+	}
+
 	// disable location
 	if($('.b-location')){
 		wmarkPosition.disable();

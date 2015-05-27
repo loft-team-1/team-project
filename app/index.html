@@ -39,7 +39,7 @@
               <div class="b-main-area-title">Генератор водяных знаков</div>
               <div id="workspace" class="b-main-area">
                 <div class="b-main-image-wrapper">
-                  <div class="b-main-wtmark-wrapper"></div>
+                  <div class="b-main-wmark-wrapper"></div>
                 </div>
               </div>
             </section>
@@ -69,6 +69,10 @@
               </section>
               <section class="b-section m-location m-disabled">
                 <div class="m-disabled-area"></div>
+                <div class="b-switchers">
+                  <a href="#" data-switch="multi" class="b-switcher m-multi"></a>
+                  <a href="#" data-switch="single" class="b-switcher m-single m-active"></a>
+                </div>
                 <div class="b-form-label m-extra-spaced">Положение</div>
                 <div class="b-location">
                   <ul class="b-grid-list">
@@ -84,13 +88,13 @@
                   </ul>
                   <div class="b-controls">
                     <div class="b-control-item">
-                      <div class="b-control-tip">X</div>
+                      <div class="b-control-tip m-vertical">X</div>
                       <input type="text" name="xpos" value="0" class="b-control">
                       <a href="" class="b-control-arrow m-top"></a>
                       <a href="" class="b-control-arrow m-btm"></a>
                     </div>
                     <div class="b-control-item">
-                      <div class="b-control-tip">Y</div>
+                      <div class="b-control-tip m-horizontal">Y</div>
                       <input type="text" name="ypos" value="0" class="b-control">
                       <a href="" class="b-control-arrow m-top"></a>
                       <a href="" class="b-control-arrow m-btm"></a>
@@ -102,15 +106,19 @@
                 <div class="m-disabled-area"></div>
                 <div class="b-form-label">Прозрачность</div>
                 <div class="b-wmark-opacity">
-                  <div class="b-opacity-slider">
-                    <input type="hidden" name="opacity" value="100"> </div>
+                  <div class="b-opacity-slider"></div>
                 </div>
               </section>
               <section class="b-section m-btns m-disabled">
                 <div class="m-disabled-area"></div>
                 <input type="reset" value="Сброс" class="b-btn m-neg m-to-left">
                 <input type="submit" value="Скачать" class="b-btn m-to-right"> </section>
-            </form>
+              <input type="hidden" name="mode" value="single" class="m-hidden-switch">
+              <input type="hidden" name="opacity" value="100">
+              <input type="hidden" name="yposMulti" value="0">
+              <input type="hidden" name="xposMulti" value="0">
+              <input type="hidden" name="patternHeight">
+              <input type="hidden" name="patternWidth"> </form>
           </div>
         </div>
       </div>
@@ -155,6 +163,7 @@
     <script src="js/drag.js"></script>
     <script src="js/opacity.js"></script>
     <script src="js/position.js"></script>
+    <script src="js/switcher.js"></script>
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
     <script src="js/main.js"></script>

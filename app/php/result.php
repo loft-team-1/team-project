@@ -1,4 +1,5 @@
 <?php
+	ini_set("memory_limit", "1024M");
 
 	// Include Library
 	require_once './vendor/autoload.php';
@@ -39,13 +40,87 @@
 		$image->resizeInPixel(null, $maxHeight, true);
 	}
 
-	// Adding watermark
-	$image->addLayerOnTop($watermark, $xpos, $ypos, 'LT'); // Add watermark to basic layer
+	// Check which layout to use
+	$mode = $_POST['mode'];
+
+	if ($mode === 'single') {
+		// Adding watermark
+		$image->addLayerOnTop($watermark, $xpos, $ypos, 'LT'); // Add watermark to basic layer
+
+	} else if ($mode === 'multi') {
+
+		$watermarkImage = imageCreateFromAny('./files/'.$_POST['waterMark']);
+
+		// Getting watermark dimensions
+		$watermarkImageX = ImageSX($watermarkImage);
+		$watermarkImageY = ImageSY($watermarkImage);
+
+		// Creating transparent image which will be tiled with watermarks
+		$patternWidth = $_POST['patternWidth'];
+		$patternHeight = $_POST['patternHeight'];
+		$patternBg = null; // optionnal, can be null to transparent
+
+		$patternResource = ImageWorkshop::initVirginLayer($patternWidth, $patternHeight, $patternBg);
+
+		// Tiling start coordinates
+		$horizontalCoord = 0;
+		$verticalCoord = 0;
+		$btmIndent = $_POST['xpos'];
+		$leftIndent = $_POST['ypos'];
+
+		// Tiling cycle
+		while ($horizontalCoord < $patternWidth && $verticalCoord < $patternHeight){
+
+			$patternResource->addLayerOnTop($watermark, $horizontalCoord, $verticalCoord, 'LT');
+
+			$horizontalCoord += $watermarkImageX + $leftIndent;
+			if ($horizontalCoord >= $patternWidth){
+				$horizontalCoord = 0;
+				$verticalCoord += $watermarkImageY + $btmIndent;
+			}
+		}
+
+		// Set coordinates to it's original state
+		$xposMulti = $_POST['xposMulti'];
+		$yposMulti = $_POST['yposMulti'];
+
+		// Adding watermark pattern
+		$image->addLayerOnTop($patternResource, $xposMulti, $yposMulti, 'LT'); // Add watermark to basic layer
+	}
 
 	// Result image
 	$filename = "result.jpg";
 	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
 
 	// Send to ajax
-	echo __DIR__."/files/".$filename;
+	echo __DIR__ . "/files/" . $filename;
 	exit;
+
+	// Get type of watermark
+	function imageCreateFromAny($filepath) {
+		$type = exif_imagetype($filepath);
+		$allowedTypes = array(
+			1,  // [] gif
+			2,  // [] jpg
+			3,  // [] png
+			6   // [] bmp
+		);
+		if (!in_array($type, $allowedTypes)) {
+			return false;
+		}
+		switch ($type) {
+			case 1 :
+				$im = imageCreateFromGif($filepath);
+				break;
+			case 2 :
+				$im = imageCreateFromJpeg($filepath);
+				break;
+			case 3 :
+				$im = imageCreateFromPng($filepath);
+				break;
+			case 6 :
+				$im = imageCreateFromBmp($filepath);
+				break;
+		}
+		return $im;
+	}

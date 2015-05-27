@@ -23,7 +23,7 @@
   font-style: normal; }
 
 /* = Extends, Mixins================================================*/
-.m-list-reset, .b-grid-list {
+.m-list-reset, .b-share-socials-item, .b-grid-list {
   list-style-type: none;
   margin: 0;
   padding: 0; }
@@ -114,6 +114,63 @@ body {
   vertical-align: top;
   background: #f1f1f5; }
 
+/* = Share================================================*/
+.b-share {
+  position: relative;
+  width: 43px; }
+  .b-share:hover .b-share-icon {
+    right: -43px; }
+  .b-share:hover .b-share-socials-list {
+    display: block; }
+
+.b-share-socials-list {
+  display: none;
+  margin: 0;
+  padding: 0;
+  width: 43px;
+  overflow: hidden;
+  background: #fff;
+  opacity: 0.6; }
+
+.b-share-socials-name {
+  position: relative;
+  text-indent: -999px;
+  display: block; }
+
+.b-share-socials-link {
+  display: block;
+  height: 41px;
+  width: 43px; }
+  .b-share-socials-link.fb-ico {
+    background: url(../img/icon/fb-ico.png) center center no-repeat; }
+    .b-share-socials-link.fb-ico:hover {
+      background: url(../img/icon/fb-ico-hover.png) center center no-repeat; }
+  .b-share-socials-link.tw-ico {
+    background: url(../img/icon/tw-ico.png) center center no-repeat; }
+    .b-share-socials-link.tw-ico:hover {
+      background: url(../img/icon/tw-ico-hover.png) center center no-repeat; }
+  .b-share-socials-link.vk-ico {
+    background: url(../img/icon/vk-ico.png) center center no-repeat; }
+    .b-share-socials-link.vk-ico:hover {
+      background: url(../img/icon/vk-ico-hover.png) center center no-repeat; }
+
+.b-share-icon {
+  width: 43px;
+  height: 41px;
+  position: absolute;
+  overflow: hidden;
+  opacity: 0.6; }
+
+.b-share-icon-link {
+  display: block;
+  background: #fff url(../img/icon/share-ico.png) center center no-repeat;
+  text-indent: -999px;
+  width: 43px;
+  height: 41px;
+  cursor: default; }
+  .b-share-icon-link:hover {
+    background: #fff url(../img/icon/share-ico-hover.png) center center no-repeat; }
+
 /* = Footer================================================*/
 .b-footer {
   position: relative;
@@ -158,6 +215,7 @@ body {
   position: relative;
   overflow: hidden; }
 
+/* main image */
 .b-main-image-wrapper {
   position: absolute;
   top: 0;
@@ -167,18 +225,20 @@ body {
   margin: auto;
   overflow: hidden; }
 
-.b-main-wtmark-wrapper {
-  position: absolute;
-  left: 0;
-  top: 0; }
-
-#watermark {
-  cursor: move; }
-
-/* ie fix */
 #image {
   max-width: 100%;
   max-height: 100%; }
+
+/* watermark */
+.b-main-wmark-wrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden; }
+
+.watermark {
+  cursor: move;
+  float: left; }
 
 /* iframe for download */
 #downloadFrame {
@@ -314,11 +374,19 @@ body {
   border-radius: 0 3px 3px 0;
   z-index: 2; }
 
+/* form: custom upload: hover */
+.b-custom-upload:hover .b-icon-upload {
+  background-color: #f87067; }
+.b-custom-upload:active .b-icon-upload {
+  background-color: #f8675e; }
+.b-custom-upload.m-disabled:hover .b-icon-upload {
+  background-color: #f97e76; }
+
 /* = Location section
 ================================================*/
-/* location columns */
 .b-location {
-  margin-bottom: 6px; }
+  margin-bottom: 6px;
+  position: relative; }
 
 /* grid list */
 .b-grid-list {
@@ -357,6 +425,20 @@ body {
 .b-controls {
   float: right;
   text-align: right; }
+  .b-controls.m-for-multi .m-horizontal, .b-controls.m-for-multi .m-vertical {
+    text-indent: 9999px; }
+  .b-controls.m-for-multi .m-horizontal {
+    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
+    width: 29px;
+    height: 9px;
+    left: -15px;
+    top: 18px; }
+  .b-controls.m-for-multi .m-vertical {
+    background: url(../img/icon/vertical-interval.png) center center no-repeat;
+    width: 11px;
+    height: 30px;
+    left: -6px;
+    top: 9px; }
 
 .b-control-item {
   position: relative;
@@ -402,16 +484,68 @@ body {
     .b-control-arrow.m-top:hover {
       background-position: 0 0; }
     .b-control-arrow.m-top.m-disabled:hover {
-      background-position: 0 -13px;
-      cursor: default; }
+      background-position: 0 -13px; }
   .b-control-arrow.m-btm {
     bottom: 4px;
     background-position: 0 -26px; }
     .b-control-arrow.m-btm:hover {
       background-position: 0 -39px; }
     .b-control-arrow.m-btm.m-disabled:hover {
-      background-position: 0 -26px;
-      cursor: default; }
+      background-position: 0 -26px; }
+
+/* = Switcher
+================================================*/
+.b-switchers {
+  position: absolute;
+  height: 19px;
+  width: 48px;
+  top: 10px;
+  right: 10px;
+  overflow: hidden; }
+
+.b-switcher {
+  height: 19px;
+  width: 19px;
+  cursor: pointer; }
+
+.b-switcher.m-multi {
+  float: left;
+  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+  .b-switcher.m-multi.m-active {
+    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+
+.b-switcher.m-single {
+  float: right;
+  background: url(../img/icon/once-ico.png) center center no-repeat; }
+  .b-switcher.m-single.m-active {
+    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+
+/* grid interval */
+.b-intervals {
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 103px;
+  height: 103px;
+  overflow: hidden; }
+
+.b-interval.m-hor {
+  background: #f97e76;
+  height: 100%;
+  width: 1px;
+  margin: 0 auto; }
+
+.b-interval.m-vert {
+  background: #f97e76;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
 
 /* = Opacity section
 ================================================*/
@@ -464,11 +598,15 @@ body {
   text-align: center;
   display: inline-block; }
   .b-btn:hover {
-    background: #f85e54; }
+    background: #f87067; }
+  .b-btn:active {
+    background: #f8675e; }
   .b-btn.m-neg {
     background: #c1cfd9; }
     .b-btn.m-neg:hover {
-      background: #abbecb; }
+      background: #b8c8d3; }
+    .b-btn.m-neg:active {
+      background: #b1c3cf; }
 
 /* = Disable
 ================================================*/

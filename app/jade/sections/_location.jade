@@ -1,5 +1,9 @@
 section.b-section.m-location.m-disabled
     .m-disabled-area
+    .b-switchers
+        a(href="#",data-switch="multi").b-switcher.m-multi
+        a(href="#",data-switch="single").b-switcher.m-single.m-active
+
     .b-form-label.m-extra-spaced Положение
 
     .b-location
@@ -9,13 +13,13 @@ section.b-section.m-location.m-disabled
 
         .b-controls
             .b-control-item
-                .b-control-tip X
+                .b-control-tip.m-vertical X
                 input.b-control(type='text' name='xpos', value='0')
                 a.b-control-arrow.m-top(href='')
                 a.b-control-arrow.m-btm(href='')
 
             .b-control-item
-                .b-control-tip Y
+                .b-control-tip.m-horizontal Y
                 input.b-control(type='text' name='ypos', value='0')
                 a.b-control-arrow.m-top(href='')
                 a.b-control-arrow.m-btm(href='')

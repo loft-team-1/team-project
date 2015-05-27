@@ -10,6 +10,7 @@ var gulp = require('gulp'),
 	gulpif = require('gulp-if'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
+	plumber = require('gulp-plumber'),
 	wiredep = require('wiredep').stream;
 
 // bower
@@ -33,6 +34,7 @@ gulp.task('server', ['jade'], function () {
 // jade
 gulp.task('jade', function() {
 	gulp.src('./app/jade/*.jade')
+		.pipe(plumber())
 		.pipe(jade({
 			pretty: true
 		}))
@@ -44,6 +46,7 @@ gulp.task('jade', function() {
 // sass
 gulp.task('sass', function() {
 	return gulp.src('./app/scss/*.scss')
+		.pipe(plumber())
 		.pipe(sass({
 			noCache: true,
 			style: "expanded",

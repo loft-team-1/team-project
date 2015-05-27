@@ -4,19 +4,34 @@ var form = (function(){
 		_setUpListeners();
 	},
 
+	// set listeners
 	_setUpListeners = function () {
 		var $form = $('form');
 		$form.on('submit', _formSubmit);
 		$form.on('reset', _formReset);
 	},
 
+	// form submit
 	_formSubmit = function (e) {
 		e.preventDefault ? e.preventDefault() : e.returnValue;
 
+		// set variables
 		var $form = $(this),
 			formAction = $form.attr('action'),
-			formdata = false;
+			formdata = false,
+			xposMulti = $('input[name="xposMulti"]'),
+			yposMulti = $('input[name="yposMulti"]'),
+			patternWidth = $('input[name="patternWidth"]'),
+			patterHeight = $('input[name="patternHeight"]'),
+			wmarkWrap = $('.b-main-wmark-wrapper');
 
+		// set params for php
+		xposMulti.val(wmarkWrap.position().left);
+		yposMulti.val(wmarkWrap.position().top);
+		patternWidth.val(wmarkWrap.width());
+		patterHeight.val(wmarkWrap.height());
+
+		// set params for ajax
 		var obj = {
 			type: "POST",
 			url: formAction,
@@ -29,12 +44,15 @@ var form = (function(){
 			obj.contentType = false;
 		}
 
+		// get response from php
 		$.ajax(obj).done(function(data) {
+			// add src for download iframe
 			$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
 		});
 
 	},
 
+	// form reset
 	_formReset = function (e){
 		(e.preventDefault) ? e.preventDefault(): e.returnValue;
 		wmarkPosition.reset();
