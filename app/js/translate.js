@@ -28,22 +28,22 @@ i18n['ru']['copyright'] = '\u00A9 2015, Это наш сайт, пожалуйс
 // translation
 $(document).ready(function() {
 
-		// define lang onclick
-		$('.b-language-link').click( function() {
-				var lang = $(this).attr('id');
-				if (!$(this).hasClass('m-active')) {
-					$('.b-language-link.m-active').removeClass('m-active');
-					$(this).addClass('m-active');
-				}
-				// translate all translatable elements
-				$('[data-i18n]').each(function(i){
-					if ($(this).val()) {
-						$(this).val(i18n[lang][ $(this).attr('data-i18n') ]);
-					} else {
-						$(this).text(i18n[lang][ $(this).attr('data-i18n') ]);
-					}
-				});
-
+	// define lang onclick
+	$('.b-language-link').click( function() {
+		var lang = $(this).attr('id');
+		if (!$(this).hasClass('m-active')) {
+			$('.b-language-link.m-active').removeClass('m-active');
+			$(this).addClass('m-active');
+		}
+		// translate all translatable elements
+		$('[data-i18n]').each(function(i){
+			if ($(this).val()) {
+				$(this).val(i18n[lang][ $(this).attr('data-i18n') ]);
+			} else {
+				$(this).text(i18n[lang][ $(this).attr('data-i18n') ]);
+			}
 		});
+		upload.reset();
+	});
 
 });
