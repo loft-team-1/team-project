@@ -48,9 +48,7 @@ var share = (function(){
 	},
 
 	// share hide by click on the document
-	_shareHide = function(e){
-		e.preventDefault ? e.preventDefault() : e.returnValue;
-
+	_shareHide = function(){
 		if(!$(event.target).closest(shareList).length) {
 			if (share.hasClass('m-opened')) {
 				_shareHideAnimation();
