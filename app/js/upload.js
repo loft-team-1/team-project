@@ -96,9 +96,8 @@ var upload = (function(){
 		}
 
 		if (file.error) {
-			$(this).tooltip({
-				content: errorMsg
-			});
+			$(this).tooltip({ content: errorMsg });
+			$(this).siblings().children('input').val('');
 			_disableSections();
 		}
 	},
