@@ -194,6 +194,13 @@ body {
   text-indent: -999px;
   display: block; }
 
+.no-opacity .b-language-select {
+  background: #DDD4D7; }
+.no-opacity .b-share-icon-link {
+  background-color: #D0BEBD; }
+.no-opacity .b-share-socials-list {
+  background-color: #D0BEBD; }
+
 /* = Footer================================================*/
 .b-footer {
   position: relative;
