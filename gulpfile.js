@@ -162,7 +162,7 @@ gulp.task( 'deploy', function() {
 	var conn = ftp.create( {
 			host: 'beth.timeweb.ru',
 			user: '',
-			password: '',
+			password: 'еуые',
 			parallel: 10,
 			log: gutil.log
 	} );
