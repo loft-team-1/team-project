@@ -5,7 +5,7 @@ var upload = (function(){
 		var options = {
 			dataType: 'json',
 			acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
-			maxFileSize: 250000,
+			maxFileSize: 100000,
 			// Enable image resizing, except for Android and Opera,
 			// which actually support image resizing, but fail to
 			// send Blob objects via XHR requests:
@@ -31,6 +31,7 @@ var upload = (function(){
 			var fileupload = $(this).data('blueimpFileupload');
 			fileupload.options.imageMaxWidth = 650;
 			fileupload.options.imageMaxHeight = 534;
+			fileupload.options.maxFileSize = 1000000;
 		}
 	},
 
