@@ -5,6 +5,7 @@ var share = (function(){
 		share = $('.b-share'),
 		shareIcon = $('.b-share-icon'),
 		shareList = $('.b-share-socials-list'),
+		shareLink = $('.b-share-socials-link'),
 		content = $('.h-base');
 
 	var init = function(){
@@ -15,6 +16,7 @@ var share = (function(){
 	_setupListeners = function(){
 		shareIcon.on('click touchstart', _shareToggle);
 		$(document).on('click touchstart', _shareHide);
+        shareLink.on('click touchstart', _share);
 	},
 
 	// share toggle
@@ -57,7 +59,42 @@ var share = (function(){
 				_shareHideAnimation();
 			}
 		}
-	};
+    },
+    _share = function(e){
+        e.preventDefault ? e.preventDefault() : e.returnValue;
+
+        var $this = $(this),
+            location = document.location.href,
+            title = document.title,
+            desc = $('meta[name="description"]').attr('content'),
+            img = document.location.host + '/img/workarea-bg.png';
+
+        if($this.hasClass('vk-ico')){
+            url  = 'http://vkontakte.ru/share.php?';
+            url += 'url='          + location;
+            url += '&title='       + title;
+            url += '&description=' + desc;
+            url += '&image='       + img;
+            url += '&noparse=true';
+        } else if($this.hasClass('fb-ico')){
+            url  = 'http://www.facebook.com/sharer.php?s=100';
+            url += '&p[title]='     + title;
+            url += '&p[summary]='   + desc;
+            url += '&p[url]='       + location;
+            url += '&p[images][0]=' + img;
+        } else if($this.hasClass('tw-ico')){
+            url  = 'http://twitter.com/share?';
+            url += 'text='      + title;
+            url += '&url='      + location;
+            url += '&counturl=' + location;
+        }
+
+        var popup = function(url) {
+            window.open(url,'','toolbar=0,status=0,width=626,height=436');
+        };
+
+        popup(url);
+    };
 
 	return {
 		init: init
