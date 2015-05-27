@@ -28,10 +28,10 @@
   margin: 0;
   padding: 0; }
 
-.m-cfix:before, .b-container:before, .b-columns:before, .b-section.m-btns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:before, .b-container:before, .b-columns:before, .b-share:before, .b-section.m-btns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-share:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   content: "";
   display: table; }
-.m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:after, .b-container:after, .b-columns:after, .b-share:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   clear: both; }
 
 .m-to-right {
@@ -154,7 +154,7 @@ body {
   opacity: 0.6; }
   .b-share-icon-link {
     display: block;
-    background: #fff url(../img/icon/spritesheet.png) -99px -12px no-repeat;
+    background: #fff url(../img/icon/share-sprite.png) -99px -12px no-repeat;
     text-indent: -999px;
     width: 43px;
     height: 41px; }
@@ -164,16 +164,18 @@ body {
 .b-share-socials-list {
   margin: 0;
   padding: 0;
-  width: 0;
+  width: 43px;
   overflow: hidden;
   background: #fff;
-  opacity: 0.6; }
+  opacity: 0.6;
+  position: absolute;
+  left: -43px; }
 
 .b-share-socials-link {
   display: block;
   height: 41px;
   width: 43px;
-  background: url(../img/icon/spritesheet.png) no-repeat; }
+  background: url(../img/icon/share-sprite.png) no-repeat; }
   .b-share-socials-link.fb-ico {
     background-position: -2px -7px; }
     .b-share-socials-link.fb-ico:hover {
@@ -533,15 +535,15 @@ body {
 
 .b-switcher.m-multi {
   float: left;
-  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+  background: url(../img/icon/switcher-sprite.png) -15px -15px no-repeat; }
   .b-switcher.m-multi.m-active {
-    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+    background-position: -64px -15px; }
 
 .b-switcher.m-single {
   float: right;
-  background: url(../img/icon/once-ico.png) center center no-repeat; }
+  background: url(../img/icon/switcher-sprite.png) -113px -15px no-repeat; }
   .b-switcher.m-single.m-active {
-    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+    background-position: -162px -15px; }
 
 /* grid interval */
 .b-intervals {

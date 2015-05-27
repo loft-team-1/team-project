@@ -28,19 +28,4 @@ $(document).ready(function(){
 
 	// disable form btns
 	$('.m-btns input').prop('disabled', true);
-
-	$('.b-share').on('click', function(){
-		var e = $(this);
-		if (e.hasClass('m-opened')) {
-			$('.b-share-icon').animate({'right':'0px'});
-			$('.b-share-socials-list').animate({'width':'0px'}, function(){
-				e.toggleClass('m-opened');
-			});
-		} else {
-			$('.b-share-icon').animate({'right':'-43px'});
-			$('.b-share-socials-list').animate({'width':'43px'}, function(){
-				e.toggleClass('m-opened');
-			});
-		}
-	});
 });

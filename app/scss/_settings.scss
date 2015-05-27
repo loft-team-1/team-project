@@ -309,18 +309,18 @@
 }
 .b-switcher.m-multi {
 	float: left;
-	background: url(../img/icon/multiply-ico.png) center center no-repeat;
+	background: url(../img/icon/switcher-sprite.png) -15px -15px no-repeat;
 
 	&.m-active {
-		background: url(../img/icon/multiply-ico-active.png) center center no-repeat;
+		background-position: -64px -15px;
 	}
 }
 .b-switcher.m-single {
 	float: right;
-	background: url(../img/icon/once-ico.png) center center no-repeat;
+	background: url(../img/icon/switcher-sprite.png) -113px -15px no-repeat;
 
 	&.m-active {
-		background: url(../img/icon/once-ico-active.png) center center no-repeat;
+		background-position: -162px -15px;
 	}
 }
 
