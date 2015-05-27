@@ -106,7 +106,8 @@ var upload = (function(){
 	// remove errors and images
 	_fileUploadChange = function () {
 		var file = $(this).is('#fileupload') ? 'image' : 'watermark',
-			fileSelector = $('#'+ file);
+			fileSelector = $('#'+ file),
+			type = $(this).attr('id');
 
 		if(file == 'watermark'){
 			fileSelector = $('.'+ file);
@@ -115,7 +116,7 @@ var upload = (function(){
 		fileSelector
 			.parent().removeAttr('style')
 			.end().remove();
-		$('.b-tooltip[data-name="' + file + '"]').remove();
+		$('.b-tooltip[data-name="' + type + '"]').remove();
 	},
 
 	// disable sections if watermark not loaded
