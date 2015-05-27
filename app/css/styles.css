@@ -23,7 +23,7 @@
   font-style: normal; }
 
 /* = Extends, Mixins================================================*/
-.m-list-reset, .b-language-select-item, .b-share-socials-list-item, .b-grid-list {
+.m-list-reset, .b-language-item, .b-share-socials-list-item, .b-grid-list {
   list-style-type: none;
   margin: 0;
   padding: 0; }
@@ -120,25 +120,25 @@ body {
   position: fixed;
   left: 0;
   top: 51px;
-  font-size: 20px;
   font-weight: normal;
   opacity: 0.7; }
 
-.b-language-select {
+.b-language {
   background: #f1f1f5;
   margin: 0 0 18px 0;
   padding: 0;
   text-align: center;
   letter-spacing: -1px; }
-  .b-language-select-item:first-child {
+  .b-language-item:first-child {
     border-bottom: 1px solid #abaeb3; }
-  .b-language-select-link {
+  .b-language-link {
     text-decoration: none;
     color: #8e9298;
+    font-size: 20px;
     display: block;
     padding: 3px 0;
     cursor: pointer; }
-    .b-language-select-link.m-active {
+    .b-language-link.m-active {
       color: #5c5f64; }
 
 /* = Share================================================*/
@@ -175,6 +175,7 @@ body {
   display: block;
   height: 41px;
   width: 43px;
+  text-indent: -999px;
   background: url(../img/icon/share-spr.png) no-repeat; }
   .b-share-socials-link.fb-ico {
     background-position: -2px -7px; }
@@ -188,12 +189,6 @@ body {
     background-position: -328px -4px; }
     .b-share-socials-link.vk-ico:hover {
       background-position: -389px -4px; }
-
-.b-share-socials-name {
-  position: relative;
-  text-indent: -999px;
-  display: block;
-  height: 100%; }
 
 /* = Footer================================================*/
 .b-footer {

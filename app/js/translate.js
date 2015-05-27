@@ -29,10 +29,10 @@ i18n['ru']['copyright'] = '\u00A9 2015, Это наш сайт, пожалуйс
 $(document).ready(function() {
 
 		// define lang onclick
-		$('.b-language-select-link').click( function() {
+		$('.b-language-link').click( function() {
 				var lang = $(this).attr('id');
 				if (!$(this).hasClass('m-active')) {
-					$('.b-language-select-link.m-active').removeClass('m-active');
+					$('.b-language-link.m-active').removeClass('m-active');
 					$(this).addClass('m-active');
 				}
 				// translate all translatable elements
