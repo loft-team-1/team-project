@@ -24,9 +24,9 @@
 
 	// Prepare image
 	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality); // Convert basic layer to jpg
+	unset($image);
 
 	// Resize
-	$img = imagecreatefromjpeg('./files/temp-image.jpg');
 	$image = ImageWorkshop::initFromPath('./files/'.$filename); // Get new layer
 
 	// Check resized image size
@@ -39,6 +39,7 @@
 	if ($image->getHeight() > $maxHeight) {
 		$image->resizeInPixel(null, $maxHeight, true);
 	}
+	unset($maxWidth, $maxHeight);
 
 	// Check which layout to use
 	$mode = $_POST['mode'];
@@ -49,18 +50,17 @@
 
 	} else if ($mode === 'multi') {
 
-		$watermarkImage = imageCreateFromAny('./files/'.$_POST['waterMark']);
-
-		// Getting watermark dimensions
-		$watermarkImageX = ImageSX($watermarkImage);
-		$watermarkImageY = ImageSY($watermarkImage);
-
 		// Creating transparent image which will be tiled with watermarks
 		$patternWidth = $_POST['patternWidth'];
 		$patternHeight = $_POST['patternHeight'];
 		$patternBg = null; // optionnal, can be null to transparent
 
 		$patternResource = ImageWorkshop::initVirginLayer($patternWidth, $patternHeight, $patternBg);
+		unset($patternBg);
+		
+		// Getting watermark dimensions
+		$watermarkWidth = $watermark->getWidth();
+		$watermarkHeight = $watermark->getHeight();
 
 		// Tiling start coordinates
 		$horizontalCoord = 0;
@@ -73,12 +73,13 @@
 
 			$patternResource->addLayerOnTop($watermark, $horizontalCoord, $verticalCoord, 'LT');
 
-			$horizontalCoord += $watermarkImageX + $leftIndent;
+			$horizontalCoord += $watermarkWidth + $leftIndent;
 			if ($horizontalCoord >= $patternWidth){
 				$horizontalCoord = 0;
-				$verticalCoord += $watermarkImageY + $btmIndent;
+				$verticalCoord += $watermarkHeight + $btmIndent;
 			}
 		}
+		unset($patternWidth, $patternHeight, $horizontalCoord, $verticalCoord, $btmIndent, $leftIndent, $watermarkWidth, $watermarkHeight);
 
 		// Set coordinates to it's original state
 		$xposMulti = $_POST['xposMulti'];
@@ -86,42 +87,16 @@
 
 		// Adding watermark pattern
 		$image->addLayerOnTop($patternResource, $xposMulti, $yposMulti, 'LT'); // Add watermark to basic layer
+		unset($patternResource, $xposMulti, $yposMulti);
 	}
 
 	// Result image
 	$filename = "result.jpg";
 	$image->save($dirPath, $filename, $createFolders, $backgroundColor, $imageQuality);
+	unset($image, $watermark, $mode, $dirPath, $createFolders, $backgroundColor, $imageQuality, $watermarkOpacity, $xpos, $ypos);
 
 	// Send to ajax
 	echo __DIR__ . "/files/" . $filename;
+	unset($filename);
+
 	exit;
-
-
-	// Get type of watermark
-	function imageCreateFromAny($filepath) {
-		$type = exif_imagetype($filepath);
-		$allowedTypes = array(
-			1,  // [] gif
-			2,  // [] jpg
-			3,  // [] png
-			6   // [] bmp
-		);
-		if (!in_array($type, $allowedTypes)) {
-			return false;
-		}
-		switch ($type) {
-			case 1 :
-				$im = imageCreateFromGif($filepath);
-				break;
-			case 2 :
-				$im = imageCreateFromJpeg($filepath);
-				break;
-			case 3 :
-				$im = imageCreateFromPng($filepath);
-				break;
-			case 6 :
-				$im = imageCreateFromBmp($filepath);
-				break;
-		}
-		return $im;
-	}

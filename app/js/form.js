@@ -45,9 +45,12 @@ var form = (function(){
 		}
 
 		// get response from php
-		$.ajax(obj).done(function(data) {
-			// add src for download iframe
-			$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
+		$.ajax(obj)
+			.done(function(data) {
+				// add src for download iframe
+				$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
+			}).fail(function() {
+				alert('Internal Server Error');
 		});
 
 	},
