@@ -11,29 +11,15 @@ section.b-section.m-location.m-disabled
             each item in ['top-left', 'top-center', 'top-right', 'mid-left', 'mid-center', 'mid-right', 'btm-left', 'btm-center', 'btm-right']
                 li.b-grid-item(data-pos=item)
 
-        .b-controls.m-for-single.m-active
+        .b-controls
             .b-control-item
-                .b-control-tip X
+                .b-control-tip.m-vertical X
                 input.b-control(type='text' name='xpos', value='0')
                 a.b-control-arrow.m-top(href='')
                 a.b-control-arrow.m-btm(href='')
 
             .b-control-item
-                .b-control-tip Y
+                .b-control-tip.m-horizontal Y
                 input.b-control(type='text' name='ypos', value='0')
-                a.b-control-arrow.m-top(href='')
-                a.b-control-arrow.m-btm(href='')
-
-
-        .b-controls.m-for-multi
-            .b-control-item
-                .b-control-tip.m-vertical &nbsp;
-                input.b-control(type='text' name='yinterval', value='0')
-                a.b-control-arrow.m-top(href='')
-                a.b-control-arrow.m-btm(href='')
-
-            .b-control-item
-                .b-control-tip.m-horizontal &nbsp;
-                input.b-control(type='text' name='xinterval', value='0')
                 a.b-control-arrow.m-top(href='')
                 a.b-control-arrow.m-btm(href='')

@@ -82,11 +82,17 @@ var upload = (function(){
 	// show errors
 	_fileUploadAlways = function (e, data) {
 		var index = data.index,
-			file = data.files[index];
+			file = data.files[index],
+			lang = $('.b-language-link.m-active'),
+			errorMsg = 'Недопустимый тип файла.';
+
+		if(lang.attr('id') === 'en'){
+			errorMsg = 'File type not allowed.'
+		}
 
 		if (file.error) {
 			$(this).tooltip({
-				content: 'Недопустимый тип файла.'
+				content: errorMsg
 			});
 			_disableSections();
 		}

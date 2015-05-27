@@ -1,8 +1,8 @@
 var wmarkOpacity = (function(){
 
-    //vars
-    var sliderEl = $('.b-opacity-slider'),
-        wmarkWrap = $('.b-main-wmark-wrapper');
+	// set variables
+	var sliderEl = $('.b-opacity-slider'),
+		wmarkWrap = $('.b-main-wmark-wrapper');
 
 	var init = function(){
 		// set variables

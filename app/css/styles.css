@@ -23,7 +23,7 @@
   font-style: normal; }
 
 /* = Extends, Mixins================================================*/
-.m-list-reset, .b-language-select-item, .b-share-socials-list-item, .b-grid-list {
+.m-list-reset, .b-language-item, .b-share-socials-list-item, .b-grid-list {
   list-style-type: none;
   margin: 0;
   padding: 0; }
@@ -120,25 +120,25 @@ body {
   position: fixed;
   left: 0;
   top: 51px;
-  font-size: 20px;
   font-weight: normal;
   opacity: 0.7; }
 
-.b-language-select {
+.b-language {
   background: #f1f1f5;
   margin: 0 0 18px 0;
   padding: 0;
   text-align: center;
   letter-spacing: -1px; }
-  .b-language-select-item:first-child {
+  .b-language-item:first-child {
     border-bottom: 1px solid #abaeb3; }
-  .b-language-select-link {
+  .b-language-link {
     text-decoration: none;
     color: #8e9298;
+    font-size: 20px;
     display: block;
     padding: 3px 0;
     cursor: pointer; }
-    .b-language-select-link.m-active {
+    .b-language-link.m-active {
       color: #5c5f64; }
 
 /* = Share================================================*/
@@ -154,7 +154,7 @@ body {
   opacity: 0.6; }
   .b-share-icon-link {
     display: block;
-    background: #fff url(../img/icon/share-sprite.png) -99px -12px no-repeat;
+    background: #fff url(../img/icon/share-spr.png) -99px -12px no-repeat;
     text-indent: -999px;
     width: 43px;
     height: 41px; }
@@ -175,7 +175,8 @@ body {
   display: block;
   height: 41px;
   width: 43px;
-  background: url(../img/icon/share-sprite.png) no-repeat; }
+  text-indent: -999px;
+  background: url(../img/icon/share-spr.png) no-repeat; }
   .b-share-socials-link.fb-ico {
     background-position: -2px -7px; }
     .b-share-socials-link.fb-ico:hover {
@@ -189,6 +190,7 @@ body {
     .b-share-socials-link.vk-ico:hover {
       background-position: -389px -4px; }
 
+<<<<<<< HEAD
 .b-share-socials-name {
   position: relative;
   text-indent: -999px;
@@ -201,6 +203,8 @@ body {
 .no-opacity .b-share-socials-list {
   background-color: #D0BEBD; }
 
+=======
+>>>>>>> ba593b0390eb339fe983a1f03c04a26840c0c570
 /* = Footer================================================*/
 .b-footer {
   position: relative;
@@ -455,10 +459,20 @@ body {
 .b-controls {
   float: right;
   text-align: right; }
-  .b-controls.m-for-single, .b-controls.m-for-multi {
-    display: none; }
-  .b-controls.m-active {
-    display: block; }
+  .b-controls.m-for-multi .m-horizontal, .b-controls.m-for-multi .m-vertical {
+    text-indent: 9999px; }
+  .b-controls.m-for-multi .m-horizontal {
+    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
+    width: 29px;
+    height: 9px;
+    left: -15px;
+    top: 18px; }
+  .b-controls.m-for-multi .m-vertical {
+    background: url(../img/icon/vertical-interval.png) center center no-repeat;
+    width: 11px;
+    height: 30px;
+    left: -6px;
+    top: 9px; }
 
 .b-control-item {
   position: relative;
@@ -482,18 +496,6 @@ body {
   position: absolute;
   left: 0;
   top: 15px; }
-  .b-control-tip.m-horizontal {
-    background: url(../img/icon/horizontal-interval.png) center center no-repeat;
-    width: 29px;
-    height: 9px;
-    left: -15px;
-    top: 17px; }
-  .b-control-tip.m-vertical {
-    background: url(../img/icon/vertical-interval.png) center center no-repeat;
-    width: 11px;
-    height: 30px;
-    left: -7px;
-    top: 7px; }
 
 /* controls: arrows */
 .b-control-arrow {
@@ -542,13 +544,13 @@ body {
 
 .b-switcher.m-multi {
   float: left;
-  background: url(../img/icon/switcher-sprite.png) -15px -15px no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -15px -15px no-repeat; }
   .b-switcher.m-multi.m-active {
     background-position: -64px -15px; }
 
 .b-switcher.m-single {
   float: right;
-  background: url(../img/icon/switcher-sprite.png) -113px -15px no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -113px -15px no-repeat; }
   .b-switcher.m-single.m-active {
     background-position: -162px -15px; }
 

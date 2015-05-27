@@ -10,22 +10,30 @@ $(document).ready(function(){
 		wmarkOpacity.init();
 	}
 
-	// form and placeholder initialization
-	if($('.b-form').length){
-		$('.b-input').placeholder();
-		form.init();
-	}
-
 	// switchers initialization
-	if($('.b-switchers')){
+	if($('.b-switchers').length){
 		switchPattern.init();
 	}
 
 	// disable location
-	if($('.b-location')){
+	if($('.b-location').length){
 		wmarkPosition.disable();
 	}
 
-	// disable form btns
-	$('.m-btns input').prop('disabled', true);
+	// share initialization
+	if($('.b-share').length){
+		share.init();
+	}
+
+	// form initialization
+	if($('.b-form').length){
+		form.init();
+
+		// placeholder initialization
+		$('.b-input').placeholder();
+
+		// disable form buttons
+		$('.m-btns input').prop('disabled', true);
+	}
+
 });
