@@ -4,8 +4,8 @@ var wmarkPosition = (function(){
 	var min = 0,
 		imgWrap = $('.b-main-image-wrapper'),
 		wmarkWrap = $('.b-main-wmark-wrapper'),
-		xpos = $('.m-for-single input[name="xpos"]'),
-		ypos = $('.m-for-single input[name="ypos"]');
+		xpos = $('.b-controls input[name="xpos"]'),
+		ypos = $('.b-controls input[name="ypos"]');
 
 	var init = function(){
 		_setUpListeners();
@@ -13,8 +13,8 @@ var wmarkPosition = (function(){
 
 	// set listeners
 	_setUpListeners = function(){
-		$('.m-for-single input[type="text"]').on('input', _inputChange).prop('disabled', false);
-		$('.m-for-single .b-control-arrow').on('click touchstart', _arrowsChange);
+		$('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
+		$('.b-controls .b-control-arrow').on('click touchstart', _arrowsChange);
 		$('.b-grid-list li').on('click touchstart', _gridChange);
 	},
 
@@ -81,9 +81,9 @@ var wmarkPosition = (function(){
 			multi = $('.m-multi'),
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = $this.is(xpos) ? 'left' : 'top',
-			wh = $this.is(ypos) ? 'height' : 'width',
-			hv = $this.is(ypos) ? '.m-vert' : '.m-hor',
-			margin = $this.is(xpos) ? 'margin-right' : 'margin-bottom',
+			wh = $this.is(ypos) ? 'width' : 'height',
+			hv = $this.is(ypos) ? '.m-hor' : '.m-vert',
+			margin = $this.is(xpos) ? 'margin-bottom' : 'margin-right',
 			clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1 : Math.ceil(imgWrap.width() / wmark.width()) +1 ;
 
 		if($this.val() > max){
@@ -121,9 +121,9 @@ var wmarkPosition = (function(){
 			maxMargin = input.is(xpos) ? imgWrap.width() : imgWrap.height(),
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = input.is(xpos) ? 'left' : 'top',
-			wh = input.is(ypos) ? 'height' : 'width',
-			hv = input.is(ypos) ? '.m-vert' : '.m-hor',
-			margin = input.is(xpos) ? 'margin-right' : 'margin-bottom',
+			wh = input.is(ypos) ? 'width' : 'height',
+			hv = input.is(ypos) ? '.m-hor' : '.m-vert',
+			margin = input.is(xpos) ? 'margin-bottom' : 'margin-right',
 			clones = input.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1: Math.ceil(imgWrap.width() / wmark.width())+1;
 
 		if(changeVal > max || changeVal < min){
@@ -157,8 +157,8 @@ var wmarkPosition = (function(){
 	disableEvents = function(){
 		var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
 
-		$('.m-for-single input[type="text"]').off('input', _inputChange);
-		$('.m-for-single .b-control-arrow').off('click touchstart', _arrowsChange);
+		$('.b-controls input[type="text"]').off('input', _inputChange);
+		$('.b-controls .b-control-arrow').off('click touchstart', _arrowsChange);
 		$('.b-grid-list li').off('click touchstart', _gridChange);
 
 		elems.on('click touchstart input', function(e){
