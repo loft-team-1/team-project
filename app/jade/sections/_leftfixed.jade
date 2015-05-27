@@ -1,16 +1,16 @@
 ul.b-language-select
-	li.b-language-select-item
-		a#ru.b-language-select-link.m-active
-			| РУС
-	li.b-language-select-item
-		a#en.b-language-select-link
-			| ENG
+    li.b-language-select-item
+        a#ru.b-language-select-link.m-active
+            | РУС
+    li.b-language-select-item
+        a#en.b-language-select-link
+            | ENG
 .b-share
-	.b-share-icon
-		a(href="#").b-share-icon-link Like Me
+    .b-share-icon
+        a(href="#").b-share-icon-link Like Me
 
-	ul.b-share-socials-list
-		each val, index in {'fb-ico':'FaceBook' ,'tw-ico':'Twitter' ,'vk-ico':'ВКонтакте'}
-			li.b-share-socials-item
-				a(href="#", class="#{index}").b-share-socials-link
-					span.b-share-socials-name #{val}
+    ul.b-share-socials-list
+        each val, index in {'fb-ico':'FaceBook' ,'tw-ico':'Twitter' ,'vk-ico':'ВКонтакте'}
+            li.b-share-socials-item
+                a(href="#", class="#{index}").b-share-socials-link
+                    span.b-share-socials-name #{val}

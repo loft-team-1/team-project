@@ -310,7 +310,7 @@
 }
 .b-switcher.m-multi {
 	float: left;
-	background: url(../img/icon/switcher-sprite.png) -15px -15px no-repeat;
+	background: url(../img/icon/switcher-spr.png) -15px -15px no-repeat;
 
 	&.m-active {
 		background-position: -64px -15px;
@@ -318,7 +318,7 @@
 }
 .b-switcher.m-single {
 	float: right;
-	background: url(../img/icon/switcher-sprite.png) -113px -15px no-repeat;
+	background: url(../img/icon/switcher-spr.png) -113px -15px no-repeat;
 
 	&.m-active {
 		background-position: -162px -15px;

@@ -154,7 +154,7 @@ body {
   opacity: 0.6; }
   .b-share-icon-link {
     display: block;
-    background: #fff url(../img/icon/share-sprite.png) -99px -12px no-repeat;
+    background: #fff url(../img/icon/share-spr.png) -99px -12px no-repeat;
     text-indent: -999px;
     width: 43px;
     height: 41px; }
@@ -175,7 +175,7 @@ body {
   display: block;
   height: 41px;
   width: 43px;
-  background: url(../img/icon/share-sprite.png) no-repeat; }
+  background: url(../img/icon/share-spr.png) no-repeat; }
   .b-share-socials-link.fb-ico {
     background-position: -2px -7px; }
     .b-share-socials-link.fb-ico:hover {
@@ -192,7 +192,8 @@ body {
 .b-share-socials-name {
   position: relative;
   text-indent: -999px;
-  display: block; }
+  display: block;
+  height: 100%; }
 
 /* = Footer================================================*/
 .b-footer {
@@ -533,13 +534,13 @@ body {
 
 .b-switcher.m-multi {
   float: left;
-  background: url(../img/icon/switcher-sprite.png) -15px -15px no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -15px -15px no-repeat; }
   .b-switcher.m-multi.m-active {
     background-position: -64px -15px; }
 
 .b-switcher.m-single {
   float: right;
-  background: url(../img/icon/switcher-sprite.png) -113px -15px no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -113px -15px no-repeat; }
   .b-switcher.m-single.m-active {
     background-position: -162px -15px; }
 
