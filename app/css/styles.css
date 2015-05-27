@@ -215,12 +215,10 @@ body {
   background: #a9837f; }
 .no-opacity .b-gradient {
   display: none; }
-.no-opacity .b-language-select {
-  background: #DDD4D7; }
-.no-opacity .b-share-icon-link {
-  background-color: #D0BEBD; }
-.no-opacity .b-share-socials-list {
-  background-color: #D0BEBD; }
+.no-opacity .b-language {
+  background: #ddd4d7; }
+.no-opacity .b-share-icon-link, .no-opacity .b-share-socials-list {
+  background-color: #d0bebd; }
 
 /* = Main section
 ================================================*/
