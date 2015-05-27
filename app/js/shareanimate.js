@@ -17,7 +17,9 @@ var share = (function(){
 	},
 
 	// share toggle
-	_shareToggle = function(){
+	_shareToggle = function(e){
+		e.preventDefault ? e.preventDefault() : e.returnValue;
+
 		if (share.hasClass('m-opened')) {
 			_shareHideAnimation();
 		} else {
@@ -46,7 +48,9 @@ var share = (function(){
 	},
 
 	// share hide by click on the document
-	_shareHide = function(){
+	_shareHide = function(e){
+		e.preventDefault ? e.preventDefault() : e.returnValue;
+
 		if(!$(event.target).closest(shareList).length) {
 			if (share.hasClass('m-opened')) {
 				_shareHideAnimation();
