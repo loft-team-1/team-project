@@ -190,21 +190,6 @@ body {
     .b-share-socials-link.vk-ico:hover {
       background-position: -389px -4px; }
 
-<<<<<<< HEAD
-.b-share-socials-name {
-  position: relative;
-  text-indent: -999px;
-  display: block; }
-
-.no-opacity .b-language-select {
-  background: #DDD4D7; }
-.no-opacity .b-share-icon-link {
-  background-color: #D0BEBD; }
-.no-opacity .b-share-socials-list {
-  background-color: #D0BEBD; }
-
-=======
->>>>>>> ba593b0390eb339fe983a1f03c04a26840c0c570
 /* = Footer================================================*/
 .b-footer {
   position: relative;
@@ -230,6 +215,12 @@ body {
   background: #a9837f; }
 .no-opacity .b-gradient {
   display: none; }
+.no-opacity .b-language-select {
+  background: #DDD4D7; }
+.no-opacity .b-share-icon-link {
+  background-color: #D0BEBD; }
+.no-opacity .b-share-socials-list {
+  background-color: #D0BEBD; }
 
 /* = Main section
 ================================================*/
