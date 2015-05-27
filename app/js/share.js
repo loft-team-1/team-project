@@ -4,7 +4,8 @@ var share = (function(){
 	var speed = 'fast',
 		share = $('.b-share'),
 		shareIcon = $('.b-share-icon'),
-		shareList = $('.b-share-socials-list');
+		shareList = $('.b-share-socials-list'),
+		content = $('.h-base');
 
 	var init = function(){
 		_setupListeners();
@@ -13,7 +14,7 @@ var share = (function(){
 	// set listeners
 	_setupListeners = function(){
 		shareIcon.on('click touchstart', _shareToggle);
-		$(document).on('click touchstart', _shareHide);
+		$(document).on('click touchstart', _shareHide());
 	},
 
 	// share toggle
@@ -30,6 +31,7 @@ var share = (function(){
 	// share open
 	_shareOpenAnimation = function(){
 		shareIcon.animate({'right':'-43px'}, speed);
+		content.animate({'min-width':'1140px'}, speed);
 		shareList.animate({'left':'0'}, speed,
 			function(){
 				share.addClass('m-opened');
@@ -40,6 +42,7 @@ var share = (function(){
 	// share hide
 	_shareHideAnimation = function(){
 		shareIcon.animate({'right':'0'}, speed);
+		content.animate({'min-width':'1056px'}, speed);
 		shareList.animate({'left':'-43px'}, speed,
 			function(){
 				share.removeClass('m-opened');
