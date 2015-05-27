@@ -1,7 +1,7 @@
 var share = (function(){
 
 	// set variables
-	var speed = 200,
+	var speed = 'fast',
 		share = $('.b-share'),
 		shareIcon = $('.b-share-icon'),
 		shareList = $('.b-share-socials-list');
