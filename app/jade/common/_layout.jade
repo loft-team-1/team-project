@@ -34,16 +34,17 @@ html(lang='ru-RU')
 
     body
         <!--[if lt IE 8]>
-        <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+        <p class='b-unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
         <![endif]-->
 
         .h-base
             .b-gradient
-            .b-left-fixed
-                block leftfixed
 
             // Content: start
             .b-main-container
+                .b-left-panel
+                    block leftpanel
+
                 .b-columns
                     .b-main
                         block main

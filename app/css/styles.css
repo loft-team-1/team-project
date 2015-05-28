@@ -57,14 +57,15 @@ body {
 /* = Layout================================================*/
 .h-base {
   height: 100%;
-  min-width: 1056px;
+  min-width: 1140px;
   min-height: 760px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   text-align: center;
   background: #a9837f url('../img/bg/main-bg.jpg') no-repeat 100% 50%;
-  background-size: cover; }
+  background-size: cover;
+  font-size: 0; }
   .h-base:after {
     content: '';
     height: 40px;
@@ -93,16 +94,17 @@ body {
   text-align: left; }
 
 .b-main-container {
+  font: 1em/1.4 'robotolight';
   display: inline-block;
   vertical-align: middle;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 /* = Columns================================================*/
 .b-columns {
   display: table; }
 
 .b-main {
-  width: 700px;
   display: table-cell;
   vertical-align: top;
   background: #5f5f62;
@@ -114,15 +116,16 @@ body {
   vertical-align: top;
   background: #f1f1f5; }
 
-/* = Language toggle================================================*/
-.b-left-fixed {
+/* = Left Panel================================================*/
+.b-left-panel {
   width: 43px;
-  position: fixed;
+  position: absolute;
   left: 0;
-  top: 51px;
+  top: 0;
   font-weight: normal;
   opacity: 0.7; }
 
+/* = Language toggle================================================*/
 .b-language {
   background: #f1f1f5;
   margin: 0 0 18px 0;
@@ -202,7 +205,7 @@ body {
   text-align: center; }
 
 /* = Unhappy browser================================================*/
-.unhappy-browser {
+.b-unhappy-browser {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
