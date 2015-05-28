@@ -28,8 +28,8 @@ var translate = (function(){
 		i18n['ru']['copyright'] = '\u00A9 2015, Это наш сайт, пожалуйста, не копируйте и не воруйте его.';
 
 	// set local translate
-	var localLang = JSON.parse(localStorage.getItem('lang'));
-	if (localLang === "en") {
+	var localLang = localStorage.getItem('lang');
+	if (localLang === 'en') {
 
 		// change active link
 		$('#ru').removeClass('m-active');
@@ -38,10 +38,6 @@ var translate = (function(){
 		// start translate
 		$('[data-i18n]').each(function(){
 			if ($(this).val()) {
-
-				var testObject = i18n['en'][$(this).attr('data-i18n')];
-				localStorage[testObject] = JSON.stringify(testObject);
-
 				$(this).val(i18n[localLang][ $(this).attr('data-i18n') ]);
 			} else {
 				$(this).text(i18n[localLang][ $(this).attr('data-i18n') ]);
@@ -63,7 +59,7 @@ var translate = (function(){
 		var lang = $(this).attr('id');
 
 		// set local current language as local
-		localStorage['lang'] = JSON.stringify(lang);
+		localStorage.setItem('lang', lang);
 
 		// remove tooltip
 		upload.reset();
@@ -77,10 +73,6 @@ var translate = (function(){
 		// translate all translatable elements
 		$('[data-i18n]').each(function(){
 			if ($(this).val()) {
-
-				var testObject = i18n['en'][$(this).attr('data-i18n')];
-				localStorage[testObject] = JSON.stringify(testObject);
-
 				$(this).val(i18n[lang][ $(this).attr('data-i18n') ]);
 			} else {
 				$(this).text(i18n[lang][ $(this).attr('data-i18n') ]);
