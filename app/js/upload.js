@@ -85,10 +85,10 @@ var upload = (function(){
 	_fileUploadAlways = function (e, data) {
 		var index = data.index,
 			file = data.files[index],
-			lang = $('.b-language-link.m-active'),
+			lang = localStorage.getItem('lang') || 'ru',
 			errorMsg = file.error;
 
-		if(lang.attr('id') === 'ru'){
+		if(lang === 'ru'){
 			if(file.error === 'File is too large') {
 				errorMsg = 'Файл слишком большой'
 			} else {

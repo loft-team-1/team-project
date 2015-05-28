@@ -50,9 +50,15 @@ var form = (function(){
 				// add src for download iframe
 				$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
 			}).fail(function() {
-				alert('Internal Server Error');
-		});
 
+				var lang = localStorage.getItem('lang') || 'ru';
+
+				if (lang ==='ru') {
+					alert('У нас не хватает мощности для обработки ваших изображений. Пожалуйста, попробуйте использовать другой водяной знак.');
+				} else {
+					alert("We didn't have enough power to handle your images. Please, try use another watermark.");
+				}
+			});
 	},
 
 	// form reset

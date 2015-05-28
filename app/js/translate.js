@@ -27,23 +27,6 @@ var translate = (function(){
 		i18n['ru']['download'] = 'Скачать';
 		i18n['ru']['copyright'] = '\u00A9 2015, Это наш сайт, пожалуйста, не копируйте и не воруйте его.';
 
-	// set local translate
-	var localLang = localStorage.getItem('lang');
-	if (localLang === 'en') {
-
-		// change active link
-		$('#ru').removeClass('m-active');
-		$('#en').addClass('m-active');
-
-		// start translate
-		$('[data-i18n]').each(function(){
-			if ($(this).val()) {
-				$(this).val(i18n[localLang][ $(this).attr('data-i18n') ]);
-			} else {
-				$(this).text(i18n[localLang][ $(this).attr('data-i18n') ]);
-			}
-		});
-	}
 
 	var init = function(){
 		_setupListeners();
@@ -52,14 +35,28 @@ var translate = (function(){
 	// set listeners
 	_setupListeners = function(){
 		$('.b-language-link').on('click touchstart', _changeLang);
+		$(document).on('ready', _detectLang);
 	},
 
-	// change Language
+	// get language from localstorage
+	_detectLang = function(){
+		var lang = localStorage.getItem('lang') || 'ru';
+
+		$('.b-language-link.m-active').removeClass('m-active');
+
+		// detect lang
+		if (lang ==='en') {
+			$('#en.b-language-link').addClass('m-active');
+		} else {
+			$('#ru.b-language-link').addClass('m-active');
+		}
+
+		_toggleLang(lang);
+	},
+
+	// change language
 	_changeLang = function(){
 		var lang = $(this).attr('id');
-
-		// set local current language as local
-		localStorage.setItem('lang', lang);
 
 		// remove tooltip
 		upload.reset();
@@ -68,9 +65,16 @@ var translate = (function(){
 		if (!$(this).hasClass('m-active')) {
 			$('.b-language-link.m-active').removeClass('m-active');
 			$(this).addClass('m-active');
+
+			// set language as local
+			localStorage.setItem('lang', lang);
 		}
 
-		// translate all translatable elements
+		_toggleLang(lang);
+	},
+
+	// toggle language
+	_toggleLang = function(lang){
 		$('[data-i18n]').each(function(){
 			if ($(this).val()) {
 				$(this).val(i18n[lang][ $(this).attr('data-i18n') ]);
