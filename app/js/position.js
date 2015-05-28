@@ -96,9 +96,9 @@ var wmarkPosition = (function(){
 			wmark.css(margin, $this.val() + 'px');
 			wmarkWrap.css('width', (wmark.width() * clones) + parseInt($this.val()) * clones + 'px');
 			if ($this.val() > 0) {
-				$('.b-interval' + wh).css(hv, Math.ceil($this.val()/2) + 'px');
+				$('.b-interval' + hv).css(wh, Math.ceil($this.val()/2) + 'px');
 			} else if ($this.val() == 0) {
-				$('.b-interval' + wh).css(hv, '1px');
+				$('.b-interval' + hv).css(wh, '1px');
 			}
 		} else {
 			wmarkWrap.css(axis, $this.val() + 'px');
@@ -137,7 +137,7 @@ var wmarkPosition = (function(){
 			wmark.css(margin, changeVal + 'px');
 			wmarkWrap.css('width', (wmark.width() * clones) + changeVal * clones + 'px');
 			if (changeVal > 0) {
-				$('.b-interval' + wh).css(hv, Math.ceil(changeVal/2) + 'px');
+				$('.b-interval' + hv).css(wh, Math.ceil(changeVal/2) + 'px');
 			}
 		} else {
 			wmarkWrap.css(axis, changeVal + 'px');
