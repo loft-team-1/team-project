@@ -23,6 +23,7 @@ var upload = (function(){
 		fileUpload.on('fileuploaddone', _fileUploadDone);
 		fileUpload.on('fileuploadprocessalways', _fileUploadAlways);
 		fileUpload.on('fileuploadchange', _fileUploadChange);
+		fileUpload.on('fileuploaddrop', _fileDisableDrop);
 	},
 
 	// add options only for basic image
@@ -128,6 +129,11 @@ var upload = (function(){
 		$('.m-disabled-area').css('display','block');
 		$('.b-section:not(:first-child)').addClass('m-disabled');
 		$('.m-btns input').prop('disabled', true);
+	},
+
+	// disable drop
+	_fileDisableDrop = function (e) {
+		(e.preventDefault) ? e.preventDefault(): e.returnValue;
 	},
 
 	// remove tooltip
