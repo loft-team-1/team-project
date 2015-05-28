@@ -44,17 +44,17 @@ var switchPattern  = (function(){
 			hidden.val('multi');
 		}
 
-		// check input mode
-		if (inputWrap.hasClass('m-for-multi')) {
-			inputWrap.removeClass('m-for-multi');
-		} else {
-			inputWrap.addClass('m-for-multi');
-		}
-
 		// check icon mode
 		if (!(el.hasClass('m-active'))) {
 			el.addClass('m-active');
 			el.siblings('.m-active').removeClass('m-active');
+
+			// check input mode
+			if (el.data('switch') === 'single') {
+				inputWrap.removeClass('m-for-multi');
+			} else {
+				inputWrap.addClass('m-for-multi');
+			}
 		}
 	};
 
