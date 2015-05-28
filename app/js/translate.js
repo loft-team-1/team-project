@@ -82,6 +82,9 @@ var translate = (function(){
 				$(this).text(i18n[lang][ $(this).attr('data-i18n') ]);
 			}
 		});
+
+		// translate site-title
+		$('title').text(i18n[lang]['title']);
 	};
 
 	return {
