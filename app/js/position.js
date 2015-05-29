@@ -97,7 +97,8 @@ var wmarkPosition = (function(){
 
 		if(multi.hasClass('m-active')){
 			wmark.css(margin, $this.val() + 'px');
-			wmarkWrap.css(wh, (wmarkParam * clones) + (parseInt($this.val()) * clones));
+			$('.watermark:nth-child(' + clonesWidthCount + 'n)').css('margin-right', 0);
+			wmarkWrap.css(wh, (wmarkParam * clones) + (parseInt($this.val()) * (clones -1)));
 			if ($this.val() > 0) {
 				$('.b-interval' + hv).css(wh, Math.ceil($this.val()/2) + 'px');
 			} else if ($this.val() == 0) {
@@ -140,13 +141,14 @@ var wmarkPosition = (function(){
 		}
 
 		if(multi.hasClass('m-active')){
-			wmark.css(margin, changeVal + 'px');
-			wmarkWrap.css(wh, (wmarkParam * clones) + (changeVal * clones));
+			wmark.css(margin, changeVal);
+			$('.watermark:nth-child(' + clonesWidthCount + 'n)').css('margin-right', 0);
+			wmarkWrap.css(wh, (wmarkParam * clones) + (changeVal * (clones -1)));
 			if (changeVal > 0) {
-				$('.b-interval' + hv).css(wh, Math.ceil(changeVal/2) + 'px');
+				$('.b-interval' + hv).css(wh, Math.ceil(changeVal/2));
 			}
 		} else {
-			wmarkWrap.css(axis, changeVal + 'px');
+			wmarkWrap.css(axis, changeVal);
 		}
 
 		input.val(changeVal);
