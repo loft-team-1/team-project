@@ -31,6 +31,9 @@ var form = (function(){
 		patternWidth.val(wmarkWrap.width());
 		patterHeight.val(wmarkWrap.height());
 
+		// show Loader
+		_showLoader();
+
 		// set params for ajax
 		var obj = {
 			type: "POST",
@@ -58,7 +61,19 @@ var form = (function(){
 				} else {
 					alert("We didn't have enough power to handle your images. Please, try use another watermark.");
 				}
+			}).always(function(){
+				_hideLoader();
 			});
+	},
+
+	// show Loader
+	_showLoader = function(){
+		$('body').append('<div class="b-overlay"><div class="b-spinner"><div class="b-bounce1"></div><div class="b-bounce2"></div><div class="b-bounce3"></div></div></div>');
+	},
+
+	// hide Loader
+	_hideLoader = function(){
+		$('.b-overlay').remove();
 	},
 
 	// form reset
