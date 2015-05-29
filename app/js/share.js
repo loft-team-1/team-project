@@ -64,27 +64,23 @@ var share = (function(){
 		var $this = $(this),
 			location = document.location.href,
 			title = document.title,
-			desc = $('meta[name="description"]').attr('content'),
-			img = document.location.host + '/img/workarea-bg.png';
+			desc = $('meta[name="description"]').attr('content');
 
 		if($this.hasClass('vk-ico')){
-			url  = 'http://vkontakte.ru/share.php?';
-			url += 'url='          + location;
-			url += '&title='       + title;
-			url += '&description=' + desc;
-			url += '&image='       + img;
+			url  = 'http://vk.com/share.php?';
+			url += 'url='          + encodeURIComponent(location);
+			url += '&title='       + encodeURIComponent(title);
+			url += '&description=' + encodeURIComponent(desc);
 			url += '&noparse=true';
 		} else if($this.hasClass('fb-ico')){
 			url  = 'http://www.facebook.com/sharer.php?s=100';
-			url += '&p[title]='     + title;
-			url += '&p[summary]='   + desc;
-			url += '&p[url]='       + location;
-			url += '&p[images][0]=' + img;
+			url += '&p[title]='    + encodeURIComponent(title);
+			url += '&p[url]='      + encodeURIComponent(location);
 		} else if($this.hasClass('tw-ico')){
 			url  = 'http://twitter.com/share?';
-			url += 'text='      + title;
-			url += '&url='      + location;
-			url += '&counturl=' + location;
+			url += 'text='         + encodeURIComponent(title);
+			url += '&url='         + encodeURIComponent(location);
+			url += '&counturl='    + encodeURIComponent(location);
 		}
 
 		var popup = function(url) {

@@ -20,14 +20,14 @@ $(document).ready(function(){
 		wmarkPosition.disable();
 	}
 
-	// share initialization
-	if($('.b-share').length){
-		share.init();
-	}
-
 	// translate initialization
 	if($('.b-language').length){
 		translate.init();
+	}
+
+	// share initialization
+	if($('.b-share').length){
+		share.init();
 	}
 
 	// form initialization
