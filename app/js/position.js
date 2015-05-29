@@ -82,9 +82,12 @@ var wmarkPosition = (function(){
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = $this.is(xpos) ? 'left' : 'top',
 			wh = $this.is(ypos) ? 'width' : 'height',
+			wmarkParam = $this.is(ypos) ? wmark.width() : wmark.height(),
 			hv = $this.is(ypos) ? '.m-hor' : '.m-vert',
 			margin = $this.is(xpos) ? 'margin-bottom' : 'margin-right',
-			clones = $this.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1 : Math.ceil(imgWrap.width() / wmark.width()) +1 ;
+			clonesWidthCount = Math.ceil(imgWrap.width() / wmark.width()) + 1,
+			clonesHeightCount = Math.ceil(imgWrap.height() / wmark.height()) + 1,
+			clones = $this.is(ypos) ? clonesWidthCount : clonesHeightCount;
 
 		if($this.val() > max){
 			$this.val(max);
@@ -94,7 +97,7 @@ var wmarkPosition = (function(){
 
 		if(multi.hasClass('m-active')){
 			wmark.css(margin, $this.val() + 'px');
-			wmarkWrap.css('width', (wmark.width() * clones) + parseInt($this.val()) * clones + 'px');
+			wmarkWrap.css(wh, (wmarkParam * clones) + (parseInt($this.val()) * clones));
 			if ($this.val() > 0) {
 				$('.b-interval' + hv).css(wh, Math.ceil($this.val()/2) + 'px');
 			} else if ($this.val() == 0) {
@@ -122,9 +125,12 @@ var wmarkPosition = (function(){
 			max = multi.hasClass('m-active') ? maxMargin : maxPosition,
 			axis = input.is(xpos) ? 'left' : 'top',
 			wh = input.is(ypos) ? 'width' : 'height',
+			wmarkParam = input.is(ypos) ? wmark.width() : wmark.height(),
 			hv = input.is(ypos) ? '.m-hor' : '.m-vert',
 			margin = input.is(xpos) ? 'margin-bottom' : 'margin-right',
-			clones = input.is(ypos) ? Math.ceil(imgWrap.height() / wmark.height()) + 1: Math.ceil(imgWrap.width() / wmark.width())+1;
+			clonesWidthCount = Math.ceil(imgWrap.width() / wmark.width()) + 1,
+			clonesHeightCount = Math.ceil(imgWrap.height() / wmark.height()) + 1,
+			clones = input.is(ypos) ? clonesWidthCount : clonesHeightCount;
 
 		if(changeVal > max || changeVal < min){
 			changeVal = (changeVal > max) ? max : min;
@@ -135,7 +141,7 @@ var wmarkPosition = (function(){
 
 		if(multi.hasClass('m-active')){
 			wmark.css(margin, changeVal + 'px');
-			wmarkWrap.css('width', (wmark.width() * clones) + changeVal * clones + 'px');
+			wmarkWrap.css(wh, (wmarkParam * clones) + (changeVal * clones));
 			if (changeVal > 0) {
 				$('.b-interval' + hv).css(wh, Math.ceil(changeVal/2) + 'px');
 			}
@@ -153,7 +159,7 @@ var wmarkPosition = (function(){
 		ypos.val(Math.round(y));
 	},
 
-	// disable form events: buttons, arrows, grid, inputs TODO for-single
+	// disable form events: buttons, arrows, grid, inputs
 	disableEvents = function(){
 		var elems = $('.b-controls input[type="text"], .b-control-arrow, .b-grid-list li');
 
