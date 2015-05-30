@@ -1,6 +1,8 @@
 # Loft Team 1: Watermark project
 Add custom watermark to photos and pictures online.
 
+[View demo](http://www.wtmark.ru)
+
 Global dependencies
 -------------------
 
