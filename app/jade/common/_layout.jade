@@ -34,7 +34,7 @@ html(lang='ru-RU')
 
     body
         <!--[if lt IE 8]>
-        <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+        <p class='b-unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
         <![endif]-->
 
         .h-base
@@ -42,6 +42,9 @@ html(lang='ru-RU')
 
             // Content: start
             .b-main-container
+                .b-left-panel
+                    block leftpanel
+
                 .b-columns
                     .b-main
                         block main
@@ -94,7 +97,9 @@ html(lang='ru-RU')
         script(src='js/opacity.js')
         script(src='js/position.js')
         script(src='js/switcher.js')
+        script(src='js/translate.js')
         script(src='js/upload.js')
         script(src='js/form.js')
+        script(src='js/share.js')
         script(src='js/main.js')
         // endbuild

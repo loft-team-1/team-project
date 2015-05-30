@@ -8,6 +8,8 @@ var gulp = require('gulp'),
 	useref = require('gulp-useref'),
 	jade = require('gulp-jade'),
 	gulpif = require('gulp-if'),
+	gutil = require('gulp-util'),
+	ftp = require('vinyl-ftp'),
 	browserSync = require('browser-sync'),
 	reload = browserSync.reload,
 	plumber = require('gulp-plumber'),
@@ -148,4 +150,27 @@ gulp.task('dist', ['html:build','js:build', 'php:build', 'img:build','fonts:buil
 
 gulp.task('build', ['clean', 'jade'], function () {
 	gulp.start('dist');
+});
+
+
+// ================================
+// ============ DEPLOY ============
+// ================================
+
+gulp.task( 'deploy', function() {
+
+	var conn = ftp.create( {
+			host: 'beth.timeweb.ru',
+			user: '',
+			password: '',
+			parallel: 10,
+			log: gutil.log
+	} );
+
+	var globs = [
+			'dist/**/*'
+	];
+
+	return gulp.src(globs, { base: 'dist/', buffer: false })
+		.pipe(conn.dest( 'public_html/'));
 });

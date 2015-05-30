@@ -23,15 +23,15 @@
   font-style: normal; }
 
 /* = Extends, Mixins================================================*/
-.m-list-reset, .b-share-socials-item, .b-grid-list {
+.m-list-reset, .b-language-item, .b-share-socials-list-item, .b-grid-list {
   list-style-type: none;
   margin: 0;
   padding: 0; }
 
-.m-cfix:before, .b-container:before, .b-columns:before, .b-section.m-btns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:before, .b-container:before, .b-columns:before, .b-share:before, .b-section.m-btns:before, .b-location:before, .b-grid-list:before, .m-cfix:after, .b-container:after, .b-columns:after, .b-share:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   content: "";
   display: table; }
-.m-cfix:after, .b-container:after, .b-columns:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
+.m-cfix:after, .b-container:after, .b-columns:after, .b-share:after, .b-section.m-btns:after, .b-location:after, .b-grid-list:after {
   clear: both; }
 
 .m-to-right {
@@ -57,14 +57,15 @@ body {
 /* = Layout================================================*/
 .h-base {
   height: 100%;
-  min-width: 980px;
+  min-width: 1140px;
   min-height: 760px;
   overflow: hidden;
   white-space: nowrap;
   position: relative;
   text-align: center;
   background: #a9837f url('../img/bg/main-bg.jpg') no-repeat 100% 50%;
-  background-size: cover; }
+  background-size: cover;
+  font-size: 0; }
   .h-base:after {
     content: '';
     height: 40px;
@@ -93,16 +94,17 @@ body {
   text-align: left; }
 
 .b-main-container {
+  font: 1em/1.4 'robotolight';
   display: inline-block;
   vertical-align: middle;
-  position: relative; }
+  position: relative;
+  width: 100%; }
 
 /* = Columns================================================*/
 .b-columns {
   display: table; }
 
 .b-main {
-  width: 700px;
   display: table-cell;
   vertical-align: top;
   background: #5f5f62;
@@ -114,45 +116,38 @@ body {
   vertical-align: top;
   background: #f1f1f5; }
 
+/* = Left Panel================================================*/
+.b-left-panel {
+  width: 43px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: normal;
+  opacity: 0.7; }
+
+/* = Language toggle================================================*/
+.b-language {
+  background: #f1f1f5;
+  margin: 0 0 18px 0;
+  padding: 0;
+  text-align: center;
+  letter-spacing: -1px; }
+  .b-language-item:first-child {
+    border-bottom: 1px solid #abaeb3; }
+  .b-language-link {
+    text-decoration: none;
+    color: #8e9298;
+    font-size: 20px;
+    display: block;
+    padding: 3px 0;
+    cursor: pointer; }
+    .b-language-link.m-active {
+      color: #5c5f64; }
+
 /* = Share================================================*/
 .b-share {
   position: relative;
   width: 43px; }
-  .b-share:hover .b-share-icon {
-    right: -43px; }
-  .b-share:hover .b-share-socials-list {
-    display: block; }
-
-.b-share-socials-list {
-  display: none;
-  margin: 0;
-  padding: 0;
-  width: 43px;
-  overflow: hidden;
-  background: #fff;
-  opacity: 0.6; }
-
-.b-share-socials-name {
-  position: relative;
-  text-indent: -999px;
-  display: block; }
-
-.b-share-socials-link {
-  display: block;
-  height: 41px;
-  width: 43px; }
-  .b-share-socials-link.fb-ico {
-    background: url(../img/icon/fb-ico.png) center center no-repeat; }
-    .b-share-socials-link.fb-ico:hover {
-      background: url(../img/icon/fb-ico-hover.png) center center no-repeat; }
-  .b-share-socials-link.tw-ico {
-    background: url(../img/icon/tw-ico.png) center center no-repeat; }
-    .b-share-socials-link.tw-ico:hover {
-      background: url(../img/icon/tw-ico-hover.png) center center no-repeat; }
-  .b-share-socials-link.vk-ico {
-    background: url(../img/icon/vk-ico.png) center center no-repeat; }
-    .b-share-socials-link.vk-ico:hover {
-      background: url(../img/icon/vk-ico-hover.png) center center no-repeat; }
 
 .b-share-icon {
   width: 43px;
@@ -160,16 +155,43 @@ body {
   position: absolute;
   overflow: hidden;
   opacity: 0.6; }
+  .b-share-icon-link {
+    display: block;
+    background: #fff url(../img/icon/share-spr.png) -99px -12px no-repeat;
+    text-indent: -999px;
+    width: 43px;
+    height: 41px; }
+    .b-share-icon-link:hover {
+      background-position: -156px -12px; }
 
-.b-share-icon-link {
-  display: block;
-  background: #fff url(../img/icon/share-ico.png) center center no-repeat;
-  text-indent: -999px;
+.b-share-socials-list {
+  margin: 0;
+  padding: 0;
   width: 43px;
+  overflow: hidden;
+  background: #fff;
+  opacity: 0.6;
+  position: absolute;
+  left: -43px; }
+
+.b-share-socials-link {
+  display: block;
   height: 41px;
-  cursor: default; }
-  .b-share-icon-link:hover {
-    background: #fff url(../img/icon/share-ico-hover.png) center center no-repeat; }
+  width: 43px;
+  text-indent: -999px;
+  background: url(../img/icon/share-spr.png) no-repeat; }
+  .b-share-socials-link.fb-ico {
+    background-position: -2px -7px; }
+    .b-share-socials-link.fb-ico:hover {
+      background-position: -47px -7px; }
+  .b-share-socials-link.tw-ico {
+    background-position: -212px -4px; }
+    .b-share-socials-link.tw-ico:hover {
+      background-position: -269px -4px; }
+  .b-share-socials-link.vk-ico {
+    background-position: -328px -4px; }
+    .b-share-socials-link.vk-ico:hover {
+      background-position: -389px -4px; }
 
 /* = Footer================================================*/
 .b-footer {
@@ -182,8 +204,66 @@ body {
   color: #fff;
   text-align: center; }
 
+/* = Spinner and Overlay================================================*/
+/* overlay */
+.b-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  text-align: center; }
+  .b-overlay:before {
+    content: '';
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle; }
+
+/* spinner */
+.b-spinner {
+  z-index: 1001;
+  position: relative;
+  display: inline-block; }
+  .b-spinner > div {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+    animation: bouncedelay 1.4s infinite ease-in-out;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; }
+  .b-spinner .b-bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s; }
+  .b-spinner .b-bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s; }
+
+/* spinner: animation */
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
 /* = Unhappy browser================================================*/
-.unhappy-browser {
+.b-unhappy-browser {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
@@ -191,11 +271,19 @@ body {
   text-align: center; }
 
 /* = Fixes for old browsers================================================*/
+/* css animation */
+.no-cssanimations .b-overlay {
+  display: none; }
+
 /* opacity */
 .no-opacity .h-base {
   background: #a9837f; }
 .no-opacity .b-gradient {
   display: none; }
+.no-opacity .b-language {
+  background: #ddd4d7; }
+.no-opacity .b-share-icon-link, .no-opacity .b-share-socials-list {
+  background-color: #d0bebd; }
 
 /* = Main section
 ================================================*/
@@ -510,15 +598,15 @@ body {
 
 .b-switcher.m-multi {
   float: left;
-  background: url(../img/icon/multiply-ico.png) center center no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -15px -15px no-repeat; }
   .b-switcher.m-multi.m-active {
-    background: url(../img/icon/multiply-ico-active.png) center center no-repeat; }
+    background-position: -64px -15px; }
 
 .b-switcher.m-single {
   float: right;
-  background: url(../img/icon/once-ico.png) center center no-repeat; }
+  background: url(../img/icon/switcher-spr.png) -113px -15px no-repeat; }
   .b-switcher.m-single.m-active {
-    background: url(../img/icon/once-ico-active.png) center center no-repeat; }
+    background-position: -162px -15px; }
 
 /* grid interval */
 .b-intervals {

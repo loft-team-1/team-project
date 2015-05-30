@@ -1,10 +1,12 @@
 var wmarkOpacity = (function(){
 
+	// set variables
+	var sliderEl = $('.b-opacity-slider'),
+		wmarkWrap = $('.b-main-wmark-wrapper');
+
 	var init = function(){
 		// set variables
-		var sliderEl = $('.b-opacity-slider'),
-			wmarkWrap = $('.b-main-wmark-wrapper'),
-			hiddenOpacity = $('input[name="opacity"]');
+		var hiddenOpacity = $('input[name="opacity"]');
 
 		// slider initialization
 		if (sliderEl.length) {
@@ -24,15 +26,11 @@ var wmarkOpacity = (function(){
 
 	// slider enable
 	sliderEnable = function(){
-		var sliderEl = $('.b-opacity-slider');
 		sliderEl.slider( "option", "disabled", false );
 	},
 
 	// slider reset
 	sliderReset = function(){
-		var sliderEl = $('.b-opacity-slider'),
-			wmarkWrap = $('.b-main-wmark-wrapper');
-
 		sliderEl.slider('value', 100);
 		wmarkWrap.css('opacity', 100);
 	};

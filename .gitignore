@@ -4,4 +4,8 @@ app/bower
 node_modules
 dist
 app/php/vendor/
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> dev3

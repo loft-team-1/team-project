@@ -31,6 +31,9 @@ var form = (function(){
 		patternWidth.val(wmarkWrap.width());
 		patterHeight.val(wmarkWrap.height());
 
+		// show Loader
+		_showLoader();
+
 		// set params for ajax
 		var obj = {
 			type: "POST",
@@ -45,11 +48,32 @@ var form = (function(){
 		}
 
 		// get response from php
-		$.ajax(obj).done(function(data) {
-			// add src for download iframe
-			$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
-		});
+		$.ajax(obj)
+			.done(function(data) {
+				// add src for download iframe
+				$('#downloadFrame').attr('src' , "./php/download.php?file=" + data);
+			}).fail(function() {
 
+				var lang = localStorage.getItem('lang') || 'ru';
+
+				if (lang ==='ru') {
+					alert('У нас не хватает мощности для обработки ваших изображений. Пожалуйста, попробуйте использовать другой водяной знак.');
+				} else {
+					alert("We didn't have enough power to handle your images. Please, try use another watermark.");
+				}
+			}).always(function(){
+				_hideLoader();
+			});
+	},
+
+	// show Loader
+	_showLoader = function(){
+		$('body').append('<div class="b-overlay"><div class="b-spinner"><div class="b-bounce1"></div><div class="b-bounce2"></div><div class="b-bounce3"></div></div></div>');
+	},
+
+	// hide Loader
+	_hideLoader = function(){
+		$('.b-overlay').remove();
 	},
 
 	// form reset

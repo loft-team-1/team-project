@@ -5,6 +5,7 @@ var upload = (function(){
 		var options = {
 			dataType: 'json',
 			acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+			maxFileSize: 150000,
 			// Enable image resizing, except for Android and Opera,
 			// which actually support image resizing, but fail to
 			// send Blob objects via XHR requests:
@@ -22,6 +23,7 @@ var upload = (function(){
 		fileUpload.on('fileuploaddone', _fileUploadDone);
 		fileUpload.on('fileuploadprocessalways', _fileUploadAlways);
 		fileUpload.on('fileuploadchange', _fileUploadChange);
+		fileUpload.on('fileuploaddrop', _fileDisableDrop);
 	},
 
 	// add options only for basic image
@@ -30,6 +32,7 @@ var upload = (function(){
 			var fileupload = $(this).data('blueimpFileupload');
 			fileupload.options.imageMaxWidth = 650;
 			fileupload.options.imageMaxHeight = 534;
+			fileupload.options.maxFileSize = 1000000;
 		}
 	},
 
@@ -83,12 +86,21 @@ var upload = (function(){
 	// show errors
 	_fileUploadAlways = function (e, data) {
 		var index = data.index,
-			file = data.files[index];
+			file = data.files[index],
+			lang = localStorage.getItem('lang') || 'ru',
+			errorMsg = file.error;
+
+		if(lang === 'ru'){
+			if(file.error === 'File is too large') {
+				errorMsg = 'Файл слишком большой'
+			} else {
+				errorMsg = 'Недопустимый тип файла'
+			}
+		}
 
 		if (file.error) {
-			$(this).tooltip({
-				content: 'Недопустимый тип файла.'
-			});
+			$(this).tooltip({ content: errorMsg });
+			$(this).siblings().children('input').val('');
 			_disableSections();
 		}
 	},
@@ -96,7 +108,8 @@ var upload = (function(){
 	// remove errors and images
 	_fileUploadChange = function () {
 		var file = $(this).is('#fileupload') ? 'image' : 'watermark',
-			fileSelector = $('#'+ file);
+			fileSelector = $('#'+ file),
+			type = $(this).attr('id');
 
 		if(file == 'watermark'){
 			fileSelector = $('.'+ file);
@@ -126,6 +139,22 @@ var upload = (function(){
 		$('.m-disabled-area').css('display','block');
 		$('.b-section:not(:first-child)').addClass('m-disabled');
 		$('.m-btns input').prop('disabled', true);
+	},
+
+	// disable sections if watermark not loaded
+	_disableSections = function(){
+		wmarkPosition.reset();
+		wmarkOpacity.reset();
+		wmarkPosition.disable();
+
+		$('.m-disabled-area').css('display','block');
+		$('.b-section:not(:first-child)').addClass('m-disabled');
+		$('.m-btns input').prop('disabled', true);
+	},
+
+	// disable drop
+	_fileDisableDrop = function (e) {
+		(e.preventDefault) ? e.preventDefault(): e.returnValue;
 	},
 
 	// remove tooltip

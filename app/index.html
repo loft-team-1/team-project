@@ -27,16 +27,30 @@
 
   <body>
     <!--[if lt IE 8]>
-    <p class='unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+    <p class='b-unhappy-browser'>Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
     <![endif]-->
     <div class="h-base">
       <div class="b-gradient"></div>
       <!-- Content: start-->
       <div class="b-main-container">
+        <div class="b-left-panel">
+          <ul class="b-language">
+            <li class="b-language-item"><a id="ru" class="b-language-link m-active">РУС</a></li>
+            <li class="b-language-item"><a id="en" class="b-language-link">ENG</a></li>
+          </ul>
+          <div class="b-share">
+            <div class="b-share-icon"><a href="#" class="b-share-icon-link">Like Me</a></div>
+            <ul class="b-share-socials-list">
+              <li class="b-share-socials-item"><a href="#" class="fb-ico b-share-socials-link">FaceBook</a></li>
+              <li class="b-share-socials-item"><a href="#" class="tw-ico b-share-socials-link">Twitter</a></li>
+              <li class="b-share-socials-item"><a href="#" class="vk-ico b-share-socials-link">ВКонтакте</a></li>
+            </ul>
+          </div>
+        </div>
         <div class="b-columns">
           <div class="b-main">
             <section class="b-main-section">
-              <div class="b-main-area-title">Генератор водяных знаков</div>
+              <div data-i18n="title" class="b-main-area-title">Генератор водяных знаков</div>
               <div id="workspace" class="b-main-area">
                 <div class="b-main-image-wrapper">
                   <div class="b-main-wmark-wrapper"></div>
@@ -45,11 +59,11 @@
             </section>
           </div>
           <div class="b-settings">
-            <div class="b-settings-title">Настройки</div>
+            <div data-i18n="settings" class="b-settings-title">Настройки</div>
             <form action="php/result.php" enctype="multipart/form-data" method="post" class="b-form">
               <section class="b-section m-upload">
                 <div class="b-form-line">
-                  <div class="b-form-label">Исходное изображение</div>
+                  <div data-i18n="basic-img" class="b-form-label">Исходное изображение</div>
                   <div class="b-custom-upload">
                     <input type="file" name="files[]" data-url="php/index.php" id="fileupload" class="b-input b-input-file">
                     <div class="b-fake-upload">
@@ -58,7 +72,7 @@
                   </div>
                 </div>
                 <div class="b-form-line">
-                  <div class="b-form-label">Водяной знак</div>
+                  <div data-i18n="wtmark-img" class="b-form-label">Водяной знак</div>
                   <div class="b-custom-upload m-disabled">
                     <input type="file" name="files[]" data-url="php/index.php" disabled id="wmarkfile" class="b-input b-input-file">
                     <div class="b-fake-upload">
@@ -73,7 +87,7 @@
                   <a href="#" data-switch="multi" class="b-switcher m-multi"></a>
                   <a href="#" data-switch="single" class="b-switcher m-single m-active"></a>
                 </div>
-                <div class="b-form-label m-extra-spaced">Положение</div>
+                <div data-i18n="location" class="b-form-label m-extra-spaced">Положение</div>
                 <div class="b-location">
                   <ul class="b-grid-list">
                     <li data-pos="top-left" class="b-grid-item"></li>
@@ -104,15 +118,15 @@
               </section>
               <section class="b-section m-opacity m-disabled">
                 <div class="m-disabled-area"></div>
-                <div class="b-form-label">Прозрачность</div>
+                <div data-i18n="opacity" class="b-form-label">Прозрачность</div>
                 <div class="b-wmark-opacity">
                   <div class="b-opacity-slider"></div>
                 </div>
               </section>
               <section class="b-section m-btns m-disabled">
                 <div class="m-disabled-area"></div>
-                <input type="reset" value="Сброс" class="b-btn m-neg m-to-left">
-                <input type="submit" value="Скачать" class="b-btn m-to-right"> </section>
+                <input type="reset" data-i18n="reset" value="Сброс" class="b-btn m-neg m-to-left">
+                <input type="submit" data-i18n="download" value="Скачать" class="b-btn m-to-right"> </section>
               <input type="hidden" name="mode" value="single" class="m-hidden-switch">
               <input type="hidden" name="opacity" value="100">
               <input type="hidden" name="yposMulti" value="0">
@@ -127,7 +141,7 @@
     <!-- Footer: start-->
     <footer class="b-footer">
       <div class="b-container">
-        <p class="b-copyright">&copy; 2015, Это наш сайт, пожалуйста, не копируйте и не воруйте его.</p>
+        <p data-i18n="copyright" class="b-copyright">&copy; 2015, Это наш сайт, пожалуйста, не копируйте и не воруйте его.</p>
       </div>
     </footer>
     <!-- Footer: end-->
@@ -164,8 +178,10 @@
     <script src="js/opacity.js"></script>
     <script src="js/position.js"></script>
     <script src="js/switcher.js"></script>
+    <script src="js/translate.js"></script>
     <script src="js/upload.js"></script>
     <script src="js/form.js"></script>
+    <script src="js/share.js"></script>
     <script src="js/main.js"></script>
     <!-- endbuild-->
   </body>
