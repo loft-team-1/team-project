@@ -1,0 +1,11 @@
+# Loftschool Team-1
+
+    Irina Tishkevich  --  Team leader, main contributor and code reviewer
+    Maxim Pogrebnoy   --  Backend and frontend contributor
+    Timur Hasanov     --  Backend and frontend contributor
+    Vladislav Gladkiy --  Backend and frontend contributor
+    Nikita Buchenkov  --  Backend contributor and management support
+
+# THANKS
+
+    Thanks to Anton Galamazov for assistance and responsiveness
