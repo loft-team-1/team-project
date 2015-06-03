@@ -140,9 +140,13 @@ body {
     font-size: 20px;
     display: block;
     padding: 3px 0;
-    cursor: pointer; }
+    cursor: pointer;
+    opacity: 0.5; }
+    .b-language-link:hover {
+      opacity: 0.8; }
     .b-language-link.m-active {
-      color: #5c5f64; }
+      color: #5c5f64;
+      opacity: 1; }
 
 /* = Share================================================*/
 .b-share {
