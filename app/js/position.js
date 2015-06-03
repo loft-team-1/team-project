@@ -13,7 +13,11 @@ var wmarkPosition = (function(){
 
 	// set listeners
 	_setUpListeners = function(){
-		$('.b-controls input[type="text"]').on('input', _inputChange).prop('disabled', false);
+		$('.b-controls input[type="text"]')
+			.on('input', _inputChange).prop('disabled', false)
+			.on('keypress', function(e) {
+				return /\d/.test(String.fromCharCode(e.keyCode));
+			});
 		$('.b-controls .b-control-arrow').on('click touchstart', _arrowsChange);
 		$('.b-grid-list li').on('click touchstart', _gridChange);
 	},
